@@ -2,10 +2,10 @@ import React from "react";
 import { createBrowserRouter } from "react-router-dom";
 import PublicLayout from "../pages/PublicLayout";
 import Home from "../pages/home/Home";
-import Characters from "../pages/characters/Characters";
 import Tierlist from "../pages/tierlist/Tierlist";
 import Engines from "../pages/engines/Engines";
 import Bangboos from "../pages/bangboos/Bangboos";
+import Agents from "../pages/agents/Agents";
 
 const Router = createBrowserRouter([
   {
@@ -17,8 +17,8 @@ const Router = createBrowserRouter([
             element: <Home/>
         },
         {
-            path: '/characters',
-            element: <Characters/>,
+            path: '/agents',
+            element: <Agents/>,
         },
         {
             path: '/tierlist',

@@ -7,8 +7,8 @@ export const navList = [
         icon: faHouse
     },
     {
-        name: 'characters',
-        link: '/characters',
+        name: 'agents',
+        link: '/agents',
         icon: faUsers
     },
     {
