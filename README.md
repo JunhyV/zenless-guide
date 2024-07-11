@@ -14,7 +14,7 @@
 
 ### Corrección de Errores
 - **[Bug Fix Name]**: 
-  - [ ] Tarea 1 relacionada
+  - [ 2024-07-10 ] import of footerNav changed on FooterOverlay  to "FooterNav"
   - [ ] Tarea 2 relacionada
 
 ### Building

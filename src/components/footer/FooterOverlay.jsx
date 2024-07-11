@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "../header/Header";
-import FooterNav from "./footerNav";
+import FooterNav from "./FooterNav";
 
 const FooterOverlay = ({ overlayToggle }) => {
   return (
