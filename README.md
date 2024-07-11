@@ -1,8 +1,48 @@
-# React + Vite
+# Actualizaciones del Proyecto
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Fecha: 2024-07-10
 
-Currently, two official plugins are available:
+### Nuevas Características
+- **[Feature Name]**: 
+  - [ ] First building on page with responsive design
+  - [ ] Tarea 2 relacionada
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Mejoras
+- **[Improvement Name]**: 
+  - [ ] Tarea 1 relacionada
+  - [ ] Tarea 2 relacionada
+
+### Corrección de Errores
+- **[Bug Fix Name]**: 
+  - [ ] Tarea 1 relacionada
+  - [ ] Tarea 2 relacionada
+
+### Building
+- **[Building ]**: 
+  - [ 2024-07-10 ] Users interface to navigate on guide
+  - [  ] Tarea 2 relacionada
+
+### Documentación
+- **[Documentation Update]**: Descripción breve de la actualización de la documentación.
+  - [ ] Tarea 1 relacionada
+  - [ ] Tarea 2 relacionada
+
+### Dependencias Actualizadas
+- **[Dependency Management]**: 
+  - [ 2024-07-10 ] ReactRouterDOM
+  - [ 2024-07-10 ] Tailwind + PostCSS
+  - [ 2024-07-10 ] FontAwesome
+
+## Comentarios Adicionales
+- **Comentario**: Detalles adicionales, problemas conocidos, próximos pasos, etc.
+
+---
+
+## Registro de Actualizaciones Anterior
+
+### Fecha: YYYY-MM-DD
+
+- Descripción de actualizaciones anteriores...
+
+---
+
