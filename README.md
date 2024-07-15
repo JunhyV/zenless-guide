@@ -2,8 +2,10 @@
 
 ## Fecha: 2024-07-15
 
-- **[2024-07-11] Update 0.3** :
-  - Use filters for character selection by elements, ranks, and rols
+- **[2024-07-11] Update 0.3 & Update 0.3.1** :
+  - Use filters for character selection by elements, ranks, and rols.
+  - Added navigation methods.
+  - Added header page information.
 
 ## Fecha: 2024-07-11
 
