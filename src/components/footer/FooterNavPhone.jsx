@@ -5,7 +5,7 @@ import FooterOverlay from "./FooterOverlay";
 
 const FooterNavPhone = ({currentLocation, displayOverlay, overlayToggle}) => {
   return (
-    <div className="flex p-5 items-center justify-between text-white text-3xl">
+    <div className="flex p-2 items-center justify-between text-white text-3xl">
       <div className="flex gap-2 items-center ">
         <FontAwesomeIcon icon={currentLocation.icon} />
         <p className="uppercase text-xl">{currentLocation.name}</p>

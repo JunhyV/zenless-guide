@@ -22,8 +22,8 @@ import calydon from "../../assets/images/factions/Sons-of-Calydon.webp";
 import housekeeping from "../../assets/images/factions/Victoria-Housekeeping-Co.png";
 
 // Rank imports
-import SRank from "../../assets/images/extras/rarity_s.webp";
-import ARank from "../../assets/images/extras/rarity_a.webp";
+import SRank from "../../assets/images/ranks/rarity_s.webp";
+import ARank from "../../assets/images/ranks/rarity_a.webp";
 
 export function getImages(rol, element, faction, rank) {
   let rolImg;
@@ -33,7 +33,7 @@ export function getImages(rol, element, faction, rank) {
 
   if (rank === "S") {
     rankImg = SRank;
-  } else {
+  } else if(rank === "A"){
     rankImg = ARank;
   }
 

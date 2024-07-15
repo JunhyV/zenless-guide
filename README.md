@@ -1,5 +1,10 @@
 # Actualizaciones del Proyecto
 
+## Fecha: 2024-07-15
+
+- **[2024-07-11] Update 0.3** :
+  - Use filters for character selection by elements, ranks, and rols
+
 ## Fecha: 2024-07-11
 
 - **[2024-07-11] Update 0.2** :

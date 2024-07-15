@@ -1,21 +1,26 @@
 import React from "react";
 import { getImages } from "./getImage";
+import { Link } from "react-router-dom";
 
 const AgentCard = ({ agent }) => {
-  const { name, rol, element, faction, rank, img} = agent;
-  const images = getImages(rol, element, faction, rank);
+  const { name, rol, element, faction, grade, img} = agent;
+  const images = getImages(rol, element, faction, grade);
   return (
-    <div className="relative w-fit bg-neutral-800 ">
-      <img src={images[3]} alt="rank-img" className="absolute w-6"/>
-      <img src={img} alt="agent-img" className="w-32 scale-90 transform transition-transform duration-300 hover:scale-100 cursor-pointer" />
-      <div className="absolute right-0 top-0 flex">
-        <img src={images[0]} alt="rol-img" className="w-6" />
-        <img src={images[1]} alt="element-img" className="w-6" />
+    <Link to={`/agents/${name}`} className="w-fit bg-neutral-800 flex transition-colors duration-300 cursor-pointer hover:bg-yellow-500 rounded-md">
+      <div className="flex flex-col bg-neutral-900 justify-between p-1">
+        <div>
+          <img src={images[3]} alt="rank-img" className="w-6" />
+        </div>
+        <div>
+          <img src={images[0]} alt="rol-img" className="w-6" />
+          <img src={images[1]} alt="element-img" className="w-6" />
+        </div>
       </div>
-      <div className="text-center">
-        <p className="uppercase font-black text-white">{name}</p>
+      <div className="relative w-28 h-28">
+        <img src={img} alt="agent-img" className="absolute top-2.5  mx-auto transform transition-transform hover:scale-110" />
+        <p className="absolute top-3/4 left-1/2 -translate-x-1/2 uppercase text-white text-sm bg-neutral-600 px-1 rounded-2xl">{name}</p>
       </div>
-    </div>
+    </Link>
   );
 };
 

@@ -13,7 +13,7 @@ const FooterNav = ({overlayToggle}) => {
     <nav className="flex flex-col md:flex-row text-center text-white text-sm uppercase md:gap-10 md:justify-center">
       {links.map((link, i) => (
         <Link
-          className=" hover:bg-white hover:text-neutral-900  p-5"
+          className=" hover:bg-white hover:text-neutral-900  p-3"
           key={i}
           to={`${link.link}`}
           onClick={overlayToggle}
