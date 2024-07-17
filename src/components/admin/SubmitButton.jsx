@@ -1,15 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
+import LoadingScreen from "../LoadingScreen";
 
-const SubmitButton = ({ name, data, url, reset, initialData}) => {
+const SubmitButton = ({ name, data, url, reset, initialData }) => {
+  const [loadingToggle, setLoadingToggle] = useState(false);
+
   const handleSubmit = async () => {
     if (Object.values(data).includes("")) {
-      console.log("llenar los datos");
+      console.log("Por favor, llena todos los datos.");
       return;
     }
 
+    setLoadingToggle(true);
+
     const formData = new FormData();
-    const send = Object.entries(data);
-    send.forEach((dato) => formData.append(dato[0], dato[1]));
+    Object.entries(data).forEach(([key, value]) => formData.append(key, value));
 
     // Mostrar el contenido del FormData en la consola
     for (let [key, value] of formData.entries()) {
@@ -21,26 +25,36 @@ const SubmitButton = ({ name, data, url, reset, initialData}) => {
         method: "POST",
         body: JSON.stringify(Object.fromEntries(formData)),
         headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
+          "Content-Type": "application/json",
+          Accept: "application/json",
         },
       });
+      
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+
       const result = await response.json();
-      console.log(result);
+      console.log("Resultado:", result);
 
+      reset(initialData);
     } catch (error) {
-      console.log(error);
+      console.log("Error:", error);
+    } finally {
+      setLoadingToggle(false);
     }
-
-    reset(initialData);
   };
+
   return (
-    <div
-      className="bg-neutral-600 w-fit p-2 rounded-2xl text-white font-medium mx-auto hover:cursor-pointer hover:scale-105 transform transition-transform duration-300"
-      onClick={handleSubmit}
-    >
-      {name}
-    </div>
+    <>
+      <div
+        className="bg-neutral-600 w-fit p-2 rounded-2xl text-white font-medium mx-auto hover:cursor-pointer hover:scale-105 transform transition-transform duration-300"
+        onClick={handleSubmit}
+      >
+        {name}
+      </div>
+      {loadingToggle && <LoadingScreen />}
+    </>
   );
 };
 

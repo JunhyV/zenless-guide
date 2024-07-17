@@ -7,6 +7,9 @@ export default {
         "phone": "url('/src/assets/images/background/zenless-zone-zero-belle-wise-phone-wallpaper-4k-uhdpaper.com-283@0@k.jpg')",
         "desktop": "url('/src/assets/images/background/zenless-zone-zero-belle-wise-4k-wallpaper-uhdpaper.com-283@0@k.jpg')",
       },
+      colors: {
+        'loading': 'rgb(38, 38, 38, .5)',
+      },
     },
   },
   plugins: [],
