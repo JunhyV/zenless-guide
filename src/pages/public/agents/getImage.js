@@ -1,29 +1,29 @@
 // Rol imports
-import stun from "../../assets/images/elements/stun.webp";
-import attack from "../../assets/images/elements/attack.webp";
-import support from "../../assets/images/elements/support.webp";
-import defence from "../../assets/images/elements/defense.webp";
-import anomaly from "../../assets/images/elements/anomaly.webp";
+import stun from "../../../assets/images/elements/stun.webp";
+import attack from "../../../assets/images/elements/attack.webp";
+import support from "../../../assets/images/elements/support.webp";
+import defence from "../../../assets/images/elements/defense.webp";
+import anomaly from "../../../assets/images/elements/anomaly.webp";
 
 // Element imports
-import physical from "../../assets/images/elements/ele_physical.webp";
-import fire from "../../assets/images/elements/ele_fire.webp";
-import ice from "../../assets/images/elements/ele_ice.webp";
-import electric from "../../assets/images/elements/ele_electric.webp";
-import ether from "../../assets/images/elements/ele_ether.webp";
+import physical from "../../../assets/images/elements/ele_physical.webp";
+import fire from "../../../assets/images/elements/ele_fire.webp";
+import ice from "../../../assets/images/elements/ele_ice.webp";
+import electric from "../../../assets/images/elements/ele_electric.webp";
+import ether from "../../../assets/images/elements/ele_ether.webp";
 
 // Faction imports
-import hares from "../../assets/images/factions/Gentle-House-AKA-Cunning-Hares.png";
-import belogob from "../../assets/images/factions/Belobog-Heavy-Industries.png";
-import neps from "../../assets/images/factions/Criminal-Investigation-Special-Response-Team.webp";
-import obols from "../../assets/images/factions/OBOLS-Squad.webp";
-import section6 from "../../assets/images/factions/Section-6.png";
-import calydon from "../../assets/images/factions/Sons-of-Calydon.webp";
-import housekeeping from "../../assets/images/factions/Victoria-Housekeeping-Co.png";
+import hares from "../../../assets/images/factions/Gentle-House-AKA-Cunning-Hares.png";
+import belogob from "../../../assets/images/factions/Belobog-Heavy-Industries.png";
+import neps from "../../../assets/images/factions/Criminal-Investigation-Special-Response-Team.webp";
+import obols from "../../../assets/images/factions/OBOLS-Squad.webp";
+import section6 from "../../../assets/images/factions/Section-6.png";
+import calydon from "../../../assets/images/factions/Sons-of-Calydon.webp";
+import housekeeping from "../../../assets/images/factions/Victoria-Housekeeping-Co.png";
 
 // Rank imports
-import SRank from "../../assets/images/ranks/rarity_s.webp";
-import ARank from "../../assets/images/ranks/rarity_a.webp";
+import SRank from "../../../assets/images/ranks/rarity_s.webp";
+import ARank from "../../../assets/images/ranks/rarity_a.webp";
 
 export function getImages(rol, element, faction, rank) {
   let rolImg;

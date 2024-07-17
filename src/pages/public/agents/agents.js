@@ -1,4 +1,4 @@
-import anby from "../../assets/images/agents/icon/Anby-Demara.png";
+import anby from "../../../assets/images/agents/icon/Anby-Demara.png";
 
 export const agentsList = [
   {

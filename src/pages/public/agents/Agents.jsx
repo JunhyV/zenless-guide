@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { agentsList } from "./agents";
 import AgentCard from "./AgentCard";
 import { getElements, getfaction, getRanks, getRol } from "./getImage";
-import ButtonFilter from "../../components/filters/ButtonFilter";
-import SelectFilter from "../../components/filters/SelectFilter";
+import ButtonFilter from "../../../components/filters/ButtonFilter";
+import SelectFilter from "../../../components/filters/SelectFilter";
 import { Link } from "react-router-dom";
+import { agentsList } from "./agents";
 
 const Agents = () => {
   const [agents, setAgents] = useState([]);

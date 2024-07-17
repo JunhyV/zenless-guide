@@ -1,5 +1,13 @@
 # Actualizaciones del Proyecto
 
+## Fecha: 2024-07-17
+
+- **[2024-07-11] Update 0.4** :
+  - Changes on router to have private and public sites
+  - Public shows all the content of the page & private site can manage the content using and REST API to save data on DB.
+  - Almost finished web design of private pages.
+  - Need to get apis & planning virtual dom.
+
 ## Fecha: 2024-07-15
 
 - **[2024-07-11] Update 0.3 & Update 0.3.1** :
