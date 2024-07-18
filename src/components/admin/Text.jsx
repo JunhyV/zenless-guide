@@ -10,7 +10,7 @@ const Text = ({ label, id, save, set }) => {
         id={label}
         className="border border-neutral-600 rounded-md p-1 flex-1 h-24"
         value={save[id]}
-        onChange={(e)=> set({...save, [id]: e.target.value.trim()})}
+        onChange={(e)=> set({...save, [id]: e.target.value})}
       />
     </div>
   );
