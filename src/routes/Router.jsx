@@ -13,6 +13,7 @@ import AdminAgents from "../pages/admin/admin-agents/AdminAgents";
 import AdminBangboos from "../pages/admin/admin-bangboos/AdminBangboos";
 import AdminDisk from "../pages/admin/admin-disk/AdminDisk";
 import NewDisk from "../pages/admin/admin-disk/NewDisk";
+import DiskPage from "../pages/admin/admin-disk/DiskPage";
 
 const Router = createBrowserRouter([
   {
@@ -72,7 +73,10 @@ const Router = createBrowserRouter([
                 path: '/admin-zzz/disks/new',
                 element: <NewDisk/>,
             },
-
+            {
+                path: '/admin-zzz/disks/:id',
+                element: <DiskPage/>,
+            },
         ]
       },
     ],
