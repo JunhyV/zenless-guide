@@ -11,9 +11,10 @@ import AdminEngines from "../pages/admin/admin-engines/AdminEngines";
 import AdminHome from "../pages/admin/admin-home/AdminHome";
 import AdminAgents from "../pages/admin/admin-agents/AdminAgents";
 import AdminBangboos from "../pages/admin/admin-bangboos/AdminBangboos";
-import AdminDisk from "../pages/admin/admin-disk/AdminDisk";
-import NewDisk from "../pages/admin/admin-disk/NewDisk";
-import DiskPage from "../pages/admin/admin-disk/DiskPage";
+import AdminDisk from "../pages/admin/admin-disk/ReadDisks";
+import UpdateDisk from "../pages/admin/admin-disk/UpdateDisk";
+import CreateDisk from "../pages/admin/admin-disk/CreateDisk";
+import ReadDisks from "../pages/admin/admin-disk/ReadDisks";
 
 const Router = createBrowserRouter([
   {
@@ -67,15 +68,15 @@ const Router = createBrowserRouter([
         children: [
             {
                 index: true,
-                element: <AdminDisk />,
+                element: <ReadDisks />,
             },
             {
                 path: '/admin-zzz/disks/new',
-                element: <NewDisk/>,
+                element: <CreateDisk/>,
             },
             {
                 path: '/admin-zzz/disks/:id',
-                element: <DiskPage/>,
+                element: <UpdateDisk/>,
             },
         ]
       },

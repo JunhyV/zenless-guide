@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import InputText from "../../../components/admin/InputText";
 import Text from "../../../components/admin/Text";
-import SubmitButton from "../../../components/admin/SubmitButton";
-import BackButton from "../../../components/admin/BackButton";
+import BackButton from "../../../components/buttons/BackButton";
+import SubmitButton from "../../../components/buttons/SubmitButton";
 
-const NewDisk = () => {
+const CreateDisk = () => {
   const initialData = { name: '', set2: '', set4: "", img: "" };
   const [data, setData] = useState({ name: '', set2: '', set4: "", img: "" });
   
@@ -27,4 +27,4 @@ const NewDisk = () => {
   );
 };
 
-export default NewDisk;
+export default CreateDisk;

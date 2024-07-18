@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import HomeButton from "../../../components/admin/HomeButton";
 import { apiCall } from "../../../utils/apiCall";
-import DiskCard from "./DiskCard";
+import DiskCard from "./extras/DiskCard";
+import HomeButton from "../../../components/buttons/HomeButton";
 
-const AdminDisk = () => {
+const ReadDisks = () => {
   const [disks, setDisks] = useState([]);
   const [error, setError] = useState(null);
 
@@ -31,7 +31,7 @@ const AdminDisk = () => {
 
         <Link
           to="/admin-zzz/disks/new"
-          className="self-start bg-sky-600 text-white font-medium p-2 rounded-lg hover:scale-105 transform transition-transform duration-300 mb-5"
+          className="self-start bg-sky-500 text-white font-medium p-2 rounded-lg hover:scale-105 transform transition-transform duration-300 mb-5"
         >
           + Create New Disk
         </Link>
@@ -47,11 +47,11 @@ const AdminDisk = () => {
               {error}
             </div>
           )}
-          {disks.map(set => <DiskCard key={set.name} data={set} />)}
+          {disks.map(set => <DiskCard key={set.name} data={set}/>)}
         </div>
       </div>
     </div>
   );
 };
 
-export default AdminDisk;
+export default ReadDisks;

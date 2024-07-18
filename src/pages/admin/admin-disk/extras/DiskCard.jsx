@@ -1,11 +1,12 @@
 import { faPen } from "@fortawesome/free-solid-svg-icons/faPen";
-import { faTrash } from "@fortawesome/free-solid-svg-icons/faTrash";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Link } from "react-router-dom";
+import DeleteDisk from "../DeleteDisk";
 
 const DiskCard = ({ data }) => {
   const {_id, name, set2, set4, img } = data;
+  
   return (
     <div className="grid grid-cols-4 gap-2 p-1 border-b border-b-blue-300 items-center justify-items-center">
       <p>{name}</p>
@@ -19,14 +20,12 @@ const DiskCard = ({ data }) => {
         className="w-28"
       />
       <div className="flex gap-2">
-        <Link to={`http://localhost:5173/admin-zzz/disks/${_id}`}>
-          <button className=" bg-sky-500 w-8 h-8">
+        <Link to={`/admin-zzz/disks/${_id}`}>
+          <button className=" bg-sky-500 hover:bg-sky-600 w-8 h-8">
             <FontAwesomeIcon icon={faPen} className="text-white" />
           </button>
         </Link>
-        <button className="bg-rose-500 w-8 h-8">
-          <FontAwesomeIcon icon={faTrash} className="text-white" />
-        </button>
+        <DeleteDisk id={_id} item={'Disk Set'} url={`https://zzzapi.onrender.com/disks/${_id}`}/>
       </div>
     </div>
   );

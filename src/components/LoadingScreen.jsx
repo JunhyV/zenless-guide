@@ -2,7 +2,7 @@ import React from "react";
 
 const LoadingScreen = () => {
   return (
-    <div className="bg-loading fixed top-0 left-0 h-screen w-screen flex">
+    <div className="bg-overlay fixed top-0 left-0 h-screen w-screen flex">
       <div className="w-32"></div>
       <div className="w-full flex flex-col gap-2 items-center justify-center">
         <div role="status">

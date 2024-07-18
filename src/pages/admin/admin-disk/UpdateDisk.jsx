@@ -1,12 +1,29 @@
 import React, { useEffect, useState } from "react";
 import InputText from "../../../components/admin/InputText";
 import Text from "../../../components/admin/Text";
-import SubmitButton from "../../../components/admin/SubmitButton";
-import BackButton from "../../../components/admin/BackButton";
+import BackButton from "../../../components/buttons/BackButton";
+import { useParams } from "react-router-dom";
+import { apiCall } from "../../../utils/apiCall";
+import UpdateButton from "../../../components/buttons/UpdateButton";
 
-const DiskPage = () => {
-  const initialData = { name: '', set2: '', set4: "", img: "" };
+const UpdateDisk = () => {
   const [data, setData] = useState({ name: '', set2: '', set4: "", img: "" });
+  const params = useParams();
+
+  useEffect(() => {
+    // Obtener discos por endpoint
+    const fetchData = async () => {
+      try {        
+        const data = await apiCall(`https://zzzapi.onrender.com/disks/${params.id}`);
+        setData({ name: data.name, set2: data.set2, set4: data.set4, img: data.img})
+      } catch (error) {
+        console.error(error);
+        setError("Failed to fetch disks. Please try again later.");
+      }
+    };
+    
+    fetchData();
+  }, []);
   
   return (
     <div className="h-full flex items-center justify-center relative">
@@ -21,10 +38,10 @@ const DiskPage = () => {
           <Text label={"set x4"} id={'set4'} save={data} set={setData}/>
           <InputText label={"image"} id={'img'} save={data} set={setData} />
         </div>
-        <SubmitButton name={'Create New'} data={data} url={'https://zzzapi.onrender.com/disks'} reset={setData} initialData={initialData}/>
+        <UpdateButton type={'Drive Disk Set'} data={data} url={`https://zzzapi.onrender.com/disks/${params.id}`} redirect={'/admin-zzz/disks'}/>
       </div>
     </div>
   );
 };
 
-export default DiskPage;
+export default UpdateDisk;
