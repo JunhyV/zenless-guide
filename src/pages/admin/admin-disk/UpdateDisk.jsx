@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import InputText from "../../../components/admin/InputText";
-import Text from "../../../components/admin/Text";
+import InputText from "../../../components/admin/form/InputText";
+import Text from "../../../components/admin/form/Text";
 import BackButton from "../../../components/buttons/BackButton";
 import { useParams } from "react-router-dom";
 import { apiCall } from "../../../utils/apiCall";

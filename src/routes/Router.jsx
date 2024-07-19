@@ -7,14 +7,15 @@ import Engines from "../pages/public/engines/Engines";
 import Bangboos from "../pages/public/bangboos/Bangboos";
 import Agents from "../pages/public/agents/Agents";
 import PrivateLayot from "../pages/PrivateLayot";
-import AdminEngines from "../pages/admin/admin-engines/AdminEngines";
 import AdminHome from "../pages/admin/admin-home/AdminHome";
-import AdminAgents from "../pages/admin/admin-agents/AdminAgents";
-import AdminBangboos from "../pages/admin/admin-bangboos/AdminBangboos";
-import AdminDisk from "../pages/admin/admin-disk/ReadDisks";
 import UpdateDisk from "../pages/admin/admin-disk/UpdateDisk";
 import CreateDisk from "../pages/admin/admin-disk/CreateDisk";
 import ReadDisks from "../pages/admin/admin-disk/ReadDisks";
+import ReadEngines from "../pages/admin/admin-engines/ReadEngines";
+import ReadAgents from "../pages/admin/admin-agents/ReadAgents";
+import ReadBangboos from "../pages/admin/admin-bangboos/ReadBangboos";
+import CreateAgent from "../pages/admin/admin-agents/CreateAgent";
+import UpdateButton from "../components/buttons/UpdateButton";
 
 const Router = createBrowserRouter([
   {
@@ -53,32 +54,45 @@ const Router = createBrowserRouter([
       },
       {
         path: "/admin-zzz/engines",
-        element: <AdminEngines />,
+        element: <ReadEngines />,
       },
       {
         path: "/admin-zzz/agents",
-        element: <AdminAgents />,
+        children: [
+          {
+            index: true,
+            element: <ReadAgents />,
+          },
+          {
+            path: "/admin-zzz/agents/new",
+            element: <CreateAgent />,
+          },
+          {
+            path: "/admin-zzz/agents/:id",
+            element: <UpdateButton />,
+          },
+        ],
       },
       {
         path: "/admin-zzz/bangboos",
-        element: <AdminBangboos />,
+        element: <ReadBangboos />,
       },
       {
         path: "/admin-zzz/disks",
         children: [
-            {
-                index: true,
-                element: <ReadDisks />,
-            },
-            {
-                path: '/admin-zzz/disks/new',
-                element: <CreateDisk/>,
-            },
-            {
-                path: '/admin-zzz/disks/:id',
-                element: <UpdateDisk/>,
-            },
-        ]
+          {
+            index: true,
+            element: <ReadDisks />,
+          },
+          {
+            path: "/admin-zzz/disks/new",
+            element: <CreateDisk />,
+          },
+          {
+            path: "/admin-zzz/disks/:id",
+            element: <UpdateDisk />,
+          },
+        ],
       },
     ],
   },
