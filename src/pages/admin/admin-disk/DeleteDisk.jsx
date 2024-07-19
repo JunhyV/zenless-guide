@@ -2,7 +2,6 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import ConfirmationModal from "../../../components/admin/ConfirmationModal";
-import { useNavigate } from "react-router-dom";
 
 const DeleteDisk = ({ item, url }) => {
   const [deleteConfirmation, setDeleteConfirmation] = useState(false);

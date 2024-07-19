@@ -14,7 +14,7 @@ const UpdateDisk = () => {
     // Obtener discos por endpoint
     const fetchData = async () => {
       try {        
-        const data = await apiCall(`https://zzzapi.onrender.com/disks/${params.id}`);
+        const data = await apiCall(`https://zenless-api.vercel.app/disks/${params.id}`);
         setData({ name: data.name, set2: data.set2, set4: data.set4, img: data.img})
       } catch (error) {
         console.error(error);

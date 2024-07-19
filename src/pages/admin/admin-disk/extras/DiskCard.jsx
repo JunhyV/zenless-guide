@@ -25,7 +25,7 @@ const DiskCard = ({ data }) => {
             <FontAwesomeIcon icon={faPen} className="text-white" />
           </button>
         </Link>
-        <DeleteDisk id={_id} item={'Disk Set'} url={`https://zzzapi.onrender.com/disks/${_id}`}/>
+        <DeleteDisk id={_id} item={'Disk Set'} url={`https://zenless-api.vercel.app/disks/${_id}`}/>
       </div>
     </div>
   );

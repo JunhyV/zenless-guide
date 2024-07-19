@@ -21,7 +21,7 @@ const CreateDisk = () => {
           <Text label={"set x4"} id={'set4'} save={data} set={setData}/>
           <InputText label={"image"} id={'img'} save={data} set={setData} />
         </div>
-        <SubmitButton name={'Create New'} data={data} url={'https://zzzapi.onrender.com/disks'} reset={setData} initialData={initialData}/>
+        <SubmitButton name={'Create New'} data={data} url={'https://zenless-api.vercel.app/disks'} reset={setData} initialData={initialData}/>
       </div>
     </div>
   );
