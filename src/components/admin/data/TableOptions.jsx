@@ -9,10 +9,10 @@ const TableOptions = ({ id, url}) => {
   return (
     <div className="flex gap-5">
       <Link to={`${window.location.pathname}/${id}`}>
-        <FontAwesomeIcon icon={faPen} className="text-white bg-sky-500 p-2 hover:bg-sky-600 " />
+        <FontAwesomeIcon icon={faPen} className="text-white bg-sky-400 p-2 hover:bg-sky-600 transition-colors duration-500" />
       </Link>
       <button onClick={() => deleteRegister(id, url)}>
-        <FontAwesomeIcon icon={faTrash} className="text-white bg-rose-400 p-2 hover:bg-rose-600" />
+        <FontAwesomeIcon icon={faTrash} className="text-white bg-rose-400 p-2 hover:bg-rose-600 transition-colors duration-500" />
       </button>
     </div>
   );

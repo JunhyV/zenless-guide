@@ -38,7 +38,7 @@ const UpdateDisk = () => {
           <Text label={"set x4"} id={'set4'} save={data} set={setData}/>
           <InputText label={"image"} id={'img'} save={data} set={setData} />
         </div>
-        <UpdateButton type={'Drive Disk Set'} data={data} url={`https://zzzapi.onrender.com/disks/${params.id}`} redirect={'/admin-zzz/disks'}/>
+        <UpdateButton type={'Drive Disk Set'} data={data} url={`https://zenless-api.vercel.app/disks/${params.id}`} redirect={'/admin-zzz/disks'}/>
       </div>
     </div>
   );

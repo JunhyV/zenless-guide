@@ -22,9 +22,9 @@ const ReadBangboos = () => {
   }, []);
   return (
     <div className="flex items-end justify-center">
-      <div className="w-3/4 flex flex-col">
+      <div className="w-5/6 flex flex-col">
         <h1 className="text-3xl font-black my-10 text-center">Bangboos List</h1>
-        <CreateButton url={'/admin-zzz/bangboos/new'}/>
+        <CreateButton type={'Bangboo'} url={'/admin-zzz/bangboos/new'}/>
         <div>
           <DataTable
             tableParams={["Name", "Skills", "Image", "Options"]}

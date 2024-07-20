@@ -15,7 +15,7 @@ const UpdateButton = ({ type, data, url, redirect}) => {
     setLoadingToggle(true);
 
     const formData = new FormData();
-    Object.entries(data).forEach(([key, value]) => formData.append(key, value));
+    Object.entries(data).forEach(([key, value]) => typeof value === 'string' ?formData.append(key, value) : formData.append(key, JSON.stringify(value)));
 
     // Mostrar el contenido del FormData en la consola
     for (let [key, value] of formData.entries()) {
@@ -47,7 +47,7 @@ const UpdateButton = ({ type, data, url, redirect}) => {
   return (
     <>
       <div
-        className="bg-neutral-600 w-fit p-2 rounded-2xl text-white font-medium mx-auto hover:cursor-pointer hover:scale-105 transform transition-transform duration-300"
+        className="bg-sky-400 font-medium w-fit p-2 rounded-md text-white mx-auto hover:cursor-pointer hover:bg-sky-600 transition-colors duration-500"
         onClick={handleSubmit}
       >
         {`Update ${type}`}

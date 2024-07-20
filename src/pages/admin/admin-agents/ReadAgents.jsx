@@ -23,9 +23,9 @@ const ReadAgents = () => {
 
   return (
     <div className="flex items-end justify-center">
-      <div className="w-3/4 flex flex-col">
+      <div className="w-5/6 flex flex-col">
         <h1 className="text-3xl font-black my-10 text-center">Agents List</h1>
-        <CreateButton url={'/admin-zzz/agents/new'}/>
+        <CreateButton type={'Agent'} url={'/admin-zzz/agents/new'}/>
         <div>
           <DataTable
             tableParams={["Name", "Information", "Image", "Options"]}

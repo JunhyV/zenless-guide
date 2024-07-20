@@ -1,0 +1,12 @@
+import React from 'react'
+
+const InputData = ({label, data, set}) => {
+  return (
+    <div className='flex items-center'>
+        <label htmlFor={label} className='w-20 capitalize font-medium text-lg'>{label}: </label>
+        <input type="text" id={label} value={data[label]} onChange={(e) => set({...data, [label]: e.target.value})} className='flex-1 p-2 border border-neutral-400 rounded-md'/>
+    </div>
+  )
+}
+
+export default InputData

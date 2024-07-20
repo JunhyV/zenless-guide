@@ -16,6 +16,8 @@ import ReadAgents from "../pages/admin/admin-agents/ReadAgents";
 import ReadBangboos from "../pages/admin/admin-bangboos/ReadBangboos";
 import CreateAgent from "../pages/admin/admin-agents/CreateAgent";
 import UpdateButton from "../components/buttons/UpdateButton";
+import CreateEngine from "../pages/admin/admin-engines/CreateEngine";
+import UpdateEngine from "../pages/admin/admin-engines/UpdateEngine";
 
 const Router = createBrowserRouter([
   {
@@ -54,7 +56,20 @@ const Router = createBrowserRouter([
       },
       {
         path: "/admin-zzz/engines",
-        element: <ReadEngines />,
+        children: [
+          {
+            index: true,
+            element: <ReadEngines />,
+          },
+          {
+            path: "/admin-zzz/engines/new",
+            element: <CreateEngine />,
+          },
+          {
+            path: "/admin-zzz/engines/:id",
+            element: <UpdateEngine />,
+          },
+        ],
       },
       {
         path: "/admin-zzz/agents",

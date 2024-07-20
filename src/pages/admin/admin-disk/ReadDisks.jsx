@@ -24,9 +24,9 @@ const ReadDisks = () => {
 
   return (
     <div className="flex items-end justify-center">
-      <div className="w-3/4 flex flex-col">
+      <div className="w-5/6 flex flex-col">
         <h1 className="text-3xl font-black my-10 text-center">Drive Disk Sets List</h1>
-        <CreateButton url={'/admin-zzz/disks/new'}/>
+        <CreateButton type={'Disk'} url={'/admin-zzz/disks/new'}/>
         <div>
           <DataTable
             tableParams={["Name", "Skills", "Image", "Options"]}

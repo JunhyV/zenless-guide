@@ -6,7 +6,6 @@ import EngineCard from "./EngineCard";
 
 const ReadEngines = () => {
   const [engines, setEngines] = useState([]);
-  console.log(engines);
 
   useEffect(() => {
     // Obtener discos por endpoint
@@ -23,16 +22,20 @@ const ReadEngines = () => {
   }, []);
   return (
     <div className="flex items-end justify-center">
-      <div className="w-3/4 flex flex-col">
-        <h1 className="text-3xl font-black my-10 text-center">W-Engines List</h1>
-        <CreateButton url={'/admin-zzz/engines/new'}/>
+      <div className="w-5/6 flex flex-col">
+        <h1 className="text-3xl font-black my-10 text-center">
+          W-Engines List
+        </h1>
+        <CreateButton type={'Engine'} url={"/admin-zzz/engines/new"} />
         <div>
           <DataTable
             tableParams={["Name", "Effect", "Image", "Options"]}
             data={engines}
             url={"https://zenless-api.vercel.app/engines"}
           />
-          {engines.map(engine => <EngineCard key={engine._id} data={engine}/>)}
+          {engines.map((engine) => (
+            <EngineCard key={engine._id} data={engine} />
+          ))}
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import InputText from "../../../components/admin/form/InputText";
 import Text from "../../../components/admin/form/Text";
 import BackButton from "../../../components/buttons/BackButton";
