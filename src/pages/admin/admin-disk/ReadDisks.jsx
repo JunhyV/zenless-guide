@@ -25,11 +25,11 @@ const ReadDisks = () => {
   return (
     <div className="flex items-end justify-center">
       <div className="w-5/6 flex flex-col">
-        <h1 className="text-3xl font-black my-10 text-center">Drive Disk Sets List</h1>
-        <CreateButton type={'Disk'} url={'/admin-zzz/disks/new'}/>
+        <h1 className="text-3xl font-black my-10 text-center">Disk Drive Sets List</h1>
+        <CreateButton type={'Disk Set'} url={'/admin-zzz/disks/new'}/>
         <div>
           <DataTable
-            tableParams={["Name", "Skills", "Image", "Options"]}
+            tableParams={["Name", "Description", "Image", "Options"]}
             data={disks}
             url={"https://zenless-api.vercel.app/disks"}
           />

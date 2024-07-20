@@ -2,7 +2,7 @@ import React from "react";
 
 const SelectData = ({ label, options, data, set }) => {
   return (
-    <div className="flex">
+    <div className="flex items-center">
       <label
         htmlFor={label}
         className="min-w-20 capitalize font-medium text-md"

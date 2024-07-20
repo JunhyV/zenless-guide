@@ -6,6 +6,7 @@ import CreateButton from '../../../components/buttons/CreateButton';
 
 const ReadBangboos = () => {
   const [bangboos, setBangboos] = useState([]);
+
   
   useEffect(() => {
     // Obtener discos por endpoint
@@ -13,6 +14,7 @@ const ReadBangboos = () => {
       try {
         const data = await apiCall("https://zenless-api.vercel.app/bangboos");
         setBangboos(data);
+        console.log(data);
       } catch (error) {
         console.error(error);
       }
@@ -20,6 +22,8 @@ const ReadBangboos = () => {
 
     fetchData();
   }, []);
+
+
   return (
     <div className="flex items-end justify-center">
       <div className="w-5/6 flex flex-col">

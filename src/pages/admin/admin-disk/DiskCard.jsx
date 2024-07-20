@@ -9,12 +9,10 @@ const BangbooCard = ({ data }) => {
     >
       <p className="">{name}</p>
       <div className="flex flex-col gap-2 w-full items-start">
-        <p className="border-b border-b-neutral-300 text-sm text-start w-full">
-          {set2}
-        </p>
-        <p className="text-start text-sm">{set4}</p>
+        <p className="border-b border-b-neutral-300 text-start w-full text-sm">{set2}</p>
+        <p className="text-sm text-start">{set4}</p>
       </div>
-      <img src={`https://i.imgur.com/${img}.png`} alt="register-img" className="w-28" />
+      <img src={`https://i.imgur.com/${img}.png`} alt="disk-set-img" className="w-28" />
       <TableOptions id={_id} url={"https://zenless-api.vercel.app/disks"} />
     </div>
   );

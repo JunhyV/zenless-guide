@@ -14,7 +14,7 @@ const BangbooCard = ({ data }) => {
         {skill_c ? <p>{skill_c}</p> : null}
       </div>
       <p className="">{img}</p>
-      <TableOptions id={_id} url={"https://zenless-api.vercel.app/agents"} />
+      <TableOptions id={_id} url={"https://zenless-api.vercel.app/bangboos"} />
     </div>
   );
 };
