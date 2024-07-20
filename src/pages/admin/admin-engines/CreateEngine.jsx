@@ -18,7 +18,8 @@ const CreateEngine = () => {
         <h1 className="font-black text-center text-4xl mb-10">
           Create New W-Engine
         </h1>
-        <div className="flex flex-col gap-5 mb-5">
+        <div className="flex flex-col gap-5 mb-5 border border-neutral-400 p-5 w-full">
+          <h2 className="font-medium text-lg">W-Engine Information</h2>
           <InputData label={"name"} data={engine} set={setEngine} />
           <div className="flex justify-between">
             <SelectData

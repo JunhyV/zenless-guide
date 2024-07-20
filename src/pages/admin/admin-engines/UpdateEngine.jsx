@@ -43,10 +43,11 @@ const UpdateEngine = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-full">
       <div className="w-1/2">
-        <h1 className="font-black text-center text-4xl mb-10">
+        <h1 className="font-black text-center text-4xl mb-10 ">
           Update W-Engine
         </h1>
-        <div className="flex flex-col gap-5 mb-5">
+        <div className="flex flex-col gap-5 mb-5 border border-neutral-400 p-5 w-full">
+          <h2 className="font-medium text-lg">W-Engine Information</h2>
           <InputData label={"name"} data={engine} set={setEngine} />
           <div className="flex justify-between">
             <SelectData
@@ -111,7 +112,12 @@ const UpdateEngine = () => {
           </div>
           <InputData label={"img"} data={engine} set={setEngine} />
         </div>
-        <UpdateButton type={'W-Engine'} data={engine} url={`https://zenless-api.vercel.app/engines/${params.id}`} redirect={'/admin-zzz/engines'}/>
+        <UpdateButton
+          type={"W-Engine"}
+          data={engine}
+          url={`https://zenless-api.vercel.app/engines/${params.id}`}
+          redirect={"/admin-zzz/engines"}
+        />
       </div>
     </div>
   );
