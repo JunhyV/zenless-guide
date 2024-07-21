@@ -65,11 +65,130 @@ export const agentInitial = {
   rol: "",
   short_img: "",
   skills: {
-    basic: [],
-    dodge: [],
-    assist: [],
-    special: [],
-    chain: [],
+    basic: [
+      {
+        id: 0,
+        name: "",
+        description: "",
+        data: [
+          { id: 0, type: "", number: "" },
+          { id: 1, type: "", number: "" },
+        ],
+      },
+      {
+        id: 1,
+        name: "",
+        description: "",
+        data: [
+          { id: 0, type: "", number: "" },
+          { id: 1, type: "", number: "" },
+        ],
+      },
+    ],
+    dodge: [
+      {
+        id: 0,
+        name: "",
+        description: "",
+        data: [],
+      },
+      {
+        id: 1,
+        name: "",
+        description: "",
+        data: [
+          { id: 0, type: "", number: "" },
+          { id: 1, type: "", number: "" },
+        ],
+      },
+      {
+        id: 2,
+        name: "",
+        description: "",
+        data: [
+          { id: 0, type: "", number: "" },
+          { id: 1, type: "", number: "" },
+        ],
+      },
+    ],
+    assist: [
+      {
+        id: 0,
+        name: "",
+        description: "",
+        data: [
+          { id: 0, type: "", number: "" },
+          { id: 1, type: "", number: "" },
+        ],
+      },
+      {
+        id: 1,
+        name: "",
+        description: "",
+        data: [
+          { id: 0, type: "", number: "" },
+          { id: 1, type: "", number: "" },
+        ],
+      },
+      {
+        id: 2,
+        name: "",
+        description: "",
+        data: [
+          { id: 0, type: "", number: "" },
+          { id: 1, type: "", number: "" },
+        ],
+      },
+    ],
+    special: [
+      {
+        id: 0,
+        name: "",
+        description: "",
+        data: [
+          { id: 0, type: "", number: "" },
+          { id: 1, type: "", number: "" },
+        ],
+      },
+      {
+        id: 1,
+        name: "",
+        description: "",
+        data: [
+          { id: 0, type: "", number: "" },
+          { id: 1, type: "", number: "" },
+        ],
+      },
+      {
+        id: 2,
+        name: "",
+        description: "",
+        data: [
+          { id: 0, type: "", number: "" },
+          { id: 1, type: "", number: "" },
+        ],
+      },
+    ],
+    chain: [
+      {
+        id: 0,
+        name: "",
+        description: "",
+        data: [
+          { id: 0, type: "", number: "" },
+          { id: 1, type: "", number: "" },
+        ],
+      },
+      {
+        id: 1,
+        name: "",
+        description: "",
+        data: [
+          { id: 0, type: "", number: "" },
+          { id: 1, type: "", number: "" },
+        ],
+      },
+    ],
   },
   stats: {
     hp: "",

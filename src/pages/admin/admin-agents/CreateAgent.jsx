@@ -9,24 +9,31 @@ import {
   rankOptions,
   rolOptions,
 } from "../../../utils/options";
-import AgentCore from "./AgentCore";
+import AgentCore from "./extras/AgentCore";
+import AgentStats from "./extras/AgentStats";
+import AgentMindscapes from "./extras/AgentMindscapes";
+import AgentSkills from "./extras/AgentSkills";
 
 const CreateAgent = () => {
   const [agent, setAgent] = useState(agentInitial);
+  const stats = Object.keys(agent.stats);
+  const mindscape = Object.keys(agent.mindscape);
+  const skills = Object.keys(agent.skills);
+
   return (
     <div className="flex flex-col items-center justify-center min-h-full">
-      <div className="w-1/2">
+      <div className="w-3/5">
         <h1 className="font-black text-center text-4xl mb-10">
           Create New Drive Disk Set
         </h1>
         <div className="border border-neutral-400 p-5 w-full mb-5">
           <h2 className="font-medium mb-5 text-lg">Agent Information</h2>
           <div className="flex flex-col gap-5 mb-5">
-            <div className="flex justify-between">
+            <div className="flex justify-between gap-2">
               <InputData label={"full_name"} data={agent} set={setAgent} />
               <InputData label={"nickname"} data={agent} set={setAgent} />
             </div>
-            <div className="flex justify-between">
+            <div className="flex justify-between gap-2">
               <SelectData
                 label={"rol"}
                 options={rolOptions}
@@ -40,7 +47,7 @@ const CreateAgent = () => {
                 set={setAgent}
               />
             </div>
-            <div className="flex justify-between">
+            <div className="flex justify-between gap-2">
               <SelectData
                 label={"faction"}
                 options={factionOptions}
@@ -54,36 +61,38 @@ const CreateAgent = () => {
                 set={setAgent}
               />
             </div>
-            <div className="flex justify-between">
+            <div className="flex justify-between gap-2">
               <InputData label={"full_img"} data={agent} set={setAgent} />
               <InputData label={"short_img"} data={agent} set={setAgent} />
             </div>
           </div>
         </div>
         <div className="border border-neutral-400 p-5 w-full mb-5">
-          <h2 className="font-medium mb-5 text-lg">Agent stats</h2>
-          <div></div>
+          <h2 className="font-medium mb-5 text-lg">Agent stats at lvl 60</h2>
+          <AgentStats stats={stats} data={agent} set={setAgent}/>
         </div>
-        <div className="border border-neutral-400 p-5 w-full mb-5 grid gap-5">
-          <h2 className="font-medium text-lg">Agent core skills</h2>
+        <div className="border border-neutral-400 p-5 mb-5 grid gap-5">
+          <h2 className="font-medium text-lg">Agent Core Skills</h2>
           {agent.core_skill.map((core, id) => (
-            <AgentCore key={id} data={core} id={id} set={setAgent} global={agent}/>
+            <AgentCore
+              key={`core-${id}`}
+              data={core}
+              id={id}
+              set={setAgent}
+              global={agent}
+            />
           ))}
-          <button className="justify-self-center bg-violet-400 text-white font-medium p-2 rounded-md w-fit hover:bg-violet-600 transition-colors duration-500">+ Add Skill</button>
+          <button className="justify-self-center bg-violet-400 text-white font-medium p-2 rounded-md w-fit hover:bg-violet-600 transition-colors duration-500">
+            + Add Skill
+          </button>
         </div>
         <div className="border border-neutral-400 p-5 w-full mb-5">
           <h2 className="font-medium mb-5 text-lg">Agent skills</h2>
-          <div>
-            <h3 className="font-medium">Basic</h3>
-            <h3 className="font-medium">Dodge</h3>
-            <h3 className="font-medium">Assist</h3>
-            <h3 className="font-medium">Special</h3>
-            <h3 className="font-medium">Chain</h3>
-          </div>
+          <AgentSkills skills={skills} data={agent} set={setAgent} />
         </div>
         <div className="border border-neutral-400 p-5 w-full mb-5">
           <h2 className="font-medium mb-5 text-lg">Agent mindscape</h2>
-          <div></div>
+          <AgentMindscapes mindscape={mindscape} data={agent} set={setAgent} />
         </div>
       </div>
 

@@ -48,7 +48,7 @@ const SubmitButton = ({ name, data, url, reset, initialData }) => {
   return (
     <>
       <div
-        className="bg-emerald-400 font-medium w-fit p-2 rounded-md text-white mx-auto hover:cursor-pointer hover:bg-emerald-600 transition-colors duration-500"
+        className="bg-emerald-400 font-medium w-fit p-2 rounded-md text-white mx-auto hover:cursor-pointer hover:bg-emerald-600 transition-colors duration-500 mb-5"
         onClick={handleSubmit}
       >
         {name}

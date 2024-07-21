@@ -20,7 +20,7 @@ const AgentCore = ({ id, data, set, global }) => {
     const filteredMultipliers = data.data.filter(
       (multiplier) => multiplier.id !== multiplierId
     );
-  
+
     set({
       ...global,
       core_skill: global.core_skill.map((skill) =>
@@ -30,7 +30,7 @@ const AgentCore = ({ id, data, set, global }) => {
   };
 
   return (
-    <div className="grid gap-5 border border-neutral-400 p-2">
+    <div className="grid gap-5 border border-neutral-400 p-2 w-full">
       <div className="flex items-center">
         <label
           htmlFor={`${id}-skill`}
@@ -41,7 +41,16 @@ const AgentCore = ({ id, data, set, global }) => {
         <input
           type="text"
           id={`${id}-skill`}
+          value={data.name}
           className="flex-1 p-2 border border-neutral-400 rounded-md"
+          onChange={(e) =>
+            set({
+              ...global,
+              core_skill: global.core_skill.map((core) =>
+                core.id === data.id ? { ...core, name: e.target.value } : core
+              ),
+            })
+          }
         />
       </div>
       <div className="flex">
@@ -54,6 +63,17 @@ const AgentCore = ({ id, data, set, global }) => {
         <textarea
           id={`${id}-description`}
           className="flex-1 p-2 h-20 border border-neutral-400 rounded-md"
+          value={data.description}
+          onChange={(e) =>
+            set({
+              ...global,
+              core_skill: global.core_skill.map((core) =>
+                core.id === data.id
+                  ? { ...core, description: e.target.value }
+                  : core
+              ),
+            })
+          }
         />
       </div>
       {data.data.length > 0 && (
@@ -68,13 +88,15 @@ const AgentCore = ({ id, data, set, global }) => {
                 <div className="flex items-center">
                   <label
                     htmlFor={`type-${multiplier.id}`}
-                    className="min-w-24 capitalize font-medium text-md "
+                    className="min-w-24 capitalize font-medium text-md"
                   >
                     Type:
                   </label>
                   <input
                     type="text"
                     id={`type-${multiplier.id}`}
+                    value={multiplier.type}
+                    onChange={(e) => set({...global, core_skill: global.core_skill.map(core => core.id === data.id ? {...core, data: core.data.map(newCore => newCore.id === multiplier.id ? {...newCore, type: e.target.value} : newCore)} : core)})}
                     className="flex-1 p-2 border border-neutral-400 rounded-md"
                   />
                 </div>
@@ -89,6 +111,8 @@ const AgentCore = ({ id, data, set, global }) => {
                     type="number"
                     id={`number-${multiplier.id}`}
                     placeholder="Flat or %"
+                    value={multiplier.number}
+                    onChange={(e) => set({...global, core_skill: global.core_skill.map(core => core.id === data.id ? {...core, data: core.data.map(newCore => newCore.id === multiplier.id ? {...newCore, number: e.target.value} : newCore)} : core)})}
                     className="flex-1 p-2 border border-neutral-400 rounded-md"
                   />
                 </div>

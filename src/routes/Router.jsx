@@ -15,11 +15,11 @@ import ReadEngines from "../pages/admin/admin-engines/ReadEngines";
 import ReadAgents from "../pages/admin/admin-agents/ReadAgents";
 import ReadBangboos from "../pages/admin/admin-bangboos/ReadBangboos";
 import CreateAgent from "../pages/admin/admin-agents/CreateAgent";
-import UpdateButton from "../components/buttons/UpdateButton";
 import CreateEngine from "../pages/admin/admin-engines/CreateEngine";
 import UpdateEngine from "../pages/admin/admin-engines/UpdateEngine";
 import CreateBangboo from "../pages/admin/admin-bangboos/CreateBangboo";
 import UpdateBangboo from "../pages/admin/admin-bangboos/UpdateBangboo";
+import UpdateAgent from "../pages/admin/admin-agents/UpdateAgent";
 
 const Router = createBrowserRouter([
   {
@@ -86,7 +86,7 @@ const Router = createBrowserRouter([
           },
           {
             path: "/admin-zzz/agents/:id",
-            element: <UpdateButton />,
+            element: <UpdateAgent />,
           },
         ],
       },

@@ -14,7 +14,6 @@ const UpdateBangboo = () => {
   const bangbooStats = Object.keys(bangboo.stats);
 
   useEffect(() => {
-    // Obtener discos por endpoint
     const fetchData = async () => {
       try {
         const data = await apiCall(

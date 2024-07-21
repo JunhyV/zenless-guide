@@ -23,6 +23,7 @@ const UpdateEngine = () => {
         const data = await apiCall(
           `https://zenless-api.vercel.app/engines/${params.id}`
         );
+        console.log();
         setEngine({
           name: data.name,
           rank: data.rank,
