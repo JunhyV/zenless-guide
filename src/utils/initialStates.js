@@ -59,6 +59,7 @@ export const agentInitial = {
     m4: "",
     m5: "",
     m6: "",
+    img: '',
   },
   nickname: "",
   rank: "",

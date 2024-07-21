@@ -1,46 +1,46 @@
 export const rolOptions = [
   {
     name: "anomaly",
-    img: "",
+    img: "Tb1ZWk0",
   },
   {
     name: "attack",
-    img: "",
+    img: "jBz1XWP",
   },
   {
     name: "support",
-    img: "",
+    img: "hmUcw8h",
   },
   {
     name: "defense",
-    img: "",
+    img: "eXysB1p",
   },
   {
     name: "stun",
-    img: "",
+    img: "LOzOSE4",
   },
 ];
 
 export const elementOptions = [
   {
     name: "physical",
-    img: "",
+    img: "2Dvwfus",
   },
   {
     name: "fire",
-    img: "",
+    img: "scqsZO5",
   },
   {
     name: "ice",
-    img: "",
+    img: "hqPAcLv",
   },
   {
     name: "electric",
-    img: "",
+    img: "UfDXMrq",
   },
   {
     name: "ether",
-    img: "",
+    img: "7nlrxPo",
   },
 ];
 
@@ -58,30 +58,30 @@ export const rankOptions = [
 export const rarityOptions = [
   {
     name: "S",
-    img: "",
+    img: "WzLoUYT",
   },
   {
     name: "A",
-    img: "",
+    img: "zsntIPx",
   },
   {
     name: "B",
-    img: "",
+    img: "oR5bONx",
   },
 ];
 
 export const factionOptions = [
   {
     name: "Cunning Hares",
-    img: "",
+    img: "TwanJew.png",
   },
   {
     name: "Belobog Heavy Industries",
-    img: "",
+    img: "PaQAJUf.png",
   },
   {
     name: "Criminal Investigation",
-    img: "",
+    img: "VpIANdJ.jpeg",
   },
   {
     name: "OBOLS Squad",

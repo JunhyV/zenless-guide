@@ -10,7 +10,7 @@ const AgentSkills = ({ skills, data, set }) => {
   const createMultiplier = (skill, cardIndex) => {
     const newData = { ...data };
     const newMultiplier = {
-      i: newData.skills[skill][cardIndex].data.length,
+      id: newData.skills[skill][cardIndex].data.length,
       type: "",
       number: 0
     };
