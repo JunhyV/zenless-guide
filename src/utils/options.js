@@ -47,11 +47,11 @@ export const elementOptions = [
 export const rankOptions = [
   {
     name: "S",
-    img: "",
+    img: "xbC2Zpl",
   },
   {
     name: "A",
-    img: "",
+    img: "5BG54tn",
   },
 ];
 
@@ -85,19 +85,19 @@ export const factionOptions = [
   },
   {
     name: "OBOLS Squad",
-    img: "",
+    img: "cQWlAY1.jpeg",
   },
   {
     name: "Section 6",
-    img: "",
+    img: "NKd2vEm.png",
   },
   {
     name: "Sons of Calydon",
-    img: "",
+    img: "nwwSxyy.jpeg",
   },
   {
     name: "Victoria Housekeeping Co.",
-    img: "",
+    img: "waCA9TJ.png",
   },
 ];
 
