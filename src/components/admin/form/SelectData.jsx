@@ -11,7 +11,7 @@ const SelectData = ({ label, options, data, set }) => {
       </label>
       <select
         id={label}
-        className="flex-1 p-2 border border-neutral-400 rounded-md"
+        className="w-full p-2 border border-neutral-400 rounded-md"
         value={data[label]}
         onChange={(e) => set({ ...data, [label]: e.target.value })}
       >

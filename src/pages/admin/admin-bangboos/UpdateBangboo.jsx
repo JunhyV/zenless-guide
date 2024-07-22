@@ -47,11 +47,11 @@ const UpdateBangboo = () => {
     <div className="flex flex-col items-center justify-center min-h-full">
       <div className="w-1/2">
         <h1 className="font-black text-center text-4xl mb-10">
-          Update Bangboo
+          Create New Bangboo
         </h1>
         <div className="flex flex-col gap-5 mb-5 border border-neutral-400 p-5 w-full">
           <h2 className="font-medium text-lg">Bangboo Information</h2>
-          <div className="flex justify-between">
+          <div className="flex justify-between gap-2">
             <InputData label={"name"} data={bangboo} set={setBangboo} />
             <SelectData
               label={"rank"}

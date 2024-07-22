@@ -14,9 +14,7 @@ const CreateDisk = () => {
           Create New Drive Disk Set
         </h1>
         <div className="flex flex-col gap-5 mb-5 border border-neutral-400 p-5 w-full">
-          <h2 className="font-medium text-lg">
-            Drive Disk Set Information
-          </h2>
+          <h2 className="font-medium text-lg">Drive Disk Set Information</h2>
           <InputData label={"name"} data={disk} set={setDisk} />
           <TextData label={"set2"} data={disk} set={setDisk} />
           <TextData label={"set4"} data={disk} set={setDisk} />

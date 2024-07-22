@@ -22,8 +22,22 @@ const UpdateAgent = () => {
   const params = useParams();
 
   const stats = Object.keys(agent.stats);
-  const mindscape = Object.keys(agent.mindscape);
   const skills = Object.keys(agent.skills);
+
+  const createSkill = () => {
+    const highestId = agent.core_skill.reduce((maxId, item) => {
+      return parseInt(item.id) > maxId ? parseInt(item.id) : maxId;
+    }, 0);
+
+    const skillObject = {
+      id: highestId + 1,
+      name: "",
+      description: "",
+      data: [],
+    };
+
+    setAgent({ ...agent, core_skill: [...agent.core_skill, skillObject] });
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -102,9 +116,9 @@ const UpdateAgent = () => {
         </div>
         <div className="border border-neutral-400 p-5 w-full mb-5">
           <h2 className="font-medium mb-5 text-lg">Agent stats at lvl 60</h2>
-          <AgentStats stats={stats} data={agent} set={setAgent}/>
+          <AgentStats stats={stats} data={agent} set={setAgent} />
         </div>
-        <div className="border border-neutral-400 p-5 mb-5 grid gap-5">
+        <div className=" border border-neutral-400 p-5 mb-5 flex flex-col gap-5">
           <h2 className="font-medium text-lg">Agent Core Skills</h2>
           {agent.core_skill.map((core, id) => (
             <AgentCore
@@ -115,7 +129,10 @@ const UpdateAgent = () => {
               global={agent}
             />
           ))}
-          <button className="justify-self-center bg-violet-400 text-white font-medium p-2 rounded-md w-fit hover:bg-violet-600 transition-colors duration-500">
+          <button
+            className="mx-auto bg-violet-400 text-white font-medium p-2 rounded-md w-fit hover:bg-violet-600 transition-colors duration-500"
+            onClick={createSkill}
+          >
             + Add Skill
           </button>
         </div>
@@ -125,7 +142,31 @@ const UpdateAgent = () => {
         </div>
         <div className="border border-neutral-400 p-5 w-full mb-5">
           <h2 className="font-medium mb-5 text-lg">Agent mindscape</h2>
-          <AgentMindscapes mindscape={mindscape} data={agent} set={setAgent} />
+          <AgentMindscapes
+            mindscape={agent.mindscape.mindscapes}
+            data={agent}
+            set={setAgent}
+          />
+          <div className="flex items-center">
+            <label
+              htmlFor="mindscape_img"
+              className="min-w-20 capitalize font-medium text-md"
+            >
+              Image:
+            </label>
+            <input
+              type="text"
+              id="mindscape_img"
+              value={agent.mindscape.img}
+              onChange={(e) =>
+                setAgent({
+                  ...agent,
+                  mindscape: { ...agent.mindscape, img: e.target.value },
+                })
+              }
+              className="flex-1 p-2 border border-neutral-400 rounded-md"
+            />
+          </div>
         </div>
       </div>
       <UpdateButton

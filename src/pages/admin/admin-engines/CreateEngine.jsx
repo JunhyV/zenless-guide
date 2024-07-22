@@ -21,7 +21,7 @@ const CreateEngine = () => {
         <div className="flex flex-col gap-5 mb-5 border border-neutral-400 p-5 w-full">
           <h2 className="font-medium text-lg">W-Engine Information</h2>
           <InputData label={"name"} data={engine} set={setEngine} />
-          <div className="flex justify-between">
+          <div className="flex justify-between gap-2">
             <SelectData
               label={"rol"}
               options={rolOptions}
@@ -45,7 +45,7 @@ const CreateEngine = () => {
             />
             <div></div>
           </div>
-          <div className="flex justify-between">
+          <div className="flex justify-between gap-2">
             <div className="flex items-center">
               <label htmlFor="attack" className="min-w-20 font-medium text-md">
                 Base Attack:
@@ -53,7 +53,7 @@ const CreateEngine = () => {
               <input
                 type="number"
                 id="attack"
-                className="flex-1 p-2 border border-neutral-400 rounded-md text-end"
+                className="w-full p-2 border border-neutral-400 rounded-md text-end"
                 value={engine.stats.base_attack}
                 onChange={(e) =>
                   setEngine({
@@ -71,7 +71,7 @@ const CreateEngine = () => {
                 type="number"
                 id="attack"
                 placeholder="%"
-                className="flex-1 p-2 border border-neutral-400 rounded-md text-end"
+                className="w-full p-2 border border-neutral-400 rounded-md text-end"
                 value={engine.stats.secondary_stat}
                 onChange={(e) =>
                   setEngine({

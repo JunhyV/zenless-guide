@@ -53,13 +53,39 @@ export const agentInitial = {
   full_img: "",
   full_name: "",
   mindscape: {
-    m1: "",
-    m2: "",
-    m3: "",
-    m4: "",
-    m5: "",
-    m6: "",
-    img: '',
+    mindscapes: [
+      {
+        id: 1,
+        name: "",
+        description: "",
+      },
+      {
+        id: 2,
+        name: "",
+        description: "",
+      },
+      {
+        id: 3,
+        name: "",
+        description: "",
+      },
+      {
+        id: 4,
+        name: "",
+        description: "",
+      },
+      {
+        id: 5,
+        name: "",
+        description: "",
+      },
+      {
+        id: 6,
+        name: "",
+        description: "",
+      },
+    ],
+    img: "",
   },
   nickname: "",
   rank: "",
