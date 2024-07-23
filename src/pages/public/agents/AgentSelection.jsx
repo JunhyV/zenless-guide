@@ -5,6 +5,8 @@ import {
   factionOptions,
   rolOptions,
 } from "../../../utils/options";
+import { newCharacters } from "../../../utils/gameVersion";
+import newImg from '../../../assets/images/extras/5a5a6d4914d8c4188e0b0893.png' 
 
 const AgentSelection = ({ data }) => {
   const [bgByRank, setBgByRank] = useState("");
@@ -13,6 +15,8 @@ const AgentSelection = ({ data }) => {
   const factionImg = factionOptions.find((core) => core.name === faction)?.img;
   const elementImg = elementOptions.find((core) => core.name === element)?.img;
   const rolImg = rolOptions.find((core) => core.name === rol)?.img;
+
+  const isNew = newCharacters.some(newAgent => name.includes(newAgent));
 
   useEffect(() => {
     switch (rank) {
@@ -31,35 +35,38 @@ const AgentSelection = ({ data }) => {
   return (
     <Link
       to={`/agents/${id}`}
-      className={`text-white font-medium ${bgByRank} hover:from-yellow-400 hover-grayscale rounded-xl`}
+      className={`text-white font-medium ${bgByRank} hover:from-yellow-400 hover-grayscale rounded-t-xl relative`}
     >
-      <div className="relative">
+      {isNew ? <img src={newImg} className="absolute -top-2 -left-2 z-10 w-14"/> : null}
+      <div className="relative overflow-hidden">
         <img
           src={`https://i.imgur.com/${img}.png`}
           alt={name}
-          className="w-32 h-108 hover:grayscale grayscale-image"
+          className="w-32 h-108 hover:grayscale grayscale-image "
         />
-        <div className="flex w-full justify-between p-0.5 absolute bottom-0">
+        <div className="p-0.5 absolute bottom-0">
           <img
             src={`https://i.imgur.com/${rolImg}.png`}
             alt="rol"
             className="w-6"
           />
-          <img
-            src={`https://i.imgur.com/${elementImg}.png`}
-            alt="element"
-            className="w-6"
-          />
         </div>
-        <div className="absolute w-full flex justify-end top-0 p-0.5">
+        <div className="absolute top-0 right-0">
           <img
-            src={`https://i.imgur.com/${factionImg}`}
+            src={`https://i.imgur.com/${factionImg}.png`}
             alt="element"
-            className="w-8 h-8"
+            className="w-8"
           />
         </div>
       </div>
-      <p className="bg-neutral-800 text-center hover:bg-amber">{name}</p>
+      <div className="bg-neutral-800 hover:bg-amber flex items-center justify-center gap-2">
+        <p className="">{name}</p>
+        <img
+          src={`https://i.imgur.com/${elementImg}.png`}
+          alt="element"
+          className="w-4 h-4"
+        />
+      </div>
     </Link>
   );
 };

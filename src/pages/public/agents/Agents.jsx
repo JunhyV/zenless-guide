@@ -6,17 +6,23 @@ import { apiCall } from "../../../utils/apiCall";
 import {
   gameVersion,
   lastUpdate,
+  newCharacters,
   nextVersion,
 } from "../../../utils/gameVersion";
 import AgentSelection from "./AgentSelection";
-import { elementOptions, factionOptions, rankOptions, rolOptions } from "../../../utils/options";
+import {
+  elementOptions,
+  factionOptions,
+  rankOptions,
+  rolOptions,
+} from "../../../utils/options";
 
 const Agents = () => {
   const [agents, setAgents] = useState([]);
   const [showAgents, setShowAgents] = useState([]);
 
   const [selector, setSelector] = useState({
-    title: "",
+    title: "Select by Faction",
     options: [],
   });
 
@@ -24,7 +30,7 @@ const Agents = () => {
   const [rankFilter, setRankFilter] = useState([]);
   const [elementFilter, setElementFilter] = useState([]);
   const [rolFilter, setRolFilter] = useState([]);
-  const [factionFilter, setFactionFilter] = useState([]);
+  const [factionFilter, setFactionFilter] = useState("");
   const [nameFilter, setNameFilter] = useState("");
 
   useEffect(() => {
@@ -50,9 +56,25 @@ const Agents = () => {
             img: short_img,
           };
         });
-        getData.sort((a, b) => a.name.localeCompare(b.name));
-        setAgents(getData);
-        setShowAgents(getData);
+
+        // Filtrar personajes nuevos
+        const filtredAgents = getData.filter((agent) =>
+          newCharacters.some((name) => agent.name.includes(name))
+        );
+
+        if (filtredAgents.length !== 0) {
+          const getDataFiltred = getData.filter((agent) =>
+            filtredAgents.some((newAgent) => agent.id !== newAgent.id)
+          );
+          getDataFiltred.sort((a, b) => a.name.localeCompare(b.name));
+          filtredAgents.forEach(newAgent => getDataFiltred.unshift(newAgent));
+          setAgents(getDataFiltred);
+          setShowAgents(getDataFiltred);
+        } else {
+          getData.sort((a, b) => a.name.localeCompare(b.name));
+          setAgents(getData);
+          setShowAgents(getData);
+        }
       } catch (error) {
         console.error(error);
       }
@@ -65,7 +87,7 @@ const Agents = () => {
     const filterAgents = () => {
       const agentsToShow = agents.filter((agent) => {
         return (
-          (rankFilter.length === 0 || rankFilter.includes(agent.grade)) &&
+          (rankFilter.length === 0 || rankFilter.includes(agent.rank)) &&
           (elementFilter.length === 0 ||
             elementFilter.includes(agent.element)) &&
           (rolFilter.length === 0 || rolFilter.includes(agent.rol)) &&
@@ -115,8 +137,14 @@ const Agents = () => {
               type="text"
               className="w-full flex-1 p-2"
               placeholder="Search by name..."
+              value={nameFilter}
+              onChange={(e) => setNameFilter(e.target.value)}
             />
-            <SelectFilter selector={selector} />
+            <SelectFilter
+              selector={selector}
+              filter={factionFilter}
+              set={setFactionFilter}
+            />
             <ButtonFilter
               options={rankOptions}
               filterParam={rankFilter}
