@@ -1,6 +1,7 @@
-import React from "react";
+import React, { version } from "react";
 import { Link } from "react-router-dom";
 import Tier from "../../../components/public/Tier";
+import { gameVersion, lastUpdate} from "../../../utils/gameVersion";
 
 const Tierlist = () => {
   const tiers = ["SS", "S", "A", "B", "C"];
@@ -24,18 +25,14 @@ const Tierlist = () => {
         <p className="mt-2">
           The continuous tier list was created with
           <span className="font-black">Zenless Zone Zero</span> (ZZZ) version
-          <span className="font-black"> 1.0</span> in mind. - There could be
+          <span className="font-black"> {gameVersion}</span> in mind. - There could be
           changes, though it is too early to establish criteria for all
           characters at the moment. We hope you enjoy the content. We're working
           to give you the best experience in the game.
         </p>
         <p>
           <span className="font-thin">Last updated: </span>
-          {new Date().getFullYear() +
-            "." +
-            (new Date().getMonth() + 1).toString().padStart(2, "0") +
-            "." +
-            new Date().getDate()}
+          {lastUpdate}
         </p>
       </div>
 

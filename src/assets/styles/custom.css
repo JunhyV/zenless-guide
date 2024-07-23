@@ -1,0 +1,3 @@
+.hover-grayscale:hover .grayscale-image {
+    filter: grayscale(100%);
+  }

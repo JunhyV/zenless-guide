@@ -4,11 +4,16 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        "phone": "url('/src/assets/images/background/zenless-zone-zero-belle-wise-phone-wallpaper-4k-uhdpaper.com-283@0@k.jpg')",
-        "desktop": "url('/src/assets/images/background/zenless-zone-zero-belle-wise-4k-wallpaper-uhdpaper.com-283@0@k.jpg')",
+        phone:
+          "url('/src/assets/images/background/zenless-zone-zero-belle-wise-phone-wallpaper-4k-uhdpaper.com-283@0@k.jpg')",
+        desktop:
+          "url('/src/assets/images/background/zenless-zone-zero-belle-wise-4k-wallpaper-uhdpaper.com-283@0@k.jpg')",
       },
       colors: {
-        'overlay': 'rgb(38, 38, 38, .5)',
+        overlay: "rgb(38, 38, 38, .5)",
+      },
+      height: {
+        108: "108px",
       },
     },
   },
