@@ -20,11 +20,14 @@ import UpdateEngine from "../pages/admin/admin-engines/UpdateEngine";
 import CreateBangboo from "../pages/admin/admin-bangboos/CreateBangboo";
 import UpdateBangboo from "../pages/admin/admin-bangboos/UpdateBangboo";
 import UpdateAgent from "../pages/admin/admin-agents/UpdateAgent";
+import Error from "../pages/error/Error";
+import AgentPage from "../pages/public/agents/AgentPage";
 
 const Router = createBrowserRouter([
   {
     path: "/",
     element: <PublicLayout />,
+    errorElement: <Error/>,
     children: [
       {
         index: true,
@@ -33,6 +36,10 @@ const Router = createBrowserRouter([
       {
         path: "/agents",
         element: <Agents />,
+      },
+      {
+        path: "/agents/:id",
+        element: <AgentPage />,
       },
       {
         path: "/tierlist",

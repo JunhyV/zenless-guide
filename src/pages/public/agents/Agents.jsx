@@ -133,7 +133,7 @@ const Agents = () => {
           Zenless Zone Zero Agents List
         </h1>
         <p className="mb-2">
-          <Link className="hover:text-yellow-500">Home</Link> /{" "}
+          <Link className="hover:text-yellow-500">Home</Link> {" "}/{" "}
           <Link className="hover:text-yellow-500">Agents</Link>
         </p>
         <hr className="border-yellow-500" />

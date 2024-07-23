@@ -15,6 +15,20 @@ export default {
       height: {
         108: "108px",
       },
+      keyframes: {
+        slideDown: {
+          "0%": { maxHeight: "0", opacity: "0" },
+          "100%": { maxHeight: "500px", opacity: "1" },
+        },
+        slideUp: {
+          "0%": { maxHeight: "500px", opacity: "1" },
+          "100%": { maxHeight: "0", opacity: "0" },
+        },
+      },
+      animation: {
+        slideDown: "slideDown 0.5s forwards",
+        slideUp: "slideUp 0.5s forwards",
+      },
     },
   },
   plugins: [],

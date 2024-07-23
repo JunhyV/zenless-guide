@@ -1,37 +1,37 @@
-const tierList = [
+export const tierList = [
     {
         rank: 'SS',
-        dmg_carry: ['ellen'],
-        anomaly_carry: ['grace'],
-        stun: ['lycaon'],
-        support: ['soukaku', 'nicole']
+        dmg_carry: ['Ellen', 'Zhu Yuan'],
+        anomaly_carry: ['Grace'],
+        stun: ['Lycaon'],
+        support: ['Soukaku', 'Nicole']
     },
     {
         rank: 'S',
-        dmg_carry: ['nekomata', 'soldier 11'],
-        anomaly_carry: ['piper'],
-        stun: ['koleda'],
-        support: ['lucy']
+        dmg_carry: ['Nekomata', 'Soldier 11'],
+        anomaly_carry: ['Piper'],
+        stun: ['Koleda'],
+        support: ['Lucy', 'Rina']
     },
     {
         rank: 'A',
-        dmg_carry: [ 'corin'],
+        dmg_carry: [ 'Corin'],
         anomaly_carry: [],
-        stun: ['anby'],
-        support: ['rina']
+        stun: ['Anby'],
+        support: []
     },
     {
         rank: 'B',
-        dmg_carry: ['anton'],
+        dmg_carry: ['Antón'],
         anomaly_carry: [],
-        stun: [],
+        stun: ['Ben'],
         support: []
     },
     {
         rank: 'C',
-        dmg_carry: ['billy'],
+        dmg_carry: ['Billy'],
         anomaly_carry: [],
-        stun: ['ben'],
+        stun: [],
         support: []
     }
 ]
