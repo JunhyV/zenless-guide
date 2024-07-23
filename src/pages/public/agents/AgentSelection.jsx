@@ -42,7 +42,7 @@ const AgentSelection = ({ data }) => {
         <img
           src={`https://i.imgur.com/${img}.png`}
           alt={name}
-          className="w-32 h-108 hover:grayscale grayscale-image "
+          className="w-32 h-108 grayscale-image "
         />
         <div className="p-0.5 absolute bottom-0">
           <img
@@ -59,7 +59,7 @@ const AgentSelection = ({ data }) => {
           />
         </div>
       </div>
-      <div className="bg-neutral-800 hover:bg-amber flex items-center justify-center gap-2">
+      <div className="bg-neutral-800 flex items-center justify-center gap-2">
         <p className="">{name}</p>
         <img
           src={`https://i.imgur.com/${elementImg}.png`}

@@ -17,6 +17,7 @@ import {
   rolOptions,
 } from "../../../utils/options";
 import LoadingDots from "../../../components/LoadingDots";
+import NextAgents from "./NextAgents";
 
 const Agents = () => {
   const [agents, setAgents] = useState([]);
@@ -127,7 +128,7 @@ const Agents = () => {
 
   return (
     <div className="bg-neutral-800 bg-opacity-80 min-h-full flex flex-col gap-4">
-      <div className="text-white p-2 h-full">
+      <div className="text-white px-5 h-full">
         <h1 className="font-black text-3xl md:text-5xl text-center">
           Zenless Zone Zero Agents List
         </h1>
@@ -151,11 +152,14 @@ const Agents = () => {
         <LoadingDots />
       ) : (
         <>
-          <div className="text-white p-2">
-            <h2 className="font-black">Comming soon on {nextVersion}... </h2>
+          <div className="text-white px-5">
+            <h2 className="text-xl font-medium mb-2">Comming soon... </h2>
+            <NextAgents/>
           </div>
-
-          <div className="p-5">
+          <div className="px-5">
+            <h2 className="text-xl text-white font-medium mb-2">
+              Available characters {gameVersion}
+            </h2>
             <div className="flex flex-col md:flex-row gap-2 items-center">
               <input
                 type="text"

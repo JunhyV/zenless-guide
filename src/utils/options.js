@@ -81,11 +81,11 @@ export const factionOptions = [
   },
   {
     name: "Criminal Investigation",
-    img: "VpIANdJ.jpeg",
+    img: "Dr87V8j.png",
   },
   {
     name: "OBOLS Squad",
-    img: "cQWlAY1.jpeg",
+    img: "VYgrdXc.png",
   },
   {
     name: "Section 6",
@@ -93,7 +93,7 @@ export const factionOptions = [
   },
   {
     name: "Sons of Calydon",
-    img: "nwwSxyy.jpeg",
+    img: "mQRCnze.png",
   },
   {
     name: "Victoria Housekeeping Co.",
