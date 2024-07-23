@@ -23,6 +23,7 @@ import UpdateAgent from "../pages/admin/admin-agents/UpdateAgent";
 import Error from "../pages/error/Error";
 import AgentPage from "../pages/public/agents/AgentPage";
 
+
 const Router = createBrowserRouter([
   {
     path: "/",
@@ -39,7 +40,7 @@ const Router = createBrowserRouter([
       },
       {
         path: "/agents/:id",
-        element: <AgentPage />,
+        element: <AgentPage/>
       },
       {
         path: "/tierlist",
