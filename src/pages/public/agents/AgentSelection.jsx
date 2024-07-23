@@ -35,7 +35,7 @@ const AgentSelection = ({ data }) => {
   return (
     <Link
       to={`/agents/${id}`}
-      className={`text-white font-medium ${bgByRank} hover:from-yellow-400 hover-grayscale rounded-t-xl relative`}
+      className={`text-white font-medium ${bgByRank} hover:from-yellow-400 hover-grayscale rounded-t-xl relative overflow-hidden`}
     >
       {isNew ? <img src={newImg} className="absolute -top-2 -left-2 z-10 w-14"/> : null}
       <div className="relative overflow-hidden">
