@@ -7,7 +7,6 @@ import {
   gameVersion,
   lastUpdate,
   newCharacters,
-  nextVersion,
 } from "../../../utils/gameVersion";
 import AgentSelection from "./AgentSelection";
 import {
@@ -49,6 +48,10 @@ const Agents = () => {
 
       try {
         const res = await apiCall("https://zenless-api.vercel.app/agents");
+
+        const elapsedTime = Date.now() - startTime;
+        const remainingTime = MINIMUM_DELAY - elapsedTime;
+
         const getData = res.map((agent) => {
           const { _id, short_img, rol, rank, faction, nickname, element } =
             agent;
@@ -62,9 +65,6 @@ const Agents = () => {
             img: short_img,
           };
         });
-
-        const elapsedTime = Date.now() - startTime;
-        const remainingTime = MINIMUM_DELAY - elapsedTime;
 
         if (remainingTime > 0) {
           setTimeout(() => {
@@ -133,7 +133,7 @@ const Agents = () => {
           Zenless Zone Zero Agents List
         </h1>
         <p className="mb-2">
-          <Link className="hover:text-yellow-500">Home</Link> {" "}/{" "}
+          <Link className="hover:text-yellow-500">Home</Link> /{" "}
           <Link className="hover:text-yellow-500">Agents</Link>
         </p>
         <hr className="border-yellow-500" />
@@ -154,7 +154,7 @@ const Agents = () => {
         <>
           <div className="text-white px-5">
             <h2 className="text-xl font-medium mb-2">Comming soon... </h2>
-            <NextAgents/>
+            <NextAgents />
           </div>
           <div className="px-5">
             <h2 className="text-xl text-white font-medium mb-2">

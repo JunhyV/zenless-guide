@@ -12,7 +12,7 @@ const TierListDetails = () => {
             <li className="list-disc">
               Synergy: The agent pairs well with another strong agent.
             </li>
-            <ul className="pl-5">
+            <ul className="pl-5 bg">
               <li className="list-disc">
                 Example: <span className="font-medium text-cyan-400">Ellen</span>/<span className="font-medium text-cyan-400">Soukaku</span>,{" "}
                 <span className="font-medium text-yellow-400">Piper</span>/<span className="font-medium text-rose-400">Lucy</span>, or <span className="font-medium text-blue-400">Grace</span>/

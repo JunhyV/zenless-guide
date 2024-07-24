@@ -1,4 +1,4 @@
-import { faBars, faChartSimple, faGear, faGhost, faHouse, faUsers } from "@fortawesome/free-solid-svg-icons";
+import { faChartSimple, faGear, faGhost, faHouse, faUser, faUsers } from "@fortawesome/free-solid-svg-icons";
 
 export const navList = [
     {

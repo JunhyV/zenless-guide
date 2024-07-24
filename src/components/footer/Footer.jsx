@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import FooterNav from "./FooterNav.jsx";
-import { navList } from "./footerNav.js";
 import FooterNavPhone from "./FooterNavPhone.jsx";
+import { navList } from "../../utils/footerNav.js";
 
 const Footer = () => {
   const [deviceScreen, setDeviceScreen] = useState({
