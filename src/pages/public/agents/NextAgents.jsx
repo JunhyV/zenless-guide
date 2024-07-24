@@ -14,7 +14,7 @@ const NextAgents = () => {
         <Link
           to={nextAgent.gameplay}
           key={nextAgent.name}
-          className="bg-gradient-to-b from-neutral-600 to-neutral-400 overflow-hidden relative rounded-t-lg hover-grayscale flex items-center justify-center w-32 md:w-40 hover:cursor-pointer hover:from-purple-600 "
+          className="bg-gradient-to-b from-neutral-600 to-neutral-400 overflow-hidden relative hover-grayscale flex items-center justify-center w-32 md:w-40 hover:cursor-pointer hover:from-purple-600 "
           onClick={(e) => handleOpenGameplay(e, nextAgent.gameplay)}
         >
           <img

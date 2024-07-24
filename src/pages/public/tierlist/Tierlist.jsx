@@ -101,9 +101,10 @@ const Tierlist = () => {
           </div>
 
           <div className="px-5 mb-5">
-            <div className="flex bg-neutral-800">
-              <div className="w-10 text-center">Tier</div>
-              <div className="grid grid-cols-4 w-full text-center font-medium">
+
+            <div className="hidden md:flex">
+              <div className="w-10 text-center md:hidden lg:flex text-transparent">Tier</div>
+              <div className="grid grid-cols-4 w-full text-center font-medium bg-neutral-800">
                 <p className="text-purple-400">DMG DPS</p>
                 <p className="text-sky-400">ANOMALY DPS</p>
                 <p className="text-red-400">STUN & DEFENSE</p>
