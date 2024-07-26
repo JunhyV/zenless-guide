@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Tier from "./Tier";
+import Tier from "../../../components/tierlist/Tier";
 import { gameVersion, lastUpdate } from "../../../utils/gameVersion";
-import LoadingDots from "../../../components/LoadingDots";
 import { apiCall } from "../../../utils/apiCall";
 import { tierList } from "../../../utils/tierlist";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
-import TierListDetails from "./TierListDetails";
+import TierListDetails from "../../../components/tierlist/TierListDetails";
+import LoadingDots from "../../../components/loading/LoadingDots";
 
 const Tierlist = () => {
   const [loading, setLoading] = useState(true);
   const [detailsToggle, setDetailsToggle] = useState(false);
   const [agents, setAgents] = useState([]);
-  const MINIMUM_DELAY = 2000;
+  const MINIMUM_DELAY = 1000;
 
   useEffect(() => {
     const fetchData = async () => {

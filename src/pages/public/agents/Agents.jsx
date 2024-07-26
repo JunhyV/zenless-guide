@@ -8,15 +8,15 @@ import {
   lastUpdate,
   newCharacters,
 } from "../../../utils/gameVersion";
-import AgentSelection from "./AgentSelection";
 import {
   elementOptions,
   factionOptions,
   rankOptions,
   rolOptions,
 } from "../../../utils/options";
-import LoadingDots from "../../../components/LoadingDots";
-import NextAgents from "./NextAgents";
+import LoadingDots from "../../../components/loading/LoadingDots";
+import NextAgents from "../../../components/agents/NextAgents";
+import AgentSelection from "../../../components/agents/AgentSelection";
 
 const Agents = () => {
   const [agents, setAgents] = useState([]);
@@ -193,7 +193,7 @@ const Agents = () => {
               />
             </div>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-5 lg:grid-cols-7 gap-5 p-2 justify-items-center">
+          <div className="grid grid-cols-2 md:grid-cols-5 lg:grid-cols-8 gap-5 p-2 justify-items-center">
             {showAgents.map((agent) => (
               <AgentSelection key={agent.id} data={agent} />
             ))}

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import LoadingScreen from "../LoadingScreen";
+import LoadingScreen from "../loading/LoadingScreen";
 
 const SubmitButton = ({ name, data, url, reset, initialData }) => {
   const [loadingToggle, setLoadingToggle] = useState(false);

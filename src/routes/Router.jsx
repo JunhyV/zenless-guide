@@ -21,7 +21,7 @@ import CreateBangboo from "../pages/admin/admin-bangboos/CreateBangboo";
 import UpdateBangboo from "../pages/admin/admin-bangboos/UpdateBangboo";
 import UpdateAgent from "../pages/admin/admin-agents/UpdateAgent";
 import Error from "../pages/error/Error";
-import AgentPageId from "../pages/public/agents/AgentPageId";
+import AgentPageId from "../pages/public/agent-id/AgentPageId";
 
 
 const Router = createBrowserRouter([

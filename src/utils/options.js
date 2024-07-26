@@ -130,3 +130,12 @@ export const advancedStats = [
     name: "HP",
   },
 ];
+
+export const skillImage = {
+  basic: 'trvaozB',
+  core_skill: 'wuj6cIk',
+  chain: 'RbPNUob',
+  dodge: 'MBwfoxV',
+  special: 'bol7wQB',
+  assist: 'iITc2iJ'
+}

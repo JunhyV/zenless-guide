@@ -1,11 +1,11 @@
 import React from "react";
-import { nextAgents } from "../../../utils/gameVersion";
+import { nextAgents } from "../../utils/gameVersion";
 import { Link } from "react-router-dom";
 
 const NextAgents = () => {
   const handleOpenGameplay = (e, url) => {
     e.preventDefault();
-    window.open(url, '_blank')
+    window.open(url, "_blank");
   };
 
   return (

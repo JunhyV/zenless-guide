@@ -1,3 +1,24 @@
 .hover-grayscale:hover .grayscale-image {
   filter: grayscale(100%);
 }
+
+@media (min-width: 1024px) {
+  .custom-height {
+    height: calc(100vh - 4rem);
+  }
+}
+@media (orientation: landscape) and (max-width: 768px) {
+  .landscape {
+    height: calc(100vh - 2rem);
+  }
+}
+
+.no-scrollbar {
+  scrollbar-width: none; /* Firefox */
+}
+.no-scrollbar {
+  overflow: scroll;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}

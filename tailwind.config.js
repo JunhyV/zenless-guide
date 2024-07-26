@@ -26,8 +26,8 @@ export default {
         },
       },
       animation: {
-        slideDown: "slideDown 0.5s forwards",
-        slideUp: "slideUp 0.5s forwards",
+        slideDown: "slideDown 0.1s forwards",
+        slideUp: "slideUp 0.1s forwards",
       },
     },
   },
