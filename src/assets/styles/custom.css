@@ -22,3 +22,8 @@
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
+.fade-edges {
+  -webkit-mask-image: radial-gradient(circle, white 70%, transparent 100%);
+  mask-image: radial-gradient(circle, white 70%, transparent 100%);
+}

@@ -12,7 +12,7 @@ const AgentBuild = () => {
   },[window.innerWidth])
 
   return (
-    <div className="lg:w-1/2 flex flex-col p-2 gap-2 md:p-5 md:gap-5">
+    <div className="lg:w-1/2 flex flex-col p-2 lg:pl-0 gap-2 md:pt-5 md:gap-5">
       <div className="bg-black min-h-40">Content Up</div>
       <div className={`grid md:grid-cols-2 ${screenWidth} h-full gap-2 md:gap-5 pb-2 md:pb-5 lg:pb-0`}>
         <div className="w-full h-full bg-pink-50"> Content Left</div>

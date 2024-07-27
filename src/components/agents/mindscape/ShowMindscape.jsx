@@ -28,7 +28,7 @@ const ShowMindscape = ({ data }) => {
           <img
             src={`https://i.imgur.com/${mindscape.img}.jpeg`}
             alt="mindscape"
-            className="w-full h-full lg:w-3/4 "
+            className="w-full h-full lg:w-3/4 border-4 border-white rounded-3xl"
           />
         )}
         <div className="mt-5 grid md:grid-cols-2 lg:grid-cols-2 gap-5">

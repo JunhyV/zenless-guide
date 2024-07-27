@@ -56,14 +56,14 @@ const AgentPageId = () => {
             />
           )}
           {pageDisplay === "build" && (
-            <div className="w-full pt-16 lg:pt-0 overflow-hidden flex flex-col lg:flex-row custom-height">
+            <div className="w-full pt-14  lg:pt-0 overflow-hidden flex flex-col lg:flex-row custom-height">
               <AgentView data={agentData} />
               <AgentBuild />
             </div>
           )}
           {pageDisplay === "skills" && (
-            <div className="pt-16 lg:pt-0 w-full h-full lg:overflow-hidden lg:flex lg:items-center">
-              <div className="flex flex-col-reverse lg:flex-row lg:mx-auto lg:w-3/4 lg:h-3/4">
+            <div className="pt-14  lg:pt-0 w-full h-full lg:overflow-hidden lg:flex lg:items-center">
+              <div className="flex flex-col-reverse lg:flex-row lg:mx-auto lg:w-5/6 lg:h-3/4 2xl:w-full">
                 <ShowSkills
                   data={agentData.skills}
                   element={agentData.element}
@@ -76,13 +76,13 @@ const AgentPageId = () => {
             </div>
           )}
           {pageDisplay === "mindscape" && (
-            <div className="pt-16 lg:pt-0 w-full h-full lg:overflow-hidden flex flex-col lg:flex-row lg:mx-auto lg:w-3/4">
+            <div className="pt-14  lg:pt-0 w-full h-full lg:overflow-hidden flex flex-col lg:flex-row lg:mx-auto lg:w-5/6 2xl:w-full">
               <ShowMindscape data={agentData.mindscape} />
             </div>
           )}
           {pageDisplay === "farm" && (
-            <div className="pt-16 lg:pt-0 w-full h-full lg:overflow-hidden flex flex-col lg:flex-row">
-              <AgentFarm />
+            <div className="w-full pt-14 lg:pt-0 overflow-hidden flex flex-col lg:flex-row lg:justify-center">
+              <AgentFarm element={agentData.element} rol={agentData.rol} name={agentData.nickname} img={agentData.full_img}/>
             </div>
           )}
         </>

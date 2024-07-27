@@ -75,7 +75,7 @@ const AgentView = ({ data }) => {
   <img
     src={`https://i.imgur.com/${full_img}.png`}
     alt={nickname}
-    className={`min-w-full object-cover object-top ${adjust} ${screenHeight2} h-[calc(100vh-6.5rem)] md:h-[calc(100vh-8rem)] lg:h-[calc(100vh-4rem)] landscape:h-[calc(100vh+2rem)]`}
+    className={`min-w-full object-cover object-top ${adjust} ${screenHeight2} h-[calc(100vh-6.5rem)] md:h-[calc(100vh-8rem)] lg:h-[calc(100vh-4rem)] landscape:h-[calc(100vh+2rem)] fade-edges`}
   />
   <div
     className={`border-2 ${borderColor} bg-gradient-to-r ${fromColor} ${toColor} text-white absolute flex gap-5 p-1 md:p-2 rounded-xl ${screenHeight}`}
