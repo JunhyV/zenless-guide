@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { agentInitial } from "../../../utils/initialStates";
 import InputData from "../../../components/admin/form/InputData";
-import SubmitButton from "../../../components/buttons/SubmitButton";
 import SelectData from "../../../components/admin/form/SelectData";
 import {
   elementOptions,
@@ -16,10 +15,18 @@ import AgentSkills from "./extras/AgentSkills";
 import { apiCall } from "../../../utils/apiCall";
 import UpdateButton from "../../../components/buttons/UpdateButton";
 import { useParams } from "react-router-dom";
+import AgentBuild from "../admin-build/AgentBuild";
+import { agentBuild } from "../../../utils/builds/zhuYuanBuild";
 
 const UpdateAgent = () => {
   const [agent, setAgent] = useState(agentInitial);
   const params = useParams();
+
+  // Info for build
+  const [agents, setAgents] = useState([]);
+  const [bangboos, setBangboos] = useState([]);
+  const [engines, setEngines] = useState([]);
+  const [disks, setDisks] = useState([]);
 
   const stats = Object.keys(agent.stats);
   const skills = Object.keys(agent.skills);
@@ -40,6 +47,7 @@ const UpdateAgent = () => {
   };
 
   useEffect(() => {
+    // Get Agent Data
     const fetchData = async () => {
       try {
         const data = await apiCall(
@@ -58,6 +66,7 @@ const UpdateAgent = () => {
           core_skill: JSON.parse(data.core_skill),
           mindscape: JSON.parse(data.mindscape),
           skills: JSON.parse(data.skills),
+          build: data.build ?? agentBuild
         });
       } catch (error) {
         console.error(error);
@@ -66,6 +75,50 @@ const UpdateAgent = () => {
 
     fetchData();
   }, []);
+
+  // Get data for build
+  useEffect(() => {
+    if (agent) {
+      // Get Agents
+      const fetchAgents = async () => {
+        try {
+          const res = await apiCall(`https://zenless-api.vercel.app/agents`);
+          setAgents(res);
+        } catch (error) {}
+      };
+
+      // Get Bangboos
+      const fetchBangboos = async () => {
+        try {
+          const res = await apiCall(`https://zenless-api.vercel.app/bangboos`);
+          setBangboos(res);
+        } catch (error) {}
+      };
+      // Get Disks
+      const fetchDisks = async () => {
+        try {
+          const res = await apiCall(`https://zenless-api.vercel.app/disks`);
+          setDisks(res);
+        } catch (error) {}
+      };
+
+      // Get Engines
+      const fetchEngines = async () => {
+        try {
+          const res = await apiCall(`https://zenless-api.vercel.app/engines`);
+          const filterEngines = res
+            .filter((engine) => engine.rank !== "B")
+            .filter((engine) => engine.rol === agent.rol);
+          setEngines(filterEngines);
+        } catch (error) {}
+      };
+
+      fetchAgents();
+      fetchBangboos();
+      fetchDisks();
+      fetchEngines();
+    }
+  }, [agent]);
 
   return (
     <div className="flex flex-col items-center justify-center min-h-full">
@@ -167,6 +220,17 @@ const UpdateAgent = () => {
               className="flex-1 p-2 border border-neutral-400 rounded-md"
             />
           </div>
+        </div>
+        <div className="border border-neutral-400 p-5 w-full mb-5">
+          <h2 className="font-medium mb-5 text-lg">Build</h2>
+          <AgentBuild
+            data={agent}
+            set={setAgent}
+            agents={agents}
+            engines={engines}
+            bangboos={bangboos}
+            disks={disks}
+          />
         </div>
       </div>
       <UpdateButton

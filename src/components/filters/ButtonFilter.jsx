@@ -20,7 +20,7 @@ const ButtonFilter = ({ options, filterParam, setFilter, filterAgents}) => {
           key={option.img}
           className={`${filterParam.includes(option.name) ? 'bg-neutral-600' : 'bg-neutral-800'} h-full hover:bg-neutral-600 p-1`}
         >
-          <img src={option.img} alt="opt-img" className="w-8 h-8 mx-4" />
+          <img src={`https://i.imgur.com/${option.img}.png`} alt="opt-img" className="w-8 h-8 mx-4" />
         </button>
       ))}
     </div>

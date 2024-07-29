@@ -81,11 +81,11 @@ export const factionOptions = [
   },
   {
     name: "Criminal Investigation",
-    img: "VpIANdJ.jpeg",
+    img: "Dr87V8j.png",
   },
   {
     name: "OBOLS Squad",
-    img: "cQWlAY1.jpeg",
+    img: "",
   },
   {
     name: "Section 6",
@@ -93,7 +93,7 @@ export const factionOptions = [
   },
   {
     name: "Sons of Calydon",
-    img: "nwwSxyy.jpeg",
+    img: "",
   },
   {
     name: "Victoria Housekeeping Co.",
@@ -130,3 +130,12 @@ export const advancedStats = [
     name: "HP",
   },
 ];
+
+export const skillImage = {
+  basic: 'trvaozB',
+  core_skill: 'wuj6cIk',
+  chain: 'RbPNUob',
+  dodge: 'MBwfoxV',
+  special: 'bol7wQB',
+  assist: 'iITc2iJ'
+}

@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import FooterNav from "./FooterNav.jsx";
-import { navList } from "./footerNav.js";
 import FooterNavPhone from "./FooterNavPhone.jsx";
+import { navList } from "../../utils/footerNav.js";
 
 const Footer = () => {
   const [deviceScreen, setDeviceScreen] = useState({
@@ -36,7 +36,7 @@ const Footer = () => {
 
   return (
     <footer className="flex-none flex flex-col bg-neutral-800 z-10">
-      {deviceScreen.width < 640 || deviceScreen.height < 450 ? (
+      {deviceScreen.width < 768 || deviceScreen.height < 450 ? (
         <FooterNavPhone
           currentLocation={currentLocation}
           displayOverlay={displayOverlay}

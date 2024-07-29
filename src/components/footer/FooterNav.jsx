@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { navList } from "./footerNav";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { navList } from "../../utils/footerNav";
 
 const FooterNav = ({overlayToggle}) => {
   const [links, setLinks] = useState([]);

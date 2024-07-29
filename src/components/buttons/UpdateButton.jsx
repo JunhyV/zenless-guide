@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import LoadingScreen from "../LoadingScreen";
+import LoadingScreen from "../loading/LoadingScreen";
 import { useNavigate } from "react-router-dom";
 
 const UpdateButton = ({ type, data, url, redirect}) => {

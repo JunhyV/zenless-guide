@@ -230,3 +230,4 @@ export const agentInitial = {
     energy_regen: "",
   },
 };
+
