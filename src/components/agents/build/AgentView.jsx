@@ -7,7 +7,6 @@ import {
 
 const AgentView = ({ data }) => {
   const { full_img, nickname, full_name, faction, rol, rank, element } = data;
-  const [adjust, setAdjust] = useState("");
   const [fromColor, setFromColor] = useState("");
   const [toColor, setToColor] = useState("");
   const [borderColor, setBorderColor] = useState("");
@@ -35,15 +34,6 @@ const AgentView = ({ data }) => {
   const rolImg = rolOptions.filter((r) => r.name === rol).shift();
 
   useEffect(() => {
-    const nicknameAdjustments = {
-      Rina: "translate-y-9",
-      Lycaon: "translate-y-4",
-      Ellen: "translate-y-7",
-      Lucy: "scale-125 -translate-x-14",
-      Piper: "scale-110 -translate-x-14 -translate-y-7",
-      Billy: "translate-y-16 scale-125",
-    };
-
     const fromElementColor = {
       fire: "from-neutral-800",
       physical: "from-neutral-800",
@@ -52,30 +42,29 @@ const AgentView = ({ data }) => {
       ether: "from-neutral-800",
     };
     const toElementColor = {
-      fire: "to-rose-300",
-      physical: "to-yellow-300",
-      electric: "to-blue-300",
-      ice: "to-cyan-300",
-      ether: "to-fuchsia-300",
+      fire: "to-rose-400",
+      physical: "to-yellow-400",
+      electric: "to-blue-400",
+      ice: "to-cyan-400",
+      ether: "to-fuchsia-400",
     };
     const borderElementColor = {
-      fire: "border-rose-900",
-      physical: "border-yellow-900",
-      electric: "border-blue-900",
-      ice: "border-cyan-900",
-      ether: "border-fuchsia-900",
+      fire: "border-rose-400",
+      physical: "border-yellow-400",
+      electric: "border-blue-400",
+      ice: "border-cyan-400",
+      ether: "border-fuchsia-400",
     };
-    setAdjust(nicknameAdjustments[nickname] || "");
     setFromColor(fromElementColor[element] || "");
     setToColor(toElementColor[element] || "");
     setBorderColor(borderElementColor[element] || "");
-  }, [nickname, element]);
+  }, [element]);
   return (
 <div className="lg:w-1/2 min-h-full relative overflow-hidden">
   <img
     src={`https://i.imgur.com/${full_img}.png`}
     alt={nickname}
-    className={`min-w-full object-cover object-top ${adjust} ${screenHeight2} h-[calc(100vh-6.5rem)] md:h-[calc(100vh-8rem)] lg:h-[calc(100vh-4rem)] landscape:h-[calc(100vh+2rem)] fade-edges`}
+    className={`min-w-full object-cover object-top ${screenHeight2} h-[calc(100vh-6.5rem)] md:h-[calc(100vh-8rem)] lg:h-[calc(100vh-4rem)] landscape:h-[calc(100vh+2rem)] fade-edges`}
   />
   <div
     className={`border-2 ${borderColor} bg-gradient-to-r ${fromColor} ${toColor} text-white absolute flex gap-5 p-1 md:p-2 rounded-xl ${screenHeight}`}

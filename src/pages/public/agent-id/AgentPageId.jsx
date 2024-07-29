@@ -58,7 +58,7 @@ const AgentPageId = () => {
           {pageDisplay === "build" && (
             <div className="w-full pt-14  lg:pt-0 overflow-hidden flex flex-col lg:flex-row custom-height">
               <AgentView data={agentData} />
-              <AgentBuild />
+              <AgentBuild element={agentData.element}/>
             </div>
           )}
           {pageDisplay === "skills" && (
@@ -77,7 +77,7 @@ const AgentPageId = () => {
           )}
           {pageDisplay === "mindscape" && (
             <div className="pt-14  lg:pt-0 w-full h-full lg:overflow-hidden flex flex-col lg:flex-row lg:mx-auto lg:w-5/6 2xl:w-full">
-              <ShowMindscape data={agentData.mindscape} />
+              <ShowMindscape data={agentData.mindscape} element={agentData.element}/>
             </div>
           )}
           {pageDisplay === "farm" && (

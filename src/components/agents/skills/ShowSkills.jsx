@@ -85,6 +85,7 @@ const ShowSkills = ({ data, element, rank }) => {
                 data={skillContent}
                 rank={rank}
                 actualSkill={actualSkill}
+                element={element}
               />
             ))}
           </>

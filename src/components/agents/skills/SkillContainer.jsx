@@ -2,93 +2,18 @@ import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState, useCallback } from "react";
 import { skillImage } from "../../../utils/options";
+import SkillDescription from "./SkillDescription";
 
-const SkillContainer = ({ data, rank, actualSkill }) => {
+const SkillContainer = ({ data, rank, actualSkill, element }) => {
   const [multiplierToggle, setMultiplierToggle] = useState(false);
-  const [whatToReplace, setWhatToReplace] = useState("");
-  const { name, description } = data;
-
-  useEffect(() => {
-    const skillMap = {
-      basic: "Basic Attack",
-      dodge: "Dodge",
-      assist: "Assist", // Corregido el typo
-      special: "Special Attack",
-      chain: "Ultimate",
-    };
-    setWhatToReplace(skillMap[actualSkill] || "");
-  }, [actualSkill]);
-
-  const replaceText = useCallback((text, imageUrl, replace) => {
-    if (!replace) return text;
-
-    const keyword = [
-      "Physical DMG",
-      "Ether DMG",
-      "Fire DMG",
-      "Ice DMG",
-      "Electric DMG",
-    ];
-
-    const keywordStyles = {
-      "Physical DMG": "text-yellow-400",
-      "Ether DMG": "text-fuchsia-400",
-      "Fire DMG": "text-rose-400",
-      "Ice DMG": "text-cyan-400",
-      "Electric DMG": "text-blue-400",
-    };
-
-    const regex = new RegExp(keyword.join("|"), "g");
-
-    const parts = text.split(replace);
-    return (
-      <>
-        {parts.flatMap((part, index) => {
-          const getDMG = part.split(regex);
-          const matches = [...part.matchAll(regex)];
-
-          // New array to change
-          const fragments = getDMG.map((fragment, i) => (
-            <React.Fragment key={`${index}-${i}`}>
-              {fragment}
-              {i < getDMG.length - 1 && (
-                <span
-                  className={
-                    matches[i] && keyword.includes(matches[i][0])
-                      ? `highlighted ${keywordStyles[matches[i][0]] || ""}`
-                      : ""
-                  }
-                >
-                  {matches[i] ? matches[i][0] : ""}
-                </span>
-              )}
-            </React.Fragment>
-          ));
-          // Devolver los fragmentos procesados para cada parte
-          return (
-            <React.Fragment key={index}>
-              {fragments}
-              {/* Añadir imagen después de cada parte, excepto el último */}
-              {index < parts.length - 1 && (
-                <img
-                  src={`https://i.imgur.com/${imageUrl}.png`}
-                  alt={replace}
-                  className="inline w-6 h-6"
-                  style={{ opacity: 1, transition: "opacity 0.5s ease-in" }}
-                />
-              )}
-            </React.Fragment>
-          );
-        })}
-      </>
-    );
-  }, []);
+  const [bgColor, setBgColor] = useState('');
+  const [textColor, setTextColor] = useState('');
 
   const handleToggle = useCallback(() => {
     setMultiplierToggle((prevState) => !prevState);
   }, []);
 
-  const multiplierContent = React.useMemo(() => {
+  const multiplierContent = () => {
     if (!multiplierToggle || data.data.length === 0) return null;
     return (
       <div>
@@ -108,7 +33,36 @@ const SkillContainer = ({ data, rank, actualSkill }) => {
         ))}
       </div>
     );
-  }, [multiplierToggle, data.data]);
+  };
+
+  useEffect(() => {
+    if (element) {
+      switch (element) {
+        case "ether":
+          setBgColor("from-fuchsia-600 to-fuchsia-300");
+          setTextColor('text-fuchsia-400');
+          break;
+        case "electric":
+          setBgColor("from-blue-600 to-blue-300");
+          setTextColor('text-blue-400');
+          break;
+        case "fire":
+          setBgColor("from-rose-600 to-rose-300");
+          setTextColor('text-rose-400');
+          break;
+        case "physical":
+          setBgColor("from-yellow-600 to-yellow-300");
+          setTextColor('text-yellow-400');
+          break;
+        case "ice":
+          setBgColor("from-cyan-600 to-cyan-300");
+          setTextColor('text-cyan-400');
+          break;
+        default:
+          break;
+      }
+    }
+  }, [element]);
 
   return (
     <div className="w-full shadow-2xl h-fit">
@@ -116,13 +70,11 @@ const SkillContainer = ({ data, rank, actualSkill }) => {
         <img
           src={`https://i.imgur.com/${skillImage[actualSkill]}.png`}
           alt="skill"
-          className="bg-neutral-600 p-1 h-8 w-8"
+          className={`bg-gradient-to-b ${bgColor ? bgColor : ''} p-1 h-8 w-8`}
         />
-        <p>{name}</p>
+        <p className={`${textColor ? textColor : ''} font-medium`}>{data.name}</p>
       </div>
-      <p className="bg-neutral-700 p-2 lg:text-sm">
-        {replaceText(description, skillImage[actualSkill], whatToReplace)}
-      </p>
+      <SkillDescription actualSkill={actualSkill} description={data.description} />
       {data.data.length > 0 && (
         <div
           className="bg-neutral-800 hover:cursor-pointer"
@@ -132,7 +84,7 @@ const SkillContainer = ({ data, rank, actualSkill }) => {
             <p>Multipliers at {rank === "S" ? "+12" : "+16"}</p>
             <FontAwesomeIcon icon={faChevronDown} />
           </div>
-          {multiplierContent}
+          {multiplierContent()}
         </div>
       )}
     </div>

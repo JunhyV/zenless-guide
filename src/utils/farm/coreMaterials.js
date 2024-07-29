@@ -168,3 +168,14 @@ export const useAwe = ['Piper', 'Corin', 'Nekomata'];
 export const usePursuit = ['Zhu Yuan', 'Billy', 'Lycaon'];
 export const useMalice = ['Ben', 'Koleda', 'Lucy'];
 export const useAdvance = ['Rina', 'Grace', 'Antón', 'Soldier 11'];
+
+export const farmMaterials = {
+  useGrip,
+  useDrive,
+  useShoes,
+  useObitaury,
+  useAwe,
+  usePursuit,
+  useMalice,
+  useAdvance
+};

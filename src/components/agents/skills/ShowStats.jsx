@@ -10,7 +10,6 @@ const ShowStats = ({ data }) => {
     if (data) {
       const parsedData = JSON.parse(data);
       setStats(parsedData);
-      console.log(parsedData);
 
       const getList = Object.keys(parsedData);
       setStatsList(getList);
@@ -18,7 +17,7 @@ const ShowStats = ({ data }) => {
   }, [data]);
 
   return (
-    <div className="bg-neutral-900 text-white m-2 p-2 lg:h-fit lg:items-center">
+    <div className="bg-neutral-900 text-white m-2 p-2 lg:h-fit lg:items-center shadow-xl">
       <h2 className="text-center font-medium text-xl bg-neutral-800 p-1">
         Stats at lvl 60
       </h2>
