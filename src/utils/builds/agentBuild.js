@@ -29,6 +29,28 @@ export const agentBuild = {
           name: "",
           img: "",
         },
+      ],
+    },
+    {
+      id: 1,
+      title: "",
+      engines: [
+        {
+          id: 0,
+          name: "",
+          img: "",
+        },
+      ],
+    },
+    {
+      id: 2,
+      title: "",
+      engines: [
+        {
+          id: 0,
+          name: "",
+          img: "",
+        },
         {
           id: 1,
           name: "",
@@ -50,7 +72,7 @@ export const agentBuild = {
     fifth: "",
     sixth: "",
   },
-  sub_stats: ["", "", ""],
+  sub_stats: "",
   team_comps: [
     {
       id: 1,

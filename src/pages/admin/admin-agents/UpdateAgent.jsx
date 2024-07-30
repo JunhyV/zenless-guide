@@ -15,8 +15,8 @@ import AgentSkills from "./extras/AgentSkills";
 import { apiCall } from "../../../utils/apiCall";
 import UpdateButton from "../../../components/buttons/UpdateButton";
 import { useParams } from "react-router-dom";
-import AgentBuild from "../admin-build/AgentBuild";
-import { agentBuild } from "../../../utils/builds/zhuYuanBuild";
+import AdminBuild from "../admin-build/AdminBuild";
+import { agentBuild } from "../../../utils/builds/agentBuild";
 
 const UpdateAgent = () => {
   const [agent, setAgent] = useState(agentInitial);
@@ -66,7 +66,7 @@ const UpdateAgent = () => {
           core_skill: JSON.parse(data.core_skill),
           mindscape: JSON.parse(data.mindscape),
           skills: JSON.parse(data.skills),
-          build: agentBuild
+          build: agentBuild,
         });
       } catch (error) {
         console.error(error);
@@ -221,17 +221,7 @@ const UpdateAgent = () => {
             />
           </div>
         </div>
-        <div className="border border-neutral-400 p-5 w-full mb-5">
-          <h2 className="font-medium mb-5 text-lg">Build</h2>
-          <AgentBuild
-            data={agent}
-            set={setAgent}
-            agents={agents}
-            engines={engines}
-            bangboos={bangboos}
-            disks={disks}
-          />
-        </div>
+        <AdminBuild data={agent} set={setAgent} engines={engines} agents={agents} bangboos={bangboos} disks={disks}/>
       </div>
       <UpdateButton
         type={"Agent"}
