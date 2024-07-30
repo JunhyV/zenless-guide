@@ -1,17 +1,17 @@
 export const agentBuild = {
-  diskset: [
+  disksets: [
     {
       id: 0,
       title: "",
       sets: [
         {
-          id: "",
+          id: 0,
           name: "",
           img: "",
           quantity: 0,
         },
         {
-          id: "",
+          id: 1,
           name: "",
           img: "",
           quantity: 0,
@@ -25,10 +25,12 @@ export const agentBuild = {
       title: "",
       engines: [
         {
+          id: 0,
           name: "",
           img: "",
         },
         {
+          id: 1,
           name: "",
           img: "",
         },

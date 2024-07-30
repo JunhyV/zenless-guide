@@ -1,70 +1,73 @@
-import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import SaverInput from "../../../components/admin/form/SaverInput";
 import DeleteButton from "../../../components/buttons/form/DeleteButton";
 import AddDeleteButton from "../../../components/buttons/form/AddDeleteButton";
+import {
+  addSet,
+  addSetList,
+  deleteSet,
+  deleteSetList,
+  handleSaveDiskSet,
+  handleSaveQuantity,
+  handleSaveTitle,
+} from "../../../utils/functions/admin/build/buildSets";
 
 const BuildDiskSet = ({ data, set, disks }) => {
   const [disksets, setDisksets] = useState([]);
 
   // Get data
   useEffect(() => {
-    if (
-      data &&
-      data.build &&
-      data.build.diskset &&
-      data.build.diskset.length > 0
-    ) {
-      const { diskset } = data.build;
-      setDisksets(diskset);
-      console.log(diskset);
+    if (data && data.build && data.build.disksets) {
+      setDisksets(data.build.disksets);
     }
   }, [data]);
-
-  const addSet = () => {console.log('adding set')};
-  const deleteSet = () => {console.log('deleteing set')};
-  const addSetList = () => {console.log('adding set list')};
-  const deleteSetList = () => {console.log('deleting set list')};
 
   return (
     <div role="disk-set" className="grid gap-5">
       {disksets.map((diskset) => (
         <div className="flex" key={diskset.id}>
           <div className="grid gap-2 border border-neutral-400 p-2 w-full">
-            <SaverInput title={"title"} type={"text"} />
-            <div className="grid grid-cols-2 gap-5">
-              <div className="relative">
-                <div className="border-2 border-neutral-800 flex flex-col items-center">
-                  <div className="flex justify-end items-center gap-2 p-1 w-full hover:cursor-pointer">
-                    <p>--Drive Disk Set--</p>
-                    <FontAwesomeIcon icon={faChevronDown} />
-                  </div>
-                </div>
-                <div className="shadow-md bg-white absolute top-full w-full z-10">
-                  {disks.map((set) => (
-                    <div
-                      key={set.id + set.name}
-                      className="flex items-center justify-center gap-2 border-b border-neutral-300 hover:cursor-pointer"
-                    >
-                      <p>{set.name}</p>
-                      <img
-                        src={`https://i.imgur.com/${set.img}.png`}
-                        alt={set.name}
-                        className="w-10 h-10"
-                      />
-                    </div>
+            <SaverInput
+              title={"title"}
+              type={"text"}
+              value={diskset.title}
+              action={(e) => handleSaveTitle(e, data, set, diskset.id)}
+            />
+            {diskset.sets.map((core) => (
+              <div key={core.id} className="flex items-center gap-5">
+                <select
+                  value={core.name}
+                  onChange={(e) => handleSaveDiskSet(e, data, set, core.id, diskset.id, disks)}
+                >
+                  <option value="">--Drive Disk Selection--</option>
+                  {disks.map((disk) => (
+                    <option key={disk.name} value={disk.name}>{disk.name}</option>
                   ))}
-                </div>
+                </select>
+                <SaverInput
+                  title={"quantity"}
+                  type={"number"}
+                  value={core.quantity}
+                  action={(e) => handleSaveQuantity(e, data, set, core.id, diskset.id)}
+                />
+                <AddDeleteButton
+                  type={"delete"}
+                  trigger={() => deleteSet(core.id, data, set)}
+                />
               </div>
-              <SaverInput title={"quantity"} type={"number"} />
-            </div>
-            <AddDeleteButton action={"add"} trigger={addSet}/>
+            ))}
+            <AddDeleteButton
+              action={"add"}
+              trigger={() => addSet(diskset.id, data, set, diskset)}
+            />
           </div>
-          <DeleteButton trigger={deleteSetList}/>
+          <DeleteButton trigger={() => deleteSetList(diskset.id, data, set)} />
         </div>
       ))}
-      <AddDeleteButton action={"delete"} trigger={addSetList}/>
+      <AddDeleteButton
+        action={"add"}
+        trigger={() => addSetList(data, set, disksets)}
+      />
     </div>
   );
 };

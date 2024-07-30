@@ -5,6 +5,7 @@ const AgentBuild = ({ data, set, agents, engines, bangboos, disks }) => {
 
   return (
     <div>
+      <h2>Drive disk sets</h2>
         <BuildDiskSet data={data} set={set} disks={disks}/>
 
       <div role="w-engines"></div>

@@ -66,7 +66,7 @@ const UpdateAgent = () => {
           core_skill: JSON.parse(data.core_skill),
           mindscape: JSON.parse(data.mindscape),
           skills: JSON.parse(data.skills),
-          build: data.build ?? agentBuild
+          build: agentBuild
         });
       } catch (error) {
         console.error(error);
