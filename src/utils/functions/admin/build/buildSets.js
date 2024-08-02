@@ -109,7 +109,7 @@ export function handleSaveQuantity(e, data, set, id, reference) {
 
 export function handleSaveDiskSet(e, data, set, id, reference, disks) {
   // Get img
-  const drivedisk = disks.find(disk => disk.name === e.target.value);
+  const drivedisk = disks.find((disk) => disk.name === e.target.value);
 
   set({
     ...data,
@@ -120,7 +120,9 @@ export function handleSaveDiskSet(e, data, set, id, reference, disks) {
           ? {
               ...diskset,
               sets: diskset.sets.map((set) =>
-                set.id === id ? { ...set, name: drivedisk.name, img: drivedisk.img } : set
+                set.id === id
+                  ? { ...set, name: drivedisk.name, img: drivedisk.img }
+                  : set
               ),
             }
           : diskset

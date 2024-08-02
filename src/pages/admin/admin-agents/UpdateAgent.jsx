@@ -66,7 +66,7 @@ const UpdateAgent = () => {
           core_skill: JSON.parse(data.core_skill),
           mindscape: JSON.parse(data.mindscape),
           skills: JSON.parse(data.skills),
-          build: agentBuild,
+          build: JSON.parse(data.build),
         });
       } catch (error) {
         console.error(error);
@@ -124,7 +124,7 @@ const UpdateAgent = () => {
     <div className="flex flex-col items-center justify-center min-h-full">
       <div className="w-3/5">
         <h1 className="font-black text-center text-4xl mb-10">
-          Create New Drive Disk Set
+          Update Agent Data
         </h1>
         <div className="border border-neutral-400 p-5 w-full mb-5">
           <h2 className="font-medium mb-5 text-lg">Agent Information</h2>

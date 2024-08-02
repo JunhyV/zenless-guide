@@ -85,7 +85,7 @@ export const factionOptions = [
   },
   {
     name: "OBOLS Squad",
-    img: "",
+    img: "VYgrdXc",
   },
   {
     name: "Section 6",
@@ -93,7 +93,7 @@ export const factionOptions = [
   },
   {
     name: "Sons of Calydon",
-    img: "",
+    img: "mQRCnze",
   },
   {
     name: "Victoria Housekeeping Co.",
@@ -139,3 +139,5 @@ export const skillImage = {
   special: 'bol7wQB',
   assist: 'iITc2iJ'
 }
+
+export const teamRol = ['DPS', 'anomaly DPS', 'buffer', 'stun', 'enabler', 'CC', 'debuffer', 'shield breaker', 'shielder']

@@ -64,7 +64,7 @@ export const agentBuild = {
     second: "",
     third: "",
     fourth: "",
-    fifth: "",
+    fifth: "dodge",
   },
   core: "",
   main_stats: {
@@ -79,11 +79,13 @@ export const agentBuild = {
       title: "",
       members: [
         {
+          id: 0,
           rol: "",
           name: "",
           img: "",
         },
         {
+          id: 1,
           rol: "",
           name: "",
           img: "",
@@ -91,10 +93,12 @@ export const agentBuild = {
       ],
       bangboos: [
         {
+          id: 0,
           name: "",
           img: "",
         },
         {
+          id: 1,
           name: "",
           img: "",
         },

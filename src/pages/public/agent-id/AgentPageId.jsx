@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import ErrorId from "../../error/ErrorId";
+import { Link, useParams } from "react-router-dom";
 import LoadingAgent from "../../../components/loading/LoadingAgent";
-import AgentView from "../../../components/agents/build/AgentView";
-import AgentBuild from "../../../components/agents/build/AgentBuild";
-import AgentFarm from "../../../components/agents/farm/AgentFarm";
-import ShowSkills from "../../../components/agents/skills/ShowSkills";
-import ShowStats from "../../../components/agents/skills/ShowStats";
-import ShowMindscape from "../../../components/agents/mindscape/ShowMindscape";
-import HeaderPageId from "./HeaderPageId";
+import AgentBuild from "./AgentBuild";
+import AgentFarm from "./AgentFarm";
+import AgentSkills from "./AgentSkills";
+import AgentMindscape from "./AgentMindscape";
+import { lastUpdate } from "../../../utils/gameVersion";
 
 const AgentPageId = () => {
   const [agentData, setAgentData] = useState({});
@@ -24,6 +21,7 @@ const AgentPageId = () => {
         );
 
         const data = await res.json();
+        console.log(data);
 
         if (res.status === 200) {
           setAgentData(data);
@@ -47,45 +45,41 @@ const AgentPageId = () => {
       {loading ? (
         <LoadingAgent />
       ) : (
-        <>
-          {pageDisplay !== "" && (
-            <HeaderPageId
-              pageDisplay={pageDisplay}
-              setPageDisplay={setPageDisplay}
-              data={agentData}
-            />
-          )}
-          {pageDisplay === "build" && (
-            <div className="w-full pt-14  lg:pt-0 overflow-hidden flex flex-col lg:flex-row custom-height">
-              <AgentView data={agentData} />
-              <AgentBuild element={agentData.element}/>
+        <div>
+          <div className="text-white px-5 h-full">
+            <h1 className="font-black text-3xl text-center mb-2 ">
+              {agentData.full_name}
+            </h1>
+            <div className="mb-2">
+              <Link to="/" className="hover:text-yellow-500">
+                Home
+              </Link>{" "}
+              /{" "}
+              <Link to="/agents" className="hover:text-yellow-500">
+                Agents
+              </Link>{" "}
+              / <Link to={`/agents/${agentData._id}`} className="hover:text-yellow-500">{agentData.nickname}</Link>
             </div>
-          )}
-          {pageDisplay === "skills" && (
-            <div className="pt-14  lg:pt-0 w-full h-full lg:overflow-hidden lg:flex lg:items-center">
-              <div className="flex flex-col-reverse lg:flex-row lg:mx-auto lg:w-5/6 lg:h-3/4 2xl:w-full">
-                <ShowSkills
-                  data={agentData.skills}
-                  element={agentData.element}
-                  rank={agentData.rank}
-                />
-                <div className="">
-                  <ShowStats data={agentData.stats} />
-                </div>
-              </div>
-            </div>
-          )}
-          {pageDisplay === "mindscape" && (
-            <div className="pt-14  lg:pt-0 w-full h-full lg:overflow-hidden flex flex-col lg:flex-row lg:mx-auto lg:w-5/6 2xl:w-full">
-              <ShowMindscape data={agentData.mindscape} element={agentData.element}/>
-            </div>
-          )}
-          {pageDisplay === "farm" && (
-            <div className="w-full pt-14 lg:pt-0 overflow-hidden flex flex-col lg:flex-row lg:justify-center">
-              <AgentFarm element={agentData.element} rol={agentData.rol} name={agentData.nickname} img={agentData.full_img}/>
-            </div>
-          )}
-        </>
+            <hr className="border-yellow-500" />
+            <p className="mt-2">
+              The following information was obtained from various sources based
+              on the original content of the game{" "}
+              <span className="font-black"> Zenless Zone Zero</span> (ZZZ) . We
+              hope it will be useful for you to discover the best way to use the
+              character in a team.
+            </p>
+            <p>
+              <span className="font-thin">Last updated: </span>
+              {lastUpdate}
+            </p>
+          </div>
+          <div role="agent-data" className="text-white px-5 mt-5 grid gap-2">
+            <AgentBuild data={agentData}/>
+            <AgentSkills/>
+            <AgentMindscape/>
+            <AgentFarm/>
+          </div>
+        </div>
       )}
     </div>
   );

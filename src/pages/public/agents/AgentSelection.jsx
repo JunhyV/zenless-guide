@@ -4,9 +4,9 @@ import {
   elementOptions,
   factionOptions,
   rolOptions,
-} from "../../utils/options";
-import { newCharacters } from "../../utils/gameVersion";
-import newImg from '../../assets/images/extras/5a5a6d4914d8c4188e0b0893.png'
+} from "../../../utils/options";
+import { newCharacters } from "../../../utils/gameVersion";
+import newImg from '../../../assets/images/extras/5a5a6d4914d8c4188e0b0893.png'
 
 const AgentSelection = ({ data }) => {
   const [bgByRank, setBgByRank] = useState("");
