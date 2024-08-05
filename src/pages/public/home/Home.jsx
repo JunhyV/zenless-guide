@@ -6,7 +6,7 @@ import { Shortcuts } from "../../../components/home/Shortcuts";
 
 const Home = () => {
   return (
-    <div className="w-full h-screen ">
+    <div className="w-full h-screen">
       <NavSidebar />
       <div className="flex-1 ml-[250px] p-6 overflow-auto ">
         <p className="mb-6 text-gray-900">

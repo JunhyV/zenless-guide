@@ -29,6 +29,28 @@ export const agentBuild = {
           name: "",
           img: "",
         },
+      ],
+    },
+    {
+      id: 1,
+      title: "",
+      engines: [
+        {
+          id: 0,
+          name: "",
+          img: "",
+        },
+      ],
+    },
+    {
+      id: 2,
+      title: "",
+      engines: [
+        {
+          id: 0,
+          name: "",
+          img: "",
+        },
         {
           id: 1,
           name: "",
@@ -42,7 +64,7 @@ export const agentBuild = {
     second: "",
     third: "",
     fourth: "",
-    fifth: "",
+    fifth: "dodge",
   },
   core: "",
   main_stats: {
@@ -50,18 +72,20 @@ export const agentBuild = {
     fifth: "",
     sixth: "",
   },
-  sub_stats: ["", "", ""],
+  sub_stats: "",
   team_comps: [
     {
       id: 1,
       title: "",
       members: [
         {
+          id: 0,
           rol: "",
           name: "",
           img: "",
         },
         {
+          id: 1,
           rol: "",
           name: "",
           img: "",
@@ -69,10 +93,12 @@ export const agentBuild = {
       ],
       bangboos: [
         {
+          id: 0,
           name: "",
           img: "",
         },
         {
+          id: 1,
           name: "",
           img: "",
         },

@@ -1,5 +1,5 @@
 import React from "react";
-import { nextAgents } from "../../utils/gameVersion";
+import { nextAgents } from "../../../utils/gameVersion";
 import { Link } from "react-router-dom";
 
 const NextAgents = () => {

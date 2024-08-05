@@ -37,6 +37,7 @@ const BuildDiskSet = ({ data, set, disks }) => {
               <div key={core.id} className="flex items-center gap-5">
                 <select
                   value={core.name}
+                  className="p-2 border border-neutral-400 rounded-md text-center" 
                   onChange={(e) => handleSaveDiskSet(e, data, set, core.id, diskset.id, disks)}
                 >
                   <option value="">--Drive Disk Selection--</option>

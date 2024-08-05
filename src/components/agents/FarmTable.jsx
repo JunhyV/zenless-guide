@@ -1,10 +1,24 @@
 import React, { useEffect, useState } from "react";
-import hamster from "../../../assets/images/zzz-materials/skill-materials/UltimateSkill.webp";
-import dennies from "../../../assets/images/zzz-materials/dannies.webp";
+import hamster from "../../assets/images/zzz-materials/skill-materials/UltimateSkill.webp";
+import dennies from "../../assets/images/zzz-materials/dannies.webp";
+import { useDimensions } from "../../hooks/useDimensions";
 
 const FarmTable = ({ materials, element, rol = "" }) => {
   const [imgType, setImgType] = useState("");
   const [borderColor, setBorderColor] = useState("");
+  const { width, adaptWidth } = useDimensions();
+
+  useEffect(() => {
+    const handleResize = () => {
+      adaptWidth();
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [adaptWidth]);
 
   useEffect(() => {
     if (element) {
@@ -39,38 +53,49 @@ const FarmTable = ({ materials, element, rol = "" }) => {
   }, [element, rol]);
 
   useEffect(() => {
-    if (typeof imgType === 'object') {
+    if (typeof imgType === "object") {
       console.log(imgType);
     }
-  }, [imgType])
-  
+  }, [imgType]);
 
   return (
     <div role="farm-table" className="shadow-2xl h-fit ">
-      <header
-        role="table-header"
-        className={`flex bg-neutral-900 border-2 rounded-t-xl ${
-          borderColor ? borderColor : ""
-        } text-white p-2 font-thin text-xl text-center`}
-      >
-        <p className="w-1/4 p-0.5 ">Lvl</p>
-        <p className="w-2/4 p-0.5 ">Materials</p>
-        <p className="w-1/4 p-0.5 ">Dennies</p>
-      </header>
+      <div className="grid md:grid-cols-2">
+        <header
+          role="table-header"
+          className={`flex bg-neutral-900 border ${
+            borderColor ? borderColor : ""
+          } text-white p-2 font-thin text-xl text-center`}
+        >
+          <p className="w-1/4 p-0.5 ">Lvl</p>
+          <p className="w-2/4 p-0.5 ">Materials</p>
+          <p className="w-1/4 p-0.5 ">Dennies</p>
+        </header>
+        {width >= 768 ? (
+          <header
+            role="table-header"
+            className={`flex bg-neutral-900 border ${
+              borderColor ? borderColor : ""
+            } text-white p-2 font-thin text-xl text-center`}
+          >
+            <p className="w-1/4 p-0.5 ">Lvl</p>
+            <p className="w-2/4 p-0.5 ">Materials</p>
+            <p className="w-1/4 p-0.5 ">Dennies</p>
+          </header>
+        ) : null}
+      </div>
 
-      <div role="table-content">
+      <div role="table-content" className="grid md:grid-cols-2">
         {materials.map((material, i) => (
           <div
             role="each-lvl"
-            className={`flex text-white font-medium p-1 border border-t-0 ${
+            className={`flex justify-between text-white font-medium px-2 py-1 border border-t-0 ${
               borderColor ? borderColor : ""
             } ${i % 2 ? "bg-neutral-600" : "bg-neutral-700"}`}
             key={material.lvl}
           >
-            <p className="w-1/4 flex items-center justify-center">
-              {material.lvl}
-            </p>
-            <div className="w-2/4 flex gap-2 md:gap-5 justify-center items-center">
+            <p className="flex items-center justify-center">{material.lvl}</p>
+            <div className="flex gap-2 md:gap-5 justify-center items-center">
               {material.farm.length > 0 &&
                 material.farm.map((item, i) => {
                   const farmCore = i === 0 ? imgType[1] : imgType[0];
@@ -82,14 +107,14 @@ const FarmTable = ({ materials, element, rol = "" }) => {
                           <img
                             src={item.img[imgType]}
                             alt="material"
-                            className="w-8 h-8 md:w-12 md:h-12"
+                            className="w-8 h-8 md:w-10 md:h-10"
                           />
                         ) : null}
                         {material.lvl.length === 1 ? (
                           <img
                             src={item.img[farmCore]}
                             alt="material"
-                            className="w-10 h-10 md:w-14 md:h-14"
+                            className="w-8 h-8 md:w-10 md:h-10"
                           />
                         ) : null}
                         <p>x{item.number}</p>
@@ -109,7 +134,7 @@ const FarmTable = ({ materials, element, rol = "" }) => {
                 })}
             </div>
 
-            <div className="w-1/4 flex items-center gap-1 md:gap-2 justify-center">
+            <div className="flex items-center gap-1 md:gap-2 justify-center">
               <img
                 src={dennies}
                 alt="dennies"

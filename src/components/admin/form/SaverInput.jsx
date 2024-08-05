@@ -3,7 +3,7 @@ import React from "react";
 const SaverInput = ({ title, type, action, value}) => {
   return (
     <div className="flex items-center gap-2">
-      <label htmlFor={title} className="capitalize font-medium text-md">
+      <label htmlFor={title} className="capitalize font-medium text-md min-w-fit">
         {title}:{" "}
       </label>
       <input

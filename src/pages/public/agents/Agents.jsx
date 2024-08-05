@@ -15,8 +15,8 @@ import {
   rolOptions,
 } from "../../../utils/options";
 import LoadingDots from "../../../components/loading/LoadingDots";
-import NextAgents from "../../../components/agents/NextAgents";
-import AgentSelection from "../../../components/agents/AgentSelection";
+import NextAgents from "./NextAgents";
+import AgentSelection from "./AgentSelection";
 
 const Agents = () => {
   const [agents, setAgents] = useState([]);
