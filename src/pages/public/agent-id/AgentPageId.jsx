@@ -6,9 +6,12 @@ import AgentFarm from "./AgentFarm";
 import AgentSkills from "./AgentSkills";
 import AgentMindscape from "./AgentMindscape";
 import { lastUpdate } from "../../../utils/gameVersion";
+import AgentData from "./AgentData";
 
 const AgentPageId = () => {
+  // Fetch data
   const [agentData, setAgentData] = useState({});
+
   const [loading, setLoading] = useState(true);
   const [pageDisplay, setPageDisplay] = useState("build");
   const agentId = useParams().id;
@@ -21,7 +24,6 @@ const AgentPageId = () => {
         );
 
         const data = await res.json();
-        console.log(data);
 
         if (res.status === 200) {
           setAgentData(data);
@@ -45,7 +47,7 @@ const AgentPageId = () => {
       {loading ? (
         <LoadingAgent />
       ) : (
-        <div>
+        <div className="">
           <div className="text-white px-5 h-full">
             <h1 className="font-black text-3xl text-center mb-2 ">
               {agentData.full_name}
@@ -73,11 +75,12 @@ const AgentPageId = () => {
               {lastUpdate}
             </p>
           </div>
-          <div role="agent-data" className="text-white px-5 mt-5 grid gap-2">
+          <div role="agent-data" className="text-white px-5 mt-5 grid gap-2 lg:max-w-screen-xl lg:mx-auto">
+            <AgentData data={agentData}/>
             <AgentBuild data={agentData}/>
-            <AgentSkills/>
-            <AgentMindscape/>
-            <AgentFarm/>
+            <AgentSkills data={agentData}/>
+            <AgentMindscape  data={agentData}/>
+            <AgentFarm  data={agentData}/>
           </div>
         </div>
       )}

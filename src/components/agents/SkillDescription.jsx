@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { skillImage } from "../../../utils/options";
+import { skillImage } from "../../utils/options";
 
 const SkillDescription = ({description, actualSkill }) => {
   const [whatToReplace, setWhatToReplace] = useState("");
@@ -79,7 +79,7 @@ const SkillDescription = ({description, actualSkill }) => {
     );
   }, []);
   return (
-    <p className="bg-neutral-700 p-2 lg:text-sm">
+    <p className="bg-neutral-600 p-2 lg:text-sm">
       {replaceText(description, skillImage[actualSkill], whatToReplace)}
     </p>
   );
