@@ -40,8 +40,8 @@ export const EnginesCard = ({
           <h2 className="text-xl font-bold text-yellow-200">{name}</h2>
           <div className="font-bold text-lg text-rose-400">{type}</div>
           <p className=" text-sm">
-            Base attack: <span>{baseAttack}</span> <br />
-            Secondary stat: {secondaryStat}
+            Base attack: {baseAttack} <br />
+            Secondary stat: {secondaryStat} %
           </p>
         </div>
       </div>
