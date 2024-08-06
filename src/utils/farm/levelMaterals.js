@@ -179,9 +179,9 @@ export const lvlUpMaterials = [
         img: {
           exp: exp,
         },
-        number: "Pending...",
+        number: 150,
       },
     ],
-    dennies: "",
+    dennies: 450000,
   },
 ];

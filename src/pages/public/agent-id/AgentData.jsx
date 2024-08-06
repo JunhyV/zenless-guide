@@ -3,15 +3,17 @@ import {
   getFaction,
   getBorder,
   getBg,
+  getOptions,
 } from "../../../utils/functions/general/get";
 import { useParse } from "../../../hooks/useParse";
 import AgentFull from "../../../components/img/AgentFull";
+import { elementOptions, rolOptions } from "../../../utils/options";
 
 const AgentData = ({ data }) => {
   const { full_img, nickname, stats, rol, element, faction } = data;
 
   const [statsList, setStatsList] = useState([]);
-  const {parsedData} = useParse(stats);
+  const { parsedData } = useParse(stats);
 
   useEffect(() => {
     if (parsedData) {
@@ -24,23 +26,35 @@ const AgentData = ({ data }) => {
   const percentage = ["crit_rate", "crit_dmg", "pen_ratio", "anomaly_p"];
 
   return (
-    <div className="grid gap-5 md:grid-cols-2 items-center">
+    <div className="grid md:grid-cols-2 landscape:grid-cols-2 md:items-center landscape:items-center gap-5 mb-5">
       <div role="agent-look" className="relative">
-        <AgentFull name={nickname} img={full_img}/>
+        <AgentFull name={nickname} img={full_img} />
         <div className="grid gap-2 absolute top-2 left-2">
           <div
             className={`bg-gradient-to-r from-neutral-800 to-neutral-600 border-2 ${getBorder(
               element
-            )} w-36 p-1 rounded-br-full capitalize font-medium lg:text-xl`}
+            )} w-40 p-1 rounded-br-full capitalize font-medium lg:text-lg flex gap-2`}
           >
-            {rol}
+            <img
+              src={`https://i.imgur.com/${getOptions(rol, rolOptions).img}.png`}
+              alt={rol}
+              className="w-8 h-8"
+            />
+            <p>{rol}</p>
           </div>
           <div
             className={`bg-gradient-to-r from-neutral-800 to-neutral-600 border-2 ${getBorder(
               element
-            )} w-28 p-1 rounded-br-full capitalize font-medium lg:text-xl`}
+            )} w-32 p-1 rounded-br-full capitalize font-medium lg:text-lg flex gap-2`}
           >
-            {element}
+            <img
+              src={`https://i.imgur.com/${
+                getOptions(element, elementOptions).img
+              }.png`}
+              alt={element}
+              className="w-8 h-8"
+            />
+            <p>{element}</p>
           </div>
         </div>
         <div
@@ -64,7 +78,7 @@ const AgentData = ({ data }) => {
         role="agent-stats"
         className={`${getBg(
           element
-        )} text-white m-2 p-1 lg:h-fit lg:items-center shadow-xl lg:w-1/2 lg:mx-auto`}
+        )} text-white p-1 landscape:h-fit lg:items-center shadow-xl lg:w-1/2 lg:mx-auto`}
       >
         <h2 className="text-center font-medium text-xl bg-neutral-800 p-1">
           Stats at lvl 60
@@ -82,7 +96,10 @@ const AgentData = ({ data }) => {
                 .replace(" m", " mastery")
                 .replace(" p", " proficiency")}{" "}
             </p>
-            <p>{parsedData[stat]} <span>{percentage.includes(stat) ? '%' : ''}</span></p>
+            <p>
+              {parsedData[stat]}{" "}
+              <span>{percentage.includes(stat) ? "%" : ""}</span>
+            </p>
           </div>
         ))}
       </div>

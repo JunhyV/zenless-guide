@@ -22,7 +22,7 @@ export const tierList = [
     },
     {
         rank: 'B',
-        dmg_carry: ['Antón'],
+        dmg_carry: ['Anton'],
         anomaly_carry: [],
         stun: ['Ben'],
         support: []

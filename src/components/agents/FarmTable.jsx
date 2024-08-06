@@ -42,7 +42,7 @@ const FarmTable = ({ materials, element, rol = "" }) => {
           break;
       }
     }
-  }, [element]);
+  }, [element]);  
 
   useEffect(() => {
     if (!rol) {
@@ -54,7 +54,6 @@ const FarmTable = ({ materials, element, rol = "" }) => {
 
   useEffect(() => {
     if (typeof imgType === "object") {
-      console.log(imgType);
     }
   }, [imgType]);
 
@@ -86,64 +85,66 @@ const FarmTable = ({ materials, element, rol = "" }) => {
       </div>
 
       <div role="table-content" className="grid md:grid-cols-2">
-        {materials.map((material, i) => (
-          <div
-            role="each-lvl"
-            className={`flex justify-between text-white font-medium px-2 py-1 border border-t-0 ${
-              borderColor ? borderColor : ""
-            } ${i % 2 ? "bg-neutral-600" : "bg-neutral-700"}`}
-            key={material.lvl}
-          >
-            <p className="flex items-center justify-center">{material.lvl}</p>
-            <div className="flex gap-2 md:gap-5 justify-center items-center">
-              {material.farm.length > 0 &&
-                material.farm.map((item, i) => {
-                  const farmCore = i === 0 ? imgType[1] : imgType[0];
-                  return (
-                    <div className="flex gap-2" key={item.number + i}>
-                      <div className="flex gap-1 md:gap-2 items-end">
-                        {item.number !== "Pending..." &&
-                        material.lvl.length !== 1 ? (
-                          <img
-                            src={item.img[imgType]}
-                            alt="material"
-                            className="w-8 h-8 md:w-10 md:h-10"
-                          />
-                        ) : null}
-                        {material.lvl.length === 1 ? (
-                          <img
-                            src={item.img[farmCore]}
-                            alt="material"
-                            className="w-8 h-8 md:w-10 md:h-10"
-                          />
-                        ) : null}
-                        <p>x{item.number}</p>
-                      </div>
-                      {item.hamster && (
-                        <div className="flex gap-2 items-end">
-                          <img
-                            src={hamster}
-                            alt="hamster"
-                            className="w-8 h-8 md:w-10 md:h-10"
-                          />
-                          <p>x1</p>
+        {materials.map((material, i) => {
+          return (
+            <div
+              role="each-lvl"
+              className={`flex justify-between text-white font-medium px-2 py-1 border border-t-0 ${
+                borderColor ? borderColor : ""
+              } ${i % 2 ? "bg-neutral-600" : "bg-neutral-700"}`}
+              key={material.lvl}
+            >
+              <p className="flex items-center justify-center">{material.lvl}</p>
+              <div className="flex gap-2 md:gap-5 justify-center items-center">
+                {material.farm.length > 0 &&
+                  material.farm.map((item, i) => {
+                    const farmCore = i === 0 ? imgType[1] : imgType[0];
+                    return (
+                      <div className="flex gap-2" key={item.number + i}>
+                        <div className="flex gap-1 md:gap-2 items-end">
+                          {item.number !== "Pending..." &&
+                          material.lvl.length !== 1 ? (
+                            <img
+                              src={item.img[imgType]}
+                              alt="material"
+                              className="w-8 h-8 md:w-10 md:h-10"
+                            />
+                          ) : null}
+                          {material.lvl.length === 1 ? (
+                            <img
+                              src={item.img[farmCore]}
+                              alt="material"
+                              className="w-8 h-8 md:w-10 md:h-10"
+                            />
+                          ) : null}
+                          <p>x{item.number}</p>
                         </div>
-                      )}
-                    </div>
-                  );
-                })}
-            </div>
+                        {item.hamster && (
+                          <div className="flex gap-2 items-end">
+                            <img
+                              src={hamster}
+                              alt="hamster"
+                              className="w-8 h-8 md:w-10 md:h-10"
+                            />
+                            <p>x1</p>
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
+              </div>
 
-            <div className="flex items-center gap-1 md:gap-2 justify-center">
-              <img
-                src={dennies}
-                alt="dennies"
-                className="w-8 h-8 md:w-10 md:h-10"
-              />
-              <p>x{material.dennies}</p>
+              <div className="flex items-center gap-1 md:gap-2 justify-center">
+                <img
+                  src={dennies}
+                  alt="dennies"
+                  className="w-8 h-8 md:w-10 md:h-10"
+                />
+                <p>x{material.dennies}</p>
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );

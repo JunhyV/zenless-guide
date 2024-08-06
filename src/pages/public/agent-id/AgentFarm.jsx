@@ -23,32 +23,24 @@ const AgentFarm = ({ data }) => {
       let updatedCore = { ...core };
 
       // Weekly boss
-      if (farmMaterials.useGrip.some((n) => n === nickname)) {
+      if (farmMaterials.useGrip.includes(nickname)) {
         updatedCore[0] = "grip";
-      }
-      if (farmMaterials.useDrive.some((n) => n === nickname)) {
-        console.log("usa drive");
+      } else if (farmMaterials.useDrive.includes(nickname)) {
         updatedCore[0] = "drive";
-      }
-      if (farmMaterials.useShoes.some((n) => n === nickname)) {
-        console.log("usa shoes");
+      } else if (farmMaterials.useShoes.includes(nickname)) {
         updatedCore[0] = "shoes";
       }
 
       // Farmeable bosses
-      if (farmMaterials.useObitaury.some((n) => n === nickname)) {
+      if (farmMaterials.useObitaury.includes(nickname)) {
         updatedCore[1] = "obitaury";
-      }
-      if (farmMaterials.useAwe.some((n) => n === nickname)) {
+      } else if (farmMaterials.useAwe.includes(nickname)) {
         updatedCore[1] = "awe";
-      }
-      if (farmMaterials.usePursuit.some((n) => n === nickname)) {
+      } else if (farmMaterials.usePursuit.includes(nickname)) {
         updatedCore[1] = "pursuit";
-      }
-      if (farmMaterials.useMalice.some((n) => n === nickname)) {
+      } else if (farmMaterials.useMalice.includes(nickname)) {
         updatedCore[1] = "malice";
-      }
-      if (farmMaterials.useAdvance.some((n) => n === nickname)) {
+      } else if (farmMaterials.useAdvance.includes(nickname)) {
         updatedCore[1] = "advance";
       }
 

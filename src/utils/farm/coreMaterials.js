@@ -157,25 +157,13 @@ export const coreMaterials = [
   },
 ];
 
-// Weekly boss
-export const useGrip = ['Anby', 'Billy', 'Ellen', 'Nicole', 'Lucy', 'Nekomata'];
-export const useDrive = ['Antón', 'Ben', 'Grace', 'Koleda', 'Zhu Yuan'];
-export const useShoes = ['Rina', 'Piper', 'Corin', 'Soldier 11', 'Lycaon', 'Soukaku'];
-
-// Farmeable
-export const useObitaury = ['Anby', 'Ellen', 'Nicole', 'Soukaku'];
-export const useAwe = ['Piper', 'Corin', 'Nekomata'];
-export const usePursuit = ['Zhu Yuan', 'Billy', 'Lycaon'];
-export const useMalice = ['Ben', 'Koleda', 'Lucy'];
-export const useAdvance = ['Rina', 'Grace', 'Antón', 'Soldier 11'];
-
 export const farmMaterials = {
-  useGrip,
-  useDrive,
-  useShoes,
-  useObitaury,
-  useAwe,
-  usePursuit,
-  useMalice,
-  useAdvance
+  useGrip: ['Anby', 'Billy', 'Ellen', 'Nicole', 'Lucy', 'Nekomata'],
+  useDrive: ['Ben', 'Grace', 'Koleda', 'Zhu Yuan', 'Anton'],
+  useShoes: ['Rina', 'Piper', 'Corin', 'Soldier 11', 'Lycaon', 'Soukaku'],
+  useObitaury: ['Anby', 'Ellen', 'Nicole', 'Soukaku'],
+  useAwe: ['Piper', 'Corin', 'Nekomata'],
+  usePursuit: ['Zhu Yuan', 'Billy', 'Lycaon'],
+  useMalice: ['Ben', 'Koleda', 'Lucy'],
+  useAdvance: ['Rina', 'Grace', 'Soldier 11', 'Anton'],
 };
