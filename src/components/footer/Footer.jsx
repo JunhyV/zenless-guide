@@ -2,13 +2,13 @@ import React, { useCallback, useEffect, useState } from "react";
 import FooterNav from "./FooterNav.jsx";
 import FooterNavPhone from "./FooterNavPhone.jsx";
 import { navList } from "../../utils/footerNav.js";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 const Footer = () => {
   const [deviceScreen, setDeviceScreen] = useState({
     width: window.innerWidth,
     height: window.innerHeight,
   });
-  const [currentLocation, setCurrentLocation] = useState({});
   const [displayOverlay, setDisplayOverlay] = useState(false);
 
   const overlayToggle = useCallback(() => {
@@ -27,18 +27,10 @@ const Footer = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  useEffect(() => {
-    const location = navList.find(
-      (link) => link.link === window.location.pathname
-    );
-    setCurrentLocation(location);
-  }, [window.location.pathname]);
-
   return (
     <footer className="flex-none flex flex-col bg-neutral-800 z-10">
       {deviceScreen.width < 768 || deviceScreen.height < 450 ? (
         <FooterNavPhone
-          currentLocation={currentLocation}
           displayOverlay={displayOverlay}
           overlayToggle={overlayToggle}
         />

@@ -16,19 +16,21 @@ export default {
         108: "108px",
       },
       keyframes: {
-        slideDown: {
-          "0%": { maxHeight: "0", opacity: "0" },
-          "100%": { maxHeight: "500px", opacity: "1" },
-        },
-        slideUp: {
-          "0%": { maxHeight: "500px", opacity: "1" },
-          "100%": { maxHeight: "0", opacity: "0" },
+        slideInLeft: {
+          "0%": { transform: "translateX(-100%)", opacity: "0" },
+          "100%": { transform: "translateX(0)", opacity: "1" },
         },
       },
       animation: {
+        slideInLeft: "slideInLeft 1s ease-out",
         slideDown: "slideDown 0.1s forwards",
         slideUp: "slideUp 0.1s forwards",
       },
+    },
+  },
+  variants: {
+    extend: {
+      animation: ["responsive", "hover", "focus", "group-hover"],
     },
   },
   plugins: [],
