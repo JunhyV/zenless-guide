@@ -1,7 +1,6 @@
 import React, { useEffect, useState, version } from "react";
 import ButtonFilter from "../../../components/filters/ButtonFilter";
 import SelectFilter from "../../../components/filters/SelectFilter";
-import { Link } from "react-router-dom";
 import { apiCall } from "../../../utils/apiCall";
 import { gameVersion, lastUpdate, newCharacters } from "../../../utils/gameVersion";
 import {
@@ -13,6 +12,7 @@ import {
 import LoadingDots from "../../../components/loading/LoadingDots";
 import NextAgents from "./NextAgents";
 import AgentSelection from "./AgentSelection";
+import { Header } from "../../../components/header/Header";
 
 const Agents = () => {
   const [agents, setAgents] = useState([]);
@@ -119,25 +119,7 @@ const Agents = () => {
 
   return (
     <div className="bg-neutral-800 bg-opacity-80 min-h-full flex flex-col gap-4">
-      <div className="text-white px-5 h-full">
-        <h1 className="font-black text-3xl md:text-5xl text-center">
-          Zenless Zone Zero Agents List
-        </h1>
-        <p className="mb-2">
-          <Link className="hover:text-yellow-500">Home</Link> /{" "}
-          <Link className="hover:text-yellow-500">Agents</Link>
-        </p>
-        <hr className="border-yellow-500" />
-        <p className="mt-2">
-          Characters (Agents) available in{" "}
-          <span className="font-black">Zenless Zone Zero </span>
-          (ZZZ) - Find them in version <span className="font-black">{gameVersion}.</span>
-        </p>
-        <p>
-          <span className="font-thin">Last updated: </span>
-          {lastUpdate}
-        </p>
-      </div>
+      <Header pages={'agents'}/>
       {loading ? (
         <LoadingDots />
       ) : (

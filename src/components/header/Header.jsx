@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { gameVersion, lastUpdate } from "../../utils/gameVersion";
 
 export const Header = ({ pages }) => {
   return (
@@ -8,17 +9,19 @@ export const Header = ({ pages }) => {
           Zenless Zone Zero Agents List
         </h1>
         <p className="mb-2">
-          <Link to="/" className="hover:text-yellow-500">
-            Home
-          </Link>{" "}
-          / <Link className="hover:text-yellow-500">{pages}</Link>
+          <Link to={'/'} className="hover:text-yellow-500">Home</Link> /{" "}
+          <Link to={'/agents'} className="hover:text-yellow-500">Agents</Link>
         </p>
         <hr className="border-yellow-500" />
-        <span className="block mt-4 mb-2">
-          W-Engines (Weapons) available in Zenless Zone Zero (ZZZ) - Find them in
-          version 1.0.
-        </span>
-        <span className="block">Last updated: 2024.07.15</span>
+        <p className="mt-2">
+          Characters (Agents) available in{" "}
+          <span className="font-black">Zenless Zone Zero </span>
+          (ZZZ) - Find them in version <span className="font-black">{gameVersion}.</span>
+        </p>
+        <p>
+          <span className="font-thin">Last updated: </span>
+          {lastUpdate}
+        </p>
       </div>
     </header>
   );
