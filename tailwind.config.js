@@ -28,10 +28,5 @@ export default {
       },
     },
   },
-  variants: {
-    extend: {
-      animation: ["responsive", "hover", "focus", "group-hover"],
-    },
-  },
   plugins: [],
 };
