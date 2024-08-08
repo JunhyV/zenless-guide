@@ -1,7 +1,6 @@
 import React from "react";
 import { createBrowserRouter } from "react-router-dom";
 import PublicLayout from "../pages/PublicLayout";
-import Home from "../pages/public/home/Home";
 import Tierlist from "../pages/public/tierlist/Tierlist";
 import Engines from "../pages/public/engines/Engines";
 import Bangboos from "../pages/public/bangboos/Bangboos";
@@ -22,6 +21,7 @@ import UpdateBangboo from "../pages/admin/admin-bangboos/UpdateBangboo";
 import UpdateAgent from "../pages/admin/admin-agents/UpdateAgent";
 import Error from "../pages/error/Error";
 import AgentPageId from "../pages/public/agent-id/AgentPageId";
+import Home from "../pages/public/home/Home";
 
 
 const Router = createBrowserRouter([

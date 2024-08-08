@@ -37,7 +37,7 @@ const AgentMindscape = ({ data }) => {
   }, [element]);
 
   return (
-    <div>
+    <div className="mb-5">
       <AgentTitles title={"Mindscape"} />
       <div className="grid gap-5">
         <img

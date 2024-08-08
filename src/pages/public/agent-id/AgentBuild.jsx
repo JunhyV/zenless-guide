@@ -2,11 +2,16 @@ import React, { useEffect, useState } from "react";
 import { useParse } from "../../../hooks/useParse";
 import AgentTitles from "../../../components/titles/AgentTitles";
 import AgentFull from "../../../components/img/AgentFull";
-import { getBorder, getBg } from "../../../utils/functions/general/get";
+import {
+  getBorder,
+  getBg,
+  getTxtColor,
+} from "../../../utils/functions/general/get";
 import { skillImage } from "../../../utils/options";
 import star from "../../../assets/images/extras/png-clipart-star-computer-icons-desktop-star-angle-smiley.png";
 import slots from "../../../assets/images/extras/slots.png";
 import AgentMain from "../../../components/agents/AgentMain";
+import EquipementTitle from "../../../components/titles/EquipementTitle";
 
 const SkillPriority = ({ element, parsedData, SPL }) => (
   <div
@@ -57,8 +62,6 @@ const AgentBuild = ({ data }) => {
   const { parsedData } = useParse(build);
   const [SPL, setSPL] = useState([]);
 
-  console.log(parsedData);
-
   useEffect(() => {
     if (parsedData.skill_priority) {
       const getList = Object.keys(parsedData.skill_priority);
@@ -68,11 +71,10 @@ const AgentBuild = ({ data }) => {
 
   const { core, main_stats, disksets, engines, team_comps, synergy } =
     parsedData;
-
   return (
     <>
       <div role="agent-build" className="grid gap-5 md:grid-cols-2 mb-5">
-        <div className="h-full flex flex-col mx-auto gap-5 justify-around w-96">
+        <div className="h-full flex flex-col mx-auto gap-5 justify-around">
           <CoreSkill element={element} core={core} />
           <SkillPriority element={element} parsedData={parsedData} SPL={SPL} />
         </div>
@@ -97,16 +99,14 @@ const AgentBuild = ({ data }) => {
         <div className="mb-5 grid gap-5 landscape:grid-cols-2 md:grid-cols-2">
           {disksets?.map((set) => (
             <div key={set.title}>
-              <p className={`font-medium text-center ${getBg(element)}`}>
-                {set.title}
-              </p>
+              <EquipementTitle element={element} text={set.title} />
               <div
                 className={`grid grid-cols-2 gap-2 bg-neutral-700 border-2 ${getBorder(
                   element
                 )}`}
               >
                 {set.sets.map((disk) => (
-                  <div key={disk.name}>
+                  <div key={disk.name} className="flex flex-col items-center">
                     <div className="flex items-end p-2">
                       <img
                         src={`https://i.imgur.com/${disk.img}.png`}
@@ -125,21 +125,15 @@ const AgentBuild = ({ data }) => {
           ))}
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4">
+        <div className="grid grid-cols-2 gap-5 md:grid-cols-4">
           {engines?.map((li) => (
             <div
               key={li.title}
               className={li.title === "best A" ? "col-span-2" : ""}
             >
-              <p
-                className={`capitalize ${getBg(
-                  element
-                )} p-1 font-medium text-xl text-center`}
-              >
-                {li.title}
-              </p>
+              <EquipementTitle element={element} text={li.title} />
               <div
-                className={`grid justify-items-center bg-neutral-600 border-2 ${getBorder(
+                className={`grid justify-items-center bg-neutral-700 border-2 ${getBorder(
                   element
                 )} mb-5 ${li.title === "best A" ? "grid-cols-2" : ""} p-2`}
               >
@@ -164,18 +158,16 @@ const AgentBuild = ({ data }) => {
         <div className="grid gap-5 lg:grid-cols-2 mb-5">
           {team_comps?.map((team) => (
             <div key={team.title}>
-              <div className={`${getBg(element)} font-medium text-center`}>
-                {team.title}
-              </div>
+              <EquipementTitle element={element} text={team.title} />
               <div
-                className={`grid grid-cols-3 bg-neutral-800 border-2 ${getBorder(
+                className={`grid grid-cols-3 border-2 ${getBorder(
                   element
                 )} items-center`}
               >
-                {team.members.map((member) => (
+                {team.members.map((member, i) => (
                   <div
                     key={member.img}
-                    className="p-2 grid gap-2 justify-items-center"
+                    className={`p-2 grid gap-2 justify-items-center ${i % 2 ? 'bg-neutral-600' : 'bg-neutral-700'}`}
                   >
                     <img
                       src={`https://i.imgur.com/${member.img}.png`}
@@ -190,9 +182,9 @@ const AgentBuild = ({ data }) => {
                     </div>
                   </div>
                 ))}
-                <div className="grid gap-2 justify-items-center landscape:grid-cols-2 md:grid-cols-2 md:items-center">
+                <div className="grid gap-2 justify-items-center landscape:grid-cols-2 md:grid-cols-2 md:items-center bg-neutral-700 h-full">
                   {team.bangboos.map((bangboo) => (
-                    <div key={bangboo.name}>
+                    <div key={bangboo.name} >
                       <img
                         src={`https://i.imgur.com/${bangboo.img}.png`}
                         alt={bangboo.name}
@@ -207,7 +199,7 @@ const AgentBuild = ({ data }) => {
           ))}
         </div>
 
-        <div role="agent-synergy">
+        <div role="agent-synergy" className="mb-5">
           <AgentTitles title="Synergies" />
           <div className="grid gap-2 landscape:grid-cols-2 md:grid-cols-2 md:gap-5 items-start">
             {synergy?.map((syn) => (

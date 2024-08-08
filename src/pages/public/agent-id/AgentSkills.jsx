@@ -76,14 +76,14 @@ const AgentSkills = ({ data }) => {
                 <img
                   src={`https://i.imgur.com/${skillImage["core_skill"]}.png`}
                   alt="core_skill"
-                  className={`w-8 h-8 p-1 ${bgGradient ? bgGradient : ''}`}
+                  className={`w-8 h-8 p-1 ${bgGradient ? bgGradient : ""}`}
                 />
                 <p className="font-medium">{core.name}</p>
               </div>
               <CoreDescription text={core.description} />
               {core.data.length > 0 ? (
                 <div
-                  className="flex justify-between items-center p-1 bg-neutral-800"
+                  className="flex justify-between items-center p-1 bg-neutral-800 hover:cursor-pointer"
                   onClick={() => setCoreToggle(!coreToggle)}
                 >
                   <p className="font-medium">Extra stats at +7</p>
@@ -102,7 +102,19 @@ const AgentSkills = ({ data }) => {
                         }`}
                       >
                         <p className="font-thin">{type}</p>
-                        <p className="text-amber-400 font-medium">+{number}</p>
+                        <p className="text-amber-400 font-medium">
+                          +{number}
+                          <span>
+                            {type.includes("Crit DMG") ||
+                            type.includes("Crit Rate") ||
+                            type.includes("PEN Ratio")
+                              ? "%"
+                              : ""}
+                          </span>
+                          <span>
+                            {type.includes("Energy Regen") ? "/s" : ""}
+                          </span>
+                        </p>
                       </div>
                     );
                   })}
@@ -113,7 +125,7 @@ const AgentSkills = ({ data }) => {
         </div>
       </div>
 
-      <div role="agent-skills">
+      <div role="agent-skills" className="mb-5">
         <AgentTitles title="Skills" />
         <SkillsNav
           set={setActualSkill}
@@ -129,7 +141,7 @@ const AgentSkills = ({ data }) => {
                   <img
                     src={`https://i.imgur.com/${skillImage[actualSkill]}.png`}
                     alt={actualSkill}
-                    className={`w-8 h-8 p-1 ${bgGradient ? bgGradient : ''}`}
+                    className={`w-8 h-8 p-1 ${bgGradient ? bgGradient : ""}`}
                   />
                   <p className="font-medium">{name}</p>
                 </div>
@@ -139,7 +151,7 @@ const AgentSkills = ({ data }) => {
                 />
                 {data.length > 0 ? (
                   <div
-                    className="flex justify-between items-center p-1 bg-neutral-800"
+                    className="flex justify-between items-center p-1 bg-neutral-800 hover:cursor-pointer"
                     onClick={() => handleToggle(id)}
                   >
                     <p className="font-medium">

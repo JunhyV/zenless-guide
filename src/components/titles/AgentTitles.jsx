@@ -2,7 +2,7 @@ import React from 'react'
 
 const AgentTitles = ({title}) => {
   return (
-    <h2 className="font-thin text-2xl mb-2">{title}</h2>
+    <h2 className="font-black text-2xl md:text-3xl mb-2">{title}</h2>
   )
 }
 

@@ -3,13 +3,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import FooterOverlay from "./FooterOverlay";
 
-const FooterNavPhone = ({currentLocation = {}, displayOverlay, overlayToggle}) => {
+const FooterNavPhone = ({ displayOverlay, overlayToggle}) => {
   return (
-    <div className="flex p-2 items-center justify-between text-white text-3xl">
-      <div className="flex gap-2 items-center ">
-        <FontAwesomeIcon icon={currentLocation.icon} />
-        <p className="uppercase text-xl">{currentLocation.name}</p>
-      </div>
+    <div className="flex p-2 items-center justify-end text-white text-3xl">
       {displayOverlay ? <FooterOverlay overlayToggle={overlayToggle}/> : null}
       <FontAwesomeIcon icon={faBars} onClick={overlayToggle}  className="z-10"/>
     </div>

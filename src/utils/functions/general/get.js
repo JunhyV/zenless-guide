@@ -1,9 +1,14 @@
-import { factionOptions } from "../../options";
+import { factionOptions} from "../../options";
 
 export function getFaction(faction) {
     const factionData = factionOptions.find(li => li.name === faction);
 
     return factionData;
+}
+export function getOptions(type, options) {
+    const data = options.find(li => li.name === type);
+
+    return data;
 }
 
 export function getBorder(element) {
