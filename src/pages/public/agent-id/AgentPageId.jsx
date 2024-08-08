@@ -82,7 +82,7 @@ const AgentPageId = () => {
           <AgentBuild data={agentData} />
           <AgentSkills data={agentData} />
           <AgentMindscape data={agentData} />
-          <AgentFarm data={agentData} />
+          {/* <AgentFarm data={agentData} /> */}
         </div>
       )}
     </div>
