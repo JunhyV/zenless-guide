@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { EnginesCard } from "../../../components/engines/EnginesCard";
 import { apiCall } from "../../../utils/apiCall.js";
 import { extractStats } from "../../../utils/extras/w-engines-Funcion";
+import { Header } from "../../../components/header/Header.jsx";
 
 const Engines = () => {
   const [engines, setEngines] = useState([]);
@@ -26,13 +27,11 @@ const Engines = () => {
 
     fetchData();
   }, []);
+
   return (
-    <div className=" min-h-screen p-8">
-      <header className="mb-8">
-        <h1 className="text-4xl font-bold text-center">Zenless Zone Zero W-Engines</h1>
-        <p className="text-center text-gray-700">Last updated: 2024.07.15</p>
-      </header>
-      <div className="flex flex-wrap justify-center">
+    <div className="min-h-screen  bg-neutral-800 bg-opacity-80">
+      <Header pages="W-Engines" />
+      <div className="flex flex-wrap justify-center items-center">
         {engines.map((engine) => (
           <EnginesCard
             key={engine._id}

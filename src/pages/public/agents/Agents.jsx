@@ -3,11 +3,7 @@ import ButtonFilter from "../../../components/filters/ButtonFilter";
 import SelectFilter from "../../../components/filters/SelectFilter";
 import { Link } from "react-router-dom";
 import { apiCall } from "../../../utils/apiCall";
-import {
-  gameVersion,
-  lastUpdate,
-  newCharacters,
-} from "../../../utils/gameVersion";
+import { gameVersion, lastUpdate, newCharacters } from "../../../utils/gameVersion";
 import {
   elementOptions,
   factionOptions,
@@ -53,8 +49,7 @@ const Agents = () => {
         const remainingTime = MINIMUM_DELAY - elapsedTime;
 
         const getData = res.map((agent) => {
-          const { _id, short_img, rol, rank, faction, nickname, element } =
-            agent;
+          const { _id, short_img, rol, rank, faction, nickname, element } = agent;
           return {
             id: _id,
             name: nickname,
@@ -81,9 +76,7 @@ const Agents = () => {
               // Order Array by name
               getDataFiltred.sort((a, b) => a.name.localeCompare(b.name));
               // Put new agents first
-              filtredAgents.forEach((newAgent) =>
-                getDataFiltred.unshift(newAgent)
-              );
+              filtredAgents.forEach((newAgent) => getDataFiltred.unshift(newAgent));
               // Set data
               setAgents(getDataFiltred);
               setShowAgents(getDataFiltred);
@@ -111,11 +104,9 @@ const Agents = () => {
       const agentsToShow = agents.filter((agent) => {
         return (
           (rankFilter.length === 0 || rankFilter.includes(agent.rank)) &&
-          (elementFilter.length === 0 ||
-            elementFilter.includes(agent.element)) &&
+          (elementFilter.length === 0 || elementFilter.includes(agent.element)) &&
           (rolFilter.length === 0 || rolFilter.includes(agent.rol)) &&
-          (factionFilter.length === 0 ||
-            factionFilter.includes(agent.faction)) &&
+          (factionFilter.length === 0 || factionFilter.includes(agent.faction)) &&
           (nameFilter === "" ||
             agent.name.toLowerCase().includes(nameFilter.toLowerCase()))
         );
@@ -140,8 +131,7 @@ const Agents = () => {
         <p className="mt-2">
           Characters (Agents) available in{" "}
           <span className="font-black">Zenless Zone Zero </span>
-          (ZZZ) - Find them in version{" "}
-          <span className="font-black">{gameVersion}.</span>
+          (ZZZ) - Find them in version <span className="font-black">{gameVersion}.</span>
         </p>
         <p>
           <span className="font-thin">Last updated: </span>
