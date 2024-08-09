@@ -22,6 +22,7 @@ import UpdateAgent from "../pages/admin/admin-agents/UpdateAgent";
 import Error from "../pages/error/Error";
 import AgentPageId from "../pages/public/agent-id/AgentPageId";
 import Home from "../pages/public/home/Home";
+import Farm from "../pages/public/farm/Farm";
 
 
 const Router = createBrowserRouter([
@@ -53,6 +54,10 @@ const Router = createBrowserRouter([
       {
         path: "/bangboos",
         element: <Bangboos />,
+      },
+      {
+        path: "/calculator",
+        element: <Farm />,
       },
     ],
   },

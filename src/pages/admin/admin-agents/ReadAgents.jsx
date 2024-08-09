@@ -13,7 +13,6 @@ const ReadAgents = () => {
       try {
         const data = await apiCall("https://zenless-api.vercel.app/agents");
         setAgents(data);
-        console.log(data);
       } catch (error) {
         console.error(error);
       }

@@ -1,8 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import FooterNav from "./FooterNav.jsx";
 import FooterNavPhone from "./FooterNavPhone.jsx";
-import { navList } from "../../utils/footerNav.js";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 const Footer = () => {
   const [deviceScreen, setDeviceScreen] = useState({
