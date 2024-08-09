@@ -2,7 +2,12 @@ import React, { useEffect, useState, version } from "react";
 import ButtonFilter from "../../../components/filters/ButtonFilter";
 import SelectFilter from "../../../components/filters/SelectFilter";
 import { apiCall } from "../../../utils/apiCall";
-import { gameVersion, lastUpdate, newCharacters } from "../../../utils/gameVersion";
+import {
+  gameVersion,
+  lastUpdate,
+  newCharacters,
+  notReleased,
+} from "../../../utils/gameVersion";
 import {
   elementOptions,
   factionOptions,
@@ -18,7 +23,6 @@ const Agents = () => {
   const [agents, setAgents] = useState([]);
   const [showAgents, setShowAgents] = useState([]);
   const [loading, setLoading] = useState(true);
-  const MINIMUM_DELAY = 2000;
 
   const [selector, setSelector] = useState({
     title: "Select by Faction",
@@ -40,16 +44,15 @@ const Agents = () => {
     });
 
     const fetchData = async () => {
-      const startTime = Date.now();
+      let getDataFiltred;
+      let data;
 
       try {
         const res = await apiCall("https://zenless-api.vercel.app/agents");
 
-        const elapsedTime = Date.now() - startTime;
-        const remainingTime = MINIMUM_DELAY - elapsedTime;
-
         const getData = res.map((agent) => {
-          const { _id, short_img, rol, rank, faction, nickname, element } = agent;
+          const { _id, short_img, rol, rank, faction, nickname, element } =
+            agent;
           return {
             id: _id,
             name: nickname,
@@ -61,36 +64,47 @@ const Agents = () => {
           };
         });
 
-        if (remainingTime > 0) {
-          setTimeout(() => {
-            // Filter New Agents
-            const filtredAgents = getData.filter((agent) =>
-              newCharacters.some((name) => agent.name.includes(name))
-            );
+        //No released
+        const noYet = getData.filter((agent) =>
+          notReleased.some((name) => agent.name.includes(name))
+        );
 
-            if (filtredAgents.length !== 0) {
-              // Take out the new Agents
-              const getDataFiltred = getData.filter((agent) =>
-                filtredAgents.some((newAgent) => agent.id !== newAgent.id)
-              );
-              // Order Array by name
-              getDataFiltred.sort((a, b) => a.name.localeCompare(b.name));
-              // Put new agents first
-              filtredAgents.forEach((newAgent) => getDataFiltred.unshift(newAgent));
-              // Set data
-              setAgents(getDataFiltred);
-              setShowAgents(getDataFiltred);
-              setLoading(false);
-            } else {
-              // Order Array by name
-              getData.sort((a, b) => a.name.localeCompare(b.name));
-              // Set data
-              setAgents(getData);
-              setShowAgents(getData);
-              setLoading(false);
-            }
-          }, remainingTime);
+        if (noYet.length !== 0) {
+          data = getData.filter((agent) =>
+            noYet.some((noRelease) => agent.id !== noRelease.id)
+          );
+        } else {
+          data = getData;
         }
+
+        // New Agents
+        const filtredAgents = data.filter((agent) =>
+          newCharacters.some((name) => agent.name.includes(name))
+        );
+
+        if (filtredAgents.length !== 0) {
+          // Take out the new Agents
+          const getDataFiltred = data.filter((agent) =>
+            filtredAgents.some((newAgent) => agent.id !== newAgent.id)
+          );
+          // Order Array by name
+          getDataFiltred.sort((a, b) => a.name.localeCompare(b.name));
+          // Put new agents first
+          filtredAgents.forEach((newAgent) => getDataFiltred.unshift(newAgent));
+          // Set data
+          setAgents(getDataFiltred);
+          setShowAgents(getDataFiltred);
+          setLoading(false);
+        } else {
+          // Order Array by name
+          data.sort((a, b) => a.name.localeCompare(b.name));
+          // Set data
+          setAgents(data);
+          setShowAgents(data);
+          setLoading(false);
+        }
+
+        
       } catch (error) {
         console.error(error);
       }
@@ -104,9 +118,11 @@ const Agents = () => {
       const agentsToShow = agents.filter((agent) => {
         return (
           (rankFilter.length === 0 || rankFilter.includes(agent.rank)) &&
-          (elementFilter.length === 0 || elementFilter.includes(agent.element)) &&
+          (elementFilter.length === 0 ||
+            elementFilter.includes(agent.element)) &&
           (rolFilter.length === 0 || rolFilter.includes(agent.rol)) &&
-          (factionFilter.length === 0 || factionFilter.includes(agent.faction)) &&
+          (factionFilter.length === 0 ||
+            factionFilter.includes(agent.faction)) &&
           (nameFilter === "" ||
             agent.name.toLowerCase().includes(nameFilter.toLowerCase()))
         );
@@ -119,7 +135,7 @@ const Agents = () => {
 
   return (
     <div className="bg-neutral-800 bg-opacity-80 min-h-full flex flex-col gap-4">
-      <Header pages={'agents'}/>
+      <Header pages={"agents"} />
       {loading ? (
         <LoadingDots />
       ) : (

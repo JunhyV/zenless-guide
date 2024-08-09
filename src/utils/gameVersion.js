@@ -9,6 +9,7 @@ import seth from "../assets/images/comming-soon/Agent_Seth_Portrait.webp";
 import miyabi from "../assets/images/comming-soon/Agent_Hoshimi_Miyabi_Portrait.png";
 
 export const newCharacters = ['Qingyi'];
+export const notReleased = ['Qingyi', 'Jane', 'Seth'];
 
 export const nextAgents = [
     {
