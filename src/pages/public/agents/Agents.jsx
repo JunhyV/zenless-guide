@@ -64,14 +64,15 @@ const Agents = () => {
           };
         });
 
-        //No released
+        // Filtra los agentes que aún no han sido liberados
         const noYet = getData.filter((agent) =>
           notReleased.some((name) => agent.name.includes(name))
         );
 
         if (noYet.length !== 0) {
-          data = getData.filter((agent) =>
-            noYet.some((noRelease) => agent.id !== noRelease.id)
+          // Excluye a los agentes que no han sido liberados de la data
+          data = getData.filter(
+            (agent) => !notReleased.some((name) => agent.name.includes(name))
           );
         } else {
           data = getData;
@@ -103,8 +104,6 @@ const Agents = () => {
           setShowAgents(data);
           setLoading(false);
         }
-
-        
       } catch (error) {
         console.error(error);
       }
