@@ -43,7 +43,7 @@ const Bangboos = () => {
 
   return (
     <div className="min-h-screen bg-neutral-800 bg-opacity-80">
-      <Header pages="Bangboo" />
+      <Header pages="bangboos" />
       <div className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 justify-items-center">
           {bangboos.map((bangboo) => (

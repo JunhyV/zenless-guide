@@ -30,7 +30,7 @@ const Engines = () => {
 
   return (
     <div className="min-h-screen  bg-neutral-800 bg-opacity-80">
-      <Header pages="W-Engines" />
+      <Header pages="w-engines" link={'engines'}/>
       <div className="flex flex-wrap justify-center items-center">
         {engines.map((engine) => (
           <EnginesCard
