@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Header } from "../../../components/header/Header";
 import { apiCall } from "../../../utils/apiCall";
-import { RenderStats } from "../../../components/bangboos/RenderStats";
+import RenderStats from "../../../components/bangboos/RenderStats";
+import {SkeletonBangboos} from "../../../components/skelentons/SkeletonBangboos";
+import { getBackgroundColor } from "../../../utils/extras/getBackgroundColor";
 
 const Bangboos = () => {
   const [bangboos, setBangboos] = useState([]);

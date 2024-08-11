@@ -3,6 +3,7 @@ import { EnginesCard } from "../../../components/engines/EnginesCard";
 import { apiCall } from "../../../utils/apiCall.js";
 import { extractStats } from "../../../utils/extras/w-engines-Funcion";
 import { Header } from "../../../components/header/Header.jsx";
+import { SkeletonEngines } from "../../../components/skelentons/SkeletonEngines.jsx";
 
 const Engines = () => {
   const [engines, setEngines] = useState([]);
