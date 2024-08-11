@@ -1,5 +1,6 @@
-export const RenderStats = (stats) => {
-  // Convierte la cadena JSON de stats en un objeto
+import React from "react";
+
+const RenderStats = ({ stats }) => {
   const statsObj = JSON.parse(stats);
 
   return (
@@ -13,3 +14,5 @@ export const RenderStats = (stats) => {
     </div>
   );
 };
+
+export default RenderStats;
