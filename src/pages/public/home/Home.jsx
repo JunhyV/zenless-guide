@@ -48,9 +48,34 @@ const Home = () => {
 
       <div role="home-content" className="p-5 text-white">
         <div role="codes" className="mb-5">
+          <AgentTitles title={"Recently updates"} />
+          <div className="grid md:grid-cols-4 landscape-grid-3">
+            <div className="mx-auto grid">
+              <Link
+                to="https://x.com/ZZZ_EN/status/1822483089945448694"
+                target="_blank"
+                className=""
+              >
+                <img
+                  src={`https://imgur.com/JxxJWGj.jpg`}
+                  alt="Ridu Renovation Talk Vol. 1"
+                  className="grayscale-image h-72 border-4 border-neutral-800 hover-grayscale hover:border-rose-400 transition-colors duration-500"
+                />
+              </Link>
+              <div className="text-center">
+                <p className="font-medium">New Agent: <span className="font-black">Caesar</span></p>
+                <p>
+                  Announced for version <span className="font-black">1.2</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div role="codes" className="mb-5">
           <AgentTitles title={"Get Codes"} />
           <div className="grid gap-5">
-            <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4 landscape-grid-2">
+            <div className="grid gap-5 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 landscape-grid-2">
               {polyCodes.map((code) => (
                 <Codes key={code.code} data={code} type={"poly"} />
               ))}
@@ -97,7 +122,7 @@ const Home = () => {
 
             <div>
               <Subtitle title={"Videos"} />
-              <div className="grid md:grid-cols-2 landscape:grid-cols-2 gap-5">
+              <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-5 landscape-grid-2">
                 {videos.map((li) =>
                   gameVersion === li.version
                     ? li.videos.map((video) => (
@@ -107,7 +132,7 @@ const Home = () => {
                             title="YouTube video player"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowFullScreen
-                            className="mx-auto w-full md:h-48 lg:h-64 xl:h-96 shadow-xl"
+                            className="mx-auto w-full md:h-56 lg:h-72 xl:h-60 shadow-xl"
                           ></iframe>
                           <p className="text-sm md:text-base font-medium text-start">
                             {video.title}

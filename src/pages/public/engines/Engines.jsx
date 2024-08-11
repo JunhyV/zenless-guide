@@ -17,20 +17,17 @@ const Engines = () => {
       try {
         const res = await apiCall("https://zenless-api.vercel.app/engines");
         console.log(res);
-        
 
         // Filter bangboos
         const noYet = res.filter((engine) =>
           notReleasedEngine.some((name) => engine.name.includes(name))
         );
-        
 
         if (noYet.length !== 0) {
           data = res.filter(
             (engine) =>
               !notReleasedEngine.some((name) => engine.name.includes(name))
           );
-          
         } else {
           data = res;
         }
@@ -58,10 +55,12 @@ const Engines = () => {
 
   return (
     <div className="min-h-screen  bg-neutral-800 bg-opacity-80">
-      <Header pages="w-engines" link={'engines'}/>
+      <Header pages="w-engines" link={"engines"} />
       <div className="flex flex-wrap justify-center items-center">
         {loading
-          ? Array.from({ length: 6 }).map((_, index) => <SkeletonEngines key={index} />)
+          ? Array.from({ length: 6 }).map((_, index) => (
+              <SkeletonEngines key={index} />
+            ))
           : engines.map((engine) => (
               <EnginesCard
                 key={engine._id}

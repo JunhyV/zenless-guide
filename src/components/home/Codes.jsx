@@ -1,3 +1,5 @@
+import { faCopy } from "@fortawesome/free-regular-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 
 const Codes = ({ data, type = "materials" }) => {
@@ -23,15 +25,23 @@ const Codes = ({ data, type = "materials" }) => {
     <div
       className={`bg-neutral-600 border-b-2 ${
         type === "poly" ? "border-amber-400" : "border-purple-400"
-      } p-5 text-center hover:cursor-pointer relative shadow-xl`}
-      onClick={() => copyToClipboard(code)}
+      } p-4 text-center relative shadow-xl text-sm`}
     >
       <p className="font-black">{code}</p>
       <p>{content}</p>
-      <p className="font-thin">Released on {release}</p>
+      <div className="relative">
+        <p className="font-thin text-center">Released on {release}</p>
+        <FontAwesomeIcon
+          icon={faCopy}
+          className={`absolute text-lg top-0 right-0 ${
+            type === "poly" ? "hover:text-amber-400" : "hover:text-purple-400"
+          } hover:cursor-pointer`}
+          onClick={() => copyToClipboard(code)}
+        />
+      </div>
       {copied ? (
         <p className="absolute bottom-0 right-5 animate-slideInLeft">
-          Copied!  &#128077;
+          Copied! &#128077;
         </p>
       ) : null}
     </div>
