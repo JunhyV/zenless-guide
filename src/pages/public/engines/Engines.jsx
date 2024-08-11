@@ -4,6 +4,7 @@ import { apiCall } from "../../../utils/apiCall.js";
 import { extractStats } from "../../../utils/extras/w-engines-Funcion";
 import { Header } from "../../../components/header/Header.jsx";
 import { SkeletonEngines } from "../../../components/skelentons/SkeletonEngines.jsx";
+import { notReleasedEngine } from "../../../utils/gameVersion.js";
 
 const Engines = () => {
   const [engines, setEngines] = useState([]);
@@ -14,7 +15,29 @@ const Engines = () => {
       let data;
 
       try {
-        const data = await apiCall("https://zenless-api.vercel.app/engines");
+        const res = await apiCall("https://zenless-api.vercel.app/engines");
+        console.log(res);
+        
+
+        // Filter bangboos
+        const noYet = res.filter((engine) =>
+          notReleasedEngine.some((name) => engine.name.includes(name))
+        );
+        
+
+        if (noYet.length !== 0) {
+          data = res.filter(
+            (engine) =>
+              !notReleasedEngine.some((name) => engine.name.includes(name))
+          );
+          
+        } else {
+          data = res;
+        }
+
+        // Order Array by name
+        data.sort((a, b) => a.name.localeCompare(b.name));
+
         const processedData = data.map((engine) => {
           const { baseAttack, secondaryStat } = extractStats(engine.stats);
           return {
@@ -24,10 +47,9 @@ const Engines = () => {
           };
         });
         setEngines(processedData);
+        setLoading(false);
       } catch (error) {
         console.error(error);
-      } finally {
-        setLoading(false);
       }
     };
 
