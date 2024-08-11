@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import { apiCall } from "../../../utils/apiCall";
 import Selector from "../../../components/buttons/Selector";
 import AgentCard from "./AgentCard";
+import Subtitle from "../../../components/titles/Subtitle";
 
 const Farm = () => {
   const [agents, setAgents] = useState([]);
   const [selection, setSelection] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [materials, setMaterials] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -40,14 +42,44 @@ const Farm = () => {
 
   return (
     <div className="bg-neutral-800 bg-opacity-80 min-h-full gap-4 text-white relative">
-      <Selector data={agents} type={"agent"} set={setSelection} />
-      {selection.length > 0 && (
-        <div className="grid gap-5 lg:grid-cols-2 2xl:grid-cols-3 p-2 md:p-5" >
-          {selection.map((agent, i) => (
-            <AgentCard key={i} data={agent} set={setSelection} list={selection}/>
-          ))}
+      <h1 className="font-black text-3xl md:text-5xl text-center">
+        Farm Guide
+      </h1>
+      <div>
+        <Subtitle title={"Guides"} />
+      </div>
+      <div>
+        <Subtitle title={"Total Farm"} />
+      </div>
+      <div>
+        <div className="flex justify-center">
+          <Selector data={agents} type={"agent"} set={setSelection} />
         </div>
-      )}
+        {selection.length > 0 && (
+          <div
+            className={`grid gap-5 ${
+              selection.length === 1 ? "" : "md:grid-cols-2"
+            } ${
+              selection.length === 1
+                ? ""
+                : selection.length === 2
+                ? "2xl:grid-cols-2"
+                : "2xl:grid-cols-3"
+            }  p-2 md:p-5`}
+          >
+            {selection.map((agent, i) => (
+              <AgentCard
+                key={i}
+                data={agent}
+                set={setSelection}
+                list={selection}
+                setMaterials={setMaterials}
+                materials={materials}
+              />
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 };

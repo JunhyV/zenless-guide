@@ -1,14 +1,27 @@
 export function handleMAX(name) {}
 
 export const handleData = (e, type, name, set) => {
-    console.log(e.target.value);
-    
-    
-/*   set((prev) =>
+  set((prev) =>
     prev.map((agent) =>
       agent.name === name ? { ...agent, [type]: e.target.value } : agent
     )
-  ); */
+  );
+};
+export const handleData2 = (e, type, name, set) => {
+  set((prev) =>
+    prev.map((agent) =>
+      agent.name === name
+        ? { ...agent, [type]: parseInt(e.target.innerText) }
+        : agent
+    )
+  );
+};
+export const handleData3 = (e, type, name, set) => {
+  set((prev) =>
+    prev.map((agent) =>
+      agent.name === name ? { ...agent, [type]: e.target.innerText } : agent
+    )
+  );
 };
 
 export function deleteSelected(name, list, set) {

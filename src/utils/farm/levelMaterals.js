@@ -122,7 +122,6 @@ export const lvlUpMaterials = [
         number: 2,
       },
     ],
-    dennies: 6000,
   },
   {
     lvl: "10 - 20",
@@ -134,7 +133,6 @@ export const lvlUpMaterials = [
         number: 8,
       },
     ],
-    dennies: 24000,
   },
   {
     lvl: "20 - 30",
@@ -146,7 +144,6 @@ export const lvlUpMaterials = [
         number: 20,
       },
     ],
-    dennies: 60000,
   },
   {
     lvl: "30 - 40",
@@ -158,7 +155,6 @@ export const lvlUpMaterials = [
         number: 45,
       },
     ],
-    dennies: 135000,
   },
   {
     lvl: "40 - 50",
@@ -170,7 +166,6 @@ export const lvlUpMaterials = [
         number: 75,
       },
     ],
-    dennies: 225000,
   },
   {
     lvl: "50 - 60",
@@ -182,6 +177,5 @@ export const lvlUpMaterials = [
         number: 150,
       },
     ],
-    dennies: 450000,
   },
 ];
