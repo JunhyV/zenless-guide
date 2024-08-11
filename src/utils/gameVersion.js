@@ -10,6 +10,8 @@ import miyabi from "../assets/images/comming-soon/Agent_Hoshimi_Miyabi_Portrait.
 
 export const newCharacters = ['Qingyi'];
 export const notReleased = ['Qingyi', 'Jane', 'Seth'];
+export const notReleasedEngine = ['Iris Enigma', "Peacekeeper-Specialized", "Ice-Jade Teapot", "Sharpened Stinger"];
+export const notReleasedBangboo = ['Officer Cui'];
 
 export const nextAgents = [
     {

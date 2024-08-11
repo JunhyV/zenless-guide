@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Header } from "../../../components/header/Header";
 import { apiCall } from "../../../utils/apiCall";
 import { RenderStats } from "../../../components/bangboos/RenderStats";
+import { notReleasedBangboo } from "../../../utils/gameVersion";
 
 const Bangboos = () => {
   const [bangboos, setBangboos] = useState([]);
@@ -10,8 +11,28 @@ const Bangboos = () => {
 
   useEffect(() => {
     const fetchData = async () => {
+      let data;
+
       try {
-        const data = await apiCall("https://zenless-api.vercel.app/bangboos");
+        const res = await apiCall("https://zenless-api.vercel.app/bangboos");
+
+        // Filter bangboos
+        const noYet = res.filter((bangboo) =>
+          notReleasedBangboo.some((name) => bangboo.name.includes(name))
+        );
+
+        if (noYet.length !== 0) {
+          data = res.filter(
+            (bangboo) =>
+              !notReleasedBangboo.some((name) => bangboo.name.includes(name))
+          );
+        } else {
+          data = res;
+        }
+
+        // Order Array by name
+        data.sort((a, b) => a.name.localeCompare(b.name));
+        
         setBangboos(data);
       } catch (error) {
         console.error(error);
@@ -86,7 +107,9 @@ const Bangboos = () => {
               <strong>x</strong>
             </button>
             <div className="bg-neutral-300 bg-opacity-70 p-4 rounded">
-              <h2 className="text-2xl font-bold mb-4">{selectedBangboo.name}</h2>
+              <h2 className="text-2xl font-bold mb-4">
+                {selectedBangboo.name}
+              </h2>
               <p>
                 <strong>Rank:</strong> {selectedBangboo.rank}
               </p>

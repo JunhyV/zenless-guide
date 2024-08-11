@@ -44,7 +44,6 @@ const Agents = () => {
     });
 
     const fetchData = async () => {
-      let getDataFiltred;
       let data;
 
       try {
