@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 export const useParse = (data) => {
   const [parsedData, setParsedData] = useState({});
+  const [keys, setKeys] = useState([]);
 
   useEffect(() => {
     if (data) {
@@ -15,5 +16,10 @@ export const useParse = (data) => {
     }
   }, [data]);
 
-  return { parsedData };
+  useEffect(()=> {
+    const getKeys = Object.keys(parsedData);
+    setKeys(getKeys);
+  }, [parsedData])
+
+  return { parsedData, keys};
 };

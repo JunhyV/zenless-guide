@@ -1,10 +1,13 @@
 export const getBackgroundColor = (rank) => {
+  let bg;
   switch (rank) {
     case "S":
-      return "bg-gradient-to-r from-yellow-400 to-yellow-600";
+      bg = "bg-gradient-to-b from-yellow-600 to-yellow-400";
     case "A":
-      return "bg-gradient-to-r from-purple-500 to-purple-700";
+      bg = "bg-gradient-to-b from-purple-600 to-purple-400";
     default:
-      return "bg-gray-400";
+      break;
   }
+
+  return bg;
 };
