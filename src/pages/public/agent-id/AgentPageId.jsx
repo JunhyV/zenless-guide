@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import LoadingAgent from "../../../components/loading/LoadingAgent";
-import AgentBuild from "./AgentBuild";
-import AgentFarm from "./AgentFarm";
 import AgentSkills from "./AgentSkills";
 import AgentMindscape from "./AgentMindscape";
+import AgentBuild from "./AgentBuild";
 import { lastUpdate } from "../../../utils/gameVersion";
 import AgentData from "./AgentData";
 
@@ -12,6 +11,9 @@ const AgentPageId = () => {
   const [agentData, setAgentData] = useState({});
   const [loading, setLoading] = useState(true);
   const agentId = useParams().id;
+
+  console.log(agentData);
+  
 
   useEffect(() => {
     const fetchData = async () => {

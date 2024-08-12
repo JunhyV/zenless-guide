@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { agentInitial } from "../../../utils/initialStates";
 import InputData from "../../../components/admin/form/InputData";
 import SubmitButton from "../../../components/buttons/SubmitButton";
@@ -13,26 +13,77 @@ import AgentCore from "./extras/AgentCore";
 import AgentStats from "./extras/AgentStats";
 import AgentMindscapes from "./extras/AgentMindscapes";
 import AgentSkills from "./extras/AgentSkills";
+import AdminBuild from "../admin-build/AdminBuild";
 
 const CreateAgent = () => {
   const [agent, setAgent] = useState(agentInitial);
   const stats = Object.keys(agent.stats);
   const skills = Object.keys(agent.skills);
 
+  // Info for build
+  const [agents, setAgents] = useState([]);
+  const [bangboos, setBangboos] = useState([]);
+  const [engines, setEngines] = useState([]);
+  const [disks, setDisks] = useState([]);
+
+  // Get data for build
+  useEffect(() => {
+    if (agent) {
+      // Get Agents
+      const fetchAgents = async () => {
+        try {
+          const res = await apiCall(`https://zenless-api.vercel.app/agents`);
+          setAgents(res);
+        } catch (error) {}
+      };
+
+      // Get Bangboos
+      const fetchBangboos = async () => {
+        try {
+          const res = await apiCall(`https://zenless-api.vercel.app/bangboos`);
+          setBangboos(res);
+        } catch (error) {}
+      };
+      // Get Disks
+      const fetchDisks = async () => {
+        try {
+          const res = await apiCall(`https://zenless-api.vercel.app/disks`);
+          setDisks(res);
+        } catch (error) {}
+      };
+
+      // Get Engines
+      const fetchEngines = async () => {
+        try {
+          const res = await apiCall(`https://zenless-api.vercel.app/engines`);
+          const filterEngines = res
+            .filter((engine) => engine.rank !== "B")
+            .filter((engine) => engine.rol === agent.rol);
+          setEngines(filterEngines);
+        } catch (error) {}
+      };
+
+      fetchAgents();
+      fetchBangboos();
+      fetchDisks();
+      fetchEngines();
+    }
+  }, [agent]);
+
   const createSkill = () => {
     const highestId = agent.core_skill.reduce((maxId, item) => {
       return parseInt(item.id) > maxId ? parseInt(item.id) : maxId;
     }, 0);
-    
+
     const skillObject = {
       id: highestId + 1,
       name: "",
       description: "",
       data: [],
-    }
+    };
 
-    setAgent({...agent, core_skill: [...agent.core_skill, skillObject]})
-  }
+    setAgent({ ...agent, core_skill: [...agent.core_skill, skillObject] });
+  };
 
   return (
     <div className="flex flex-col items-center justify-center min-h-full">
@@ -96,9 +147,12 @@ const CreateAgent = () => {
               global={agent}
             />
           ))}
-          <button className="mx-auto bg-violet-400 text-white font-medium p-2 rounded-md w-fit hover:bg-violet-600 transition-colors duration-500" onClick={createSkill}>
+          <button
+            className="mx-auto bg-violet-400 text-white font-medium p-2 rounded-md w-fit hover:bg-violet-600 transition-colors duration-500"
+            onClick={createSkill}
+          >
             + Add Skill
-          </button >
+          </button>
         </div>
         <div className="border border-neutral-400 p-5 w-full mb-5">
           <h2 className="font-medium mb-5 text-lg">Agent skills</h2>
@@ -132,6 +186,14 @@ const CreateAgent = () => {
             />
           </div>
         </div>
+        <AdminBuild
+          data={agent}
+          set={setAgent}
+          engines={engines}
+          agents={agents}
+          bangboos={bangboos}
+          disks={disks}
+        />
       </div>
 
       <SubmitButton

@@ -99,6 +99,10 @@ export const factionOptions = [
     name: "Victoria Housekeeping Co.",
     img: "waCA9TJ.png",
   },
+  {
+    name: "Unknown",
+    img: "x",
+  },
 ];
 
 export const advancedStats = [
