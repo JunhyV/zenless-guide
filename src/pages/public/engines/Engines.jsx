@@ -16,7 +16,6 @@ const Engines = () => {
 
       try {
         const res = await apiCall("https://zenless-api.vercel.app/engines");
-        console.log(res);
 
         // Filter bangboos
         const noYet = res.filter((engine) =>
@@ -31,6 +30,12 @@ const Engines = () => {
         } else {
           data = res;
         }
+
+        const noB = data.filter(engine => engine.rank !== 'B');
+        
+        const enginesB = data.filter(engine => engine.rank === 'B');
+
+        data = noB;
 
         // Order Array by name
         data.sort((a, b) => a.name.localeCompare(b.name));

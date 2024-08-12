@@ -45,7 +45,7 @@ const Selector = ({ data, type, set }) => {
         <FontAwesomeIcon icon={faChevronDown} />
       </div>
       {selectToggle ? (
-        <div className="h-96 bg-white overflow-auto text-black fixed w-52 z-50">
+        <div className="h-80 bg-white overflow-auto text-black absolute w-52 z-50">
           {data.map((agent, li) => {
             const last = li + 1 === data.length;
 

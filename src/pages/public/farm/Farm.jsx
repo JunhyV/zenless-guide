@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import { apiCall } from "../../../utils/apiCall";
 import Selector from "../../../components/buttons/Selector";
 import AgentCard from "./AgentCard";
-import {Header} from "../../../components/header/Header";
 import Coffees from "./Coffees";
+import { gameVersion, lastUpdate } from "../../../utils/gameVersion";
+import { Link } from "react-router-dom";
 
 const Farm = () => {
   const [agents, setAgents] = useState([]);
@@ -43,7 +44,31 @@ const Farm = () => {
 
   return (
     <div className="bg-neutral-800 bg-opacity-80 min-h-full gap-4 text-white relative">
-      <Header pages={'Farm guide'}/>
+      <header>
+        <div className="text-white px-5 h-full">
+          <h1 className="font-black text-3xl md:text-5xl text-center">
+            Zenless Zone Zero || <span className="capitalize">farm guide</span>
+          </h1>
+          <p className="mb-2">
+            <Link to={"/"} className="hover:text-yellow-500">
+              Home
+            </Link>{" "}
+            /{" "}
+            <Link to={`/calculator`} className="hover:text-yellow-500 capitalize">
+              Calculator
+            </Link>
+          </p>
+          <hr className="border-yellow-500" />
+          <p className="mt-2">
+            Select an agent and try the materials <span className="font-black capitalize">calculator</span>. Plan the resources
+            needed to level up your favorite characters.
+          </p>
+          <p>
+            <span className="font-thin">Last updated: </span>
+            {lastUpdate}
+          </p>
+        </div>
+      </header>
       <div className="flex p-5">
         <Selector data={agents} type={"agent"} set={setSelection} />
       </div>

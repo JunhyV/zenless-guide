@@ -53,9 +53,9 @@ const Tierlist = () => {
   return (
     <div className="bg-neutral-800 bg-opacity-80 min-h-full flex flex-col gap-4">
       <div className="text-white px-5 h-full">
-        <h1 className="font-black text-3xl text-center mb-2 ">
-          Zenless Zone Zero Tier List
-        </h1>
+      <h1 className="font-black text-3xl md:text-5xl text-center">
+            Zenless Zone Zero || <span className="capitalize">tier list</span>
+          </h1>
         <p className="mb-2">
           <Link to="/" className="hover:text-yellow-500">
             Home

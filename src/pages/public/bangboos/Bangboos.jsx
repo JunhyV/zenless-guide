@@ -46,16 +46,7 @@ const Bangboos = () => {
   }, []);
 
   const openModal = (bangboo) => {
-    setSelectedBangboo(bangboo);
-    /*     setIsModalOpen(true); */
-  };
-
-  useEffect(() => {
-    console.log(selectedBangboo);
-  }, [selectedBangboo]);
-
-  const closeModal = () => {
-    setIsModalOpen(false);
+    setSelectedBangboo(bangboo)
   };
 
   return (
@@ -68,7 +59,7 @@ const Bangboos = () => {
                 <SkeletonBangboos key={index} />
               ))
             : bangboos.map((bangboo) => (
-                <BangbooCard data={bangboo} openModal={openModal} />
+                <BangbooCard key={bangboo.name} data={bangboo} openModal={openModal} />
               ))}
         </div>
       </div>
@@ -113,11 +104,8 @@ const Bangboos = () => {
           </div>
         </div>
       ) : (
-        <div>No hay bangboo</div>
+        null
       )}
-      {/* {isModalOpen && selectedBangboo && (
-        
-      )} */}
     </div>
   );
 };

@@ -9,8 +9,8 @@ import seth from "../assets/images/comming-soon/Agent_Seth_Portrait.webp";
 import miyabi from "../assets/images/comming-soon/Agent_Hoshimi_Miyabi_Portrait.png";
 
 export const newCharacters = ['Qingyi'];
-export const notReleased = ['Qingyi', 'Jane', 'Seth'];
-export const notReleasedEngine = ['Iris Enigma', "Peacekeeper-Specialized", "Ice-Jade Teapot", "Sharpened Stinger"];
+export const notReleased = ['Jane', 'Seth'];
+export const notReleasedEngine = ['Iris Enigma', "Peacekeeper-Specialized", "Sharpened Stinger"];
 export const notReleasedBangboo = ['Officer Cui'];
 
 export const nextAgents = [
@@ -19,12 +19,6 @@ export const nextAgents = [
         img: jane,
         version: '1.1',
         gameplay: 'https://www.youtube.com/watch?v=IoR7hWz4s8E'
-    },
-    {
-        name: "Qingyi",
-        img: qingyi,
-        version: '1.1',
-        gameplay: 'https://www.youtube.com/watch?v=oX9Upd3diqo'
     },
     {
         name: "Seth",

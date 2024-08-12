@@ -32,12 +32,12 @@ const Coffees = () => {
   const coffeeList2 = [coffee1, coffee6];
   const coffeeList3 = [coffee4, coffee5];
   return (
-    <div className="bg-gradient-to-b  from-neutral-800 to-neutral-600 p-5 max-w-screen-md mx-auto">
+    <div className="bg-gradient-to-b border from-neutral-800 to-neutral-600 p-5 max-w-screen-md mx-auto">
       <h2 className="font-black text-center text-xl">Coffee Shop</h2>
       <div className="md:grid md:grid-cols-4 gap-2 items-center">
         <div className="grid grid-cols-2 md:grid-cols-1 gap-2">
           {coffeeList1.map((coffee, i) => (
-            <div className="relative z bg-gradient-to-b  from-amber-600 to-amber-400">
+            <div key={coffee} className="relative z bg-gradient-to-b  from-amber-600 to-amber-400">
               <img src={coffee} alt="" className="w-14 h-14 mx-auto" />
               <div className="bg-neutral-800">
                 <p className=" text-sm text-center font-medium">
@@ -52,7 +52,7 @@ const Coffees = () => {
         </div>
         <div className="grid grid-cols-2 md:grid-cols-1 gap-2">
           {coffeeList2.map((coffee, i) => (
-            <div className="relative z bg-gradient-to-b  from-amber-600 to-amber-400">
+            <div key={coffee} className="relative z bg-gradient-to-b  from-amber-600 to-amber-400">
               <img src={coffee} alt="" className="w-14 h-14 mx-auto" />
               <div className="bg-neutral-800">
                 <p className=" text-sm text-center font-medium">
@@ -67,7 +67,7 @@ const Coffees = () => {
         </div>
         <div className="grid grid-cols-2 md:grid-cols-1 gap-2">
           {coffeeList3.map((coffee, i) => (
-            <div className="relative z bg-gradient-to-b  from-amber-600 to-amber-400">
+            <div key={coffee} className="relative z bg-gradient-to-b  from-amber-600 to-amber-400">
               <img src={coffee} alt="" className="w-14 h-14 mx-auto" />
               <div className="bg-neutral-800">
                 <p className=" text-sm text-center font-medium">

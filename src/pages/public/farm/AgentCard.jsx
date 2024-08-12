@@ -7,6 +7,7 @@ import {
   deleteSelected,
   handleData,
   handleMAX,
+  handleRecommended,
 } from "../../../utils/functions/public/farm/agentCard";
 import { calculateSigleMaterials } from "../../../utils/functions/public/farm/calculateMaterials";
 import FarmMaterials from "./FarmMaterials";
@@ -113,12 +114,12 @@ const AgentCard = ({ data, set, list, materials, setMaterials }) => {
                   rank === "S"
                     ? "from-amber-600 to-amber-400"
                     : "from-purple-600 to-purple-400"
-                } w-full h-52 lg:h-36 overflow-hidden flex`}
+                } w-full h-52 lg:h-36 overflow-hidden flex tranform`}
               >
                 <img
                   src={`https://imgur.com/${img}.jpg`}
                   alt={name}
-                  className="object-scale-down mx-auto translate-x-1 translate-y-3"
+                  className="object-scale-down mx-auto translate-x-1 translate-y-2 transform scale-110"
                   onError={(e) =>
                     (e.currentTarget.src = "/path/to/default-image.jpg")
                   }

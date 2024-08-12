@@ -10,7 +10,7 @@ export const Header = ({ pages, link }) => {
   }
 
   return (
-    <header className="mb-8">
+    <header>
       <div className="text-white px-5 h-full">
         <h1 className="font-black text-3xl md:text-5xl text-center">
           Zenless Zone Zero || <span className="capitalize">{pages}</span>
@@ -26,7 +26,7 @@ export const Header = ({ pages, link }) => {
         </p>
         <hr className="border-yellow-500" />
         <p className="mt-2">
-          Characters (Agents) available in{" "}
+          <span className="capitalize font-black">{pages}</span> available in{" "}
           <span className="font-black">Zenless Zone Zero </span>
           (ZZZ) - Find them in version{" "}
           <span className="font-black">{gameVersion}.</span>

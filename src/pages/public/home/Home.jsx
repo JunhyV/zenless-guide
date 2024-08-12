@@ -101,7 +101,7 @@ const Home = () => {
               <Subtitle title={"Comming soon..."} />
               <div className="grid gap-5 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 landscape-grid-3">
                 {eventsUncomming.map((event) => (
-                  <EventUncomming data={event} />
+                  <EventUncomming key={event.name} data={event} />
                 ))}
               </div>
             </div>
@@ -126,7 +126,7 @@ const Home = () => {
                 {videos.map((li) =>
                   gameVersion === li.version
                     ? li.videos.map((video) => (
-                        <div className="grid  gap-2">
+                        <div key={video.title} className="grid  gap-2">
                           <iframe
                             src={video.link}
                             title="YouTube video player"

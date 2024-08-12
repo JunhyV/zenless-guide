@@ -7,7 +7,7 @@ const BangbooStats = ({ data }) => {
   return (
     <div>
       {keys.map((key) => (
-        <p className="uppercase font-medium">
+        <p key={key} className="uppercase font-medium">
           {key}: <span className="font-normal">{parsedData[key]}</span>
         </p>
       ))}
