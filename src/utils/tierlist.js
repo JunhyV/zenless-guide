@@ -3,7 +3,7 @@ export const tierList = [
         rank: 'SS',
         dmg_carry: ['Ellen', 'Zhu Yuan'],
         anomaly_carry: ['Grace'],
-        stun: ['Lycaon'],
+        stun: ['Lycaon', 'Qingyi'],
         support: ['Soukaku', 'Nicole']
     },
     {

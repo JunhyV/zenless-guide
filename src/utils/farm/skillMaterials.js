@@ -14,9 +14,90 @@ import basicPhysical from "../../assets/images/zzz-materials/skill-materials/Ava
 import advancedPhysical from "../../assets/images/zzz-materials/skill-materials/AvatarSkillPhys02.webp";
 import specializedPhysical from "../../assets/images/zzz-materials/skill-materials/RoleSkillExpPhysDmg01.webp";
 
+export const skillImages = {
+  basicElectric,
+  advancedElectric,
+  specializedElectric,
+  basicFire,
+  advancedFire,
+  specializedFire,
+  basicEther,
+  advancedEther,
+  specializedEther,
+  basicIce,
+  advancedIce,
+  specializedIce,
+  basicPhysical,
+  advancedPhysical,
+  specializedPhysical,
+}
+
+export const getAgentSkills = (element) => {
+  let skillMaterials;
+  switch (element) {
+    case "electric":
+      skillMaterials = [
+        'basicElectric',
+        'advancedElectric',
+        'specializedElectric'
+      ];
+      break;
+    case "fire":
+      skillMaterials = [
+        'basicFire',
+        'advancedFire',
+        'specializedFire'
+      ];
+      break;
+    case "ether":
+      skillMaterials = [
+        'basicEther',
+        'advancedEther',
+        'specializedEther'
+      ];
+      break;
+    case "ice":
+      skillMaterials = [
+        'basicIce',
+        'advancedIce',
+        'specializedIce'
+      ];
+      break;
+    case "physical":
+      skillMaterials = [
+        'basicPhysical',
+        'advancedPhysical',
+        'specializedPhysical'
+      ];
+      break;
+    default:
+      break;
+  }
+
+  return skillMaterials;
+};
+
 export const skillsMaterials = [
   {
-    lvl: "1 -> 2",
+    lvl: "1",
+    farm: [
+      {
+        type: "basic",
+        img: {
+          physical: basicPhysical,
+          ether: basicEther,
+          ice: basicIce,
+          fire: basicFire,
+          electric: basicElectric,
+        },
+        number: 0,
+        hamster: false,
+      },
+    ],
+    dennies: 0,
+  },
+  {
+    lvl: "2",
     farm: [
       {
         type: "basic",
@@ -34,7 +115,7 @@ export const skillsMaterials = [
     dennies: 2000,
   },
   {
-    lvl: "2 -> 3",
+    lvl: "3",
     farm: [{
       type: "basic",
       img: {
@@ -50,7 +131,7 @@ export const skillsMaterials = [
     dennies: 3000,
   },
   {
-    lvl: "3 -> 4",
+    lvl: "4",
     farm: [{
       type: "advanced",
       img: {
@@ -66,7 +147,7 @@ export const skillsMaterials = [
     dennies: 6000,
   },
   {
-    lvl: "4 -> 5",
+    lvl: "5",
     farm: [{
       type: "advanced",
       img: {
@@ -82,7 +163,7 @@ export const skillsMaterials = [
     dennies: 9000,
   },
   {
-    lvl: "5 -> 6",
+    lvl: "6",
     farm: [{
       type: "advanced",
       img: {
@@ -98,7 +179,7 @@ export const skillsMaterials = [
     dennies: 12000,
   },
   {
-    lvl: "6 -> 7",
+    lvl: "7",
     farm: [{
       type: "advanced",
       img: {
@@ -114,7 +195,7 @@ export const skillsMaterials = [
     dennies: 18000,
   },
   {
-    lvl: "7 -> 8",
+    lvl: "8",
     farm: [{
       type: "specialized",
       img: {
@@ -130,7 +211,7 @@ export const skillsMaterials = [
     dennies: 45000,
   },
   {
-    lvl: "8 -> 9",
+    lvl: "9",
     farm: [{
       type: "specialized",
       img: {
@@ -146,7 +227,7 @@ export const skillsMaterials = [
     dennies: 67500,
   },
   {
-    lvl: "9 -> 10",
+    lvl: "10",
     farm: [{
       type: "specialized",
       img: {
@@ -162,7 +243,7 @@ export const skillsMaterials = [
     dennies: 90000,
   },
   {
-    lvl: "10 -> 11",
+    lvl: "11",
     farm: [{
       type: "specialized",
       img: {
@@ -178,7 +259,7 @@ export const skillsMaterials = [
     dennies: 112500,
   },
   {
-    lvl: "11 -> 12",
+    lvl: "12",
     farm: [{
       type: "specialized",
       img: {

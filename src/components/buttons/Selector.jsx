@@ -15,11 +15,11 @@ const Selector = ({ data, type, set }) => {
       rank: data.rank,
       lvl: 1,
       core: "",
-      basic: 0,
-      dodge: 0,
-      assist: 0,
-      special: 0,
-      chain: 0,
+      basic: 1,
+      dodge: 1,
+      assist: 1,
+      special: 1,
+      chain: 1,
     };
 
     set((prev) => {
@@ -34,9 +34,9 @@ const Selector = ({ data, type, set }) => {
     setSelectToggle(false);
   }
   return (
-    <div className="w-80 relative">
+    <div className="w-52 relative">
       <div
-        className="bg-white text-black text-xl text-center font-medium p-2 flex justify-between"
+        className="bg-white text-black text-xl text-center font-medium p-2 flex justify-between hover:cursor-pointer"
         onClick={() => setSelectToggle(!selectToggle)}
       >
         <p>
@@ -45,7 +45,7 @@ const Selector = ({ data, type, set }) => {
         <FontAwesomeIcon icon={faChevronDown} />
       </div>
       {selectToggle ? (
-        <div className="h-96 bg-white overflow-auto text-black fixed w-80">
+        <div className="h-96 bg-white overflow-auto text-black fixed w-52 z-50">
           {data.map((agent, li) => {
             const last = li + 1 === data.length;
 

@@ -40,13 +40,16 @@ const AgentMindscape = ({ data }) => {
     <div className="mb-5">
       <AgentTitles title={"Mindscape"} />
       <div className="grid gap-5">
-        <img
+        {parsedData.img !== 'x' ?        <img
           src={`https://i.imgur.com/${parsedData.img}.png`}
           alt="mindscape"
           className={`mx-auto border-4 ${getBorder(
             element
           )} rounded-3xl lg:w-8/12`}
-        />
+        /> : <div className={`text-center bg-neutral-800 h-40 flex items-center justify-center text-2xl font-medium border-4 ${getBorder(
+            element
+          )}`}>Mindscape Soon...</div>}
+
         <div className="grid gap-5">
           {parsedData.mindscapes
             ? parsedData.mindscapes.map((mind, i) => (

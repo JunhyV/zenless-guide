@@ -9,6 +9,7 @@ import {
   handleMAX,
 } from "../../../utils/functions/public/farm/agentCard";
 import { calculateSigleMaterials } from "../../../utils/functions/public/farm/calculateMaterials";
+import FarmMaterials from "./FarmMaterials";
 
 const AgentCard = ({ data, set, list, materials, setMaterials }) => {
   const { name, rol, element, lvl, img, core, rank } = data;
@@ -29,24 +30,23 @@ const AgentCard = ({ data, set, list, materials, setMaterials }) => {
     }
   }, [data]);
 
-  useEffect(() => {
-    console.log(materials);
-  }, [materials]);
-
   return (
     <div>
       <div
-        className={`bg-neutral-700 mx-auto p-2 flex flex-col gap-5 lg:gap-2 max-w-80 md:max-w-96 lg:max-w-lg md:p-3 shadow-xl border-2 rounded-xl`}
+        className={`bg-gradient-to-b  from-neutral-800 to-neutral-600 mx-auto p-2 flex flex-col gap-5 lg:gap-2 lg:max-w-lg md:p-3 shadow-xl border`}
       >
         <div className="flex justify-between">
           <div className="flex gap-2">
             <button
-              className="font-medium border-2 p-2 rounded-xl"
-              onClick={handleMAX}
+              className="font-medium border p-2 hover:text-sky-400 hover:border-sky-400"
+              onClick={() => handleMAX(name, set)}
             >
               MAX
             </button>
-            <button className="font-medium border-2 p-2 rounded-xl">
+            <button
+              className="font-medium border p-2 hover:text-amber-400 hover:border-amber-400"
+              onClick={() => handleRecommended(name, set, rol)}
+            >
               Recommended
             </button>
           </div>
@@ -60,20 +60,50 @@ const AgentCard = ({ data, set, list, materials, setMaterials }) => {
           </div>
         </div>
 
-        <div className="grid lg:flex gap-5">
-          <div className="lg:w-2/5 flex flex-col gap-5">
-            <div className="grid gap-2 border-2 p-1 bg-neutral-800 rounded-xl">
+        <div className="grid md:flex gap-5">
+          <div className="md:w-2/5 flex flex-col gap-5">
+            <div className="grid gap-2 border p-1 bg-neutral-800">
               <div className="flex justify-between">
                 <p className="font-medium">Level</p>
                 <p className="font-thin">1 &rarr; {lvl}</p>
               </div>
               <div className="flex justify-between">
-                <LevelOptions type={"10"} name={data.name} set={set} />
-                <LevelOptions type={"20"} name={data.name} set={set} />
-                <LevelOptions type={"30"} name={data.name} set={set} />
-                <LevelOptions type={"40"} name={data.name} set={set} />
-                <LevelOptions type={"50"} name={data.name} set={set} />
-                <LevelOptions type={"60"} name={data.name} set={set} />
+                <LevelOptions
+                  type={"10"}
+                  name={data.name}
+                  set={set}
+                  data={lvl}
+                />
+                <LevelOptions
+                  type={"20"}
+                  name={data.name}
+                  set={set}
+                  data={lvl}
+                />
+                <LevelOptions
+                  type={"30"}
+                  name={data.name}
+                  set={set}
+                  data={lvl}
+                />
+                <LevelOptions
+                  type={"40"}
+                  name={data.name}
+                  set={set}
+                  data={lvl}
+                />
+                <LevelOptions
+                  type={"50"}
+                  name={data.name}
+                  set={set}
+                  data={lvl}
+                />
+                <LevelOptions
+                  type={"60"}
+                  name={data.name}
+                  set={set}
+                  data={lvl}
+                />
               </div>
             </div>
 
@@ -88,7 +118,7 @@ const AgentCard = ({ data, set, list, materials, setMaterials }) => {
                 <img
                   src={`https://imgur.com/${img}.jpg`}
                   alt={name}
-                  className="h-full object-cover object-top mx-auto"
+                  className="object-scale-down mx-auto translate-x-1 translate-y-3"
                   onError={(e) =>
                     (e.currentTarget.src = "/path/to/default-image.jpg")
                   }
@@ -114,20 +144,52 @@ const AgentCard = ({ data, set, list, materials, setMaterials }) => {
             </div>
           </div>
 
-          <div className="lg:w-3/5 grid gap-5">
-            <div className="grid gap-2 border-2 p-2 rounded-xl bg-neutral-800">
-              <p className="text-center font-medium">Core Skill = "{core}"</p>
+          <div className="md:w-3/5 grid gap-5">
+            <div className="grid gap-2 border p-2 bg-neutral-800">
+              <p className="text-center font-medium">
+                Core Skill = "{core || "-"}"
+              </p>
               <div className="grid grid-cols-3 gap-2">
-                <CoreOptions type={"A"} name={data.name} set={set} />
-                <CoreOptions type={"C"} name={data.name} set={set} />
-                <CoreOptions type={"E"} name={data.name} set={set} />
-                <CoreOptions type={"B"} name={data.name} set={set} />
-                <CoreOptions type={"D"} name={data.name} set={set} />
-                <CoreOptions type={"F"} name={data.name} set={set} />
+                <CoreOptions
+                  type={"A"}
+                  name={data.name}
+                  set={set}
+                  data={core}
+                />
+                <CoreOptions
+                  type={"C"}
+                  name={data.name}
+                  set={set}
+                  data={core}
+                />
+                <CoreOptions
+                  type={"E"}
+                  name={data.name}
+                  set={set}
+                  data={core}
+                />
+                <CoreOptions
+                  type={"B"}
+                  name={data.name}
+                  set={set}
+                  data={core}
+                />
+                <CoreOptions
+                  type={"D"}
+                  name={data.name}
+                  set={set}
+                  data={core}
+                />
+                <CoreOptions
+                  type={"F"}
+                  name={data.name}
+                  set={set}
+                  data={core}
+                />
               </div>
             </div>
 
-            <div className="flex items-center justify-around border-2 p-1 rounded-xl bg-neutral-800">
+            <div className="flex items-center justify-around border p-1 bg-neutral-800">
               {skills.map((skill) => (
                 <div key={skill} className="grid gap-2">
                   <img
@@ -142,12 +204,12 @@ const AgentCard = ({ data, set, list, materials, setMaterials }) => {
                       value={data[skill]}
                       onChange={(e) => handleData(e, skill, name, set)}
                       max={12}
-                      min={0}
+                      min={1}
                     />
                     <p className="font-thin">/12</p>
                   </div>
                   <button
-                    className="mx-auto"
+                    className="mx-auto hover:text-sky-400"
                     onClick={() =>
                       set((prev) =>
                         prev.map((agent) =>
@@ -165,9 +227,21 @@ const AgentCard = ({ data, set, list, materials, setMaterials }) => {
             </div>
           </div>
         </div>
-        <div className="gap-2 border-2 p-2 rounded-xl bg-neutral-800">
+        <div className="gap-2 border p-2 bg-neutral-800">
           <p className="text-center font-medium">Materials</p>
-          <div>materials</div>
+          <div>
+            {materials.map((material) =>
+              material.name === name ? (
+                <FarmMaterials
+                  key={material.name}
+                  data={material.materials}
+                  name={material.name}
+                  element={element}
+                  rol={rol}
+                />
+              ) : null
+            )}
+          </div>
         </div>
       </div>
     </div>

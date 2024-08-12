@@ -18,164 +18,65 @@ import defensePromotionBuster from "../../assets/images/zzz-materials/promotion-
 // Experience import
 import exp from "../../assets/images/zzz-materials/lvl-materials/RoleExp03.webp";
 
-export const levelMaterials = [
-  {
-    lvl: "Promotion lvl 10",
-    farm: [
-      {
-        name: "Certification Seal",
-        type: "basic",
-        img: {
-          attack: atkPromotionBasic,
-          stun: stunPromotionBasic,
-          anomaly: anomalyPromotionBasic,
-          support: suppPromotionBasic,
-          defense: defensePromotionBasic,
-        },
-        number: 4,
-      },
-    ],
-    dennies: 24000,
-  },
-  {
-    lvl: "Promotion lvl 20",
-    farm: [
-      {
-        name: "Certification Seal",
-        type: "advanced",
-        img: {
-          attack: atkPromotionAdvanced,
-          stun: stunPromotionAdvanced,
-          anomaly: anomalyPromotionAdvanced,
-          support: suppPromotionAdvanced,
-          defense: defensePromotionAdvanced,
-        },
-        number: 14,
-      },
-    ],
-    dennies: 56000,
-  },
-  {
-    lvl: "Promotion lvl 30",
-    farm: [
-      {
-        name: "Certification Seal",
-        type: "advanced",
-        img: {
-          attack: atkPromotionAdvanced,
-          stun: stunPromotionAdvanced,
-          anomaly: anomalyPromotionAdvanced,
-          support: suppPromotionAdvanced,
-          defense: defensePromotionAdvanced,
-        },
-        number: 20,
-      },
-    ],
-    dennies: 120000,
-  },
-  {
-    lvl: "Promotion lvl 40",
-    farm: [
-      {
-        name: "Certification Seal",
-        type: "buster",
-        img: {
-          attack: atkPromotionBuster,
-          stun: stunPromotionBuster,
-          anomaly: anomalyPromotionBuster,
-          support: suppPromotionBuster,
-          defense: defensePromotionBuster,
-        },
-        number: 10,
-      },
-    ],
-    dennies: 200000,
-  },
-  {
-    lvl: "Promotion lvl 50",
-    farm: [
-      {
-        name: "Certification Seal",
-        type: "buster",
-        img: {
-          attack: atkPromotionBuster,
-          stun: stunPromotionBuster,
-          anomaly: anomalyPromotionBuster,
-          support: suppPromotionBuster,
-          defense: defensePromotionBuster,
-        },
-        number: 20,
-      },
-    ],
-    dennies: 400000,
-  },
-];
+export const promotionImages = {
+  stunPromotionBasic,
+  stunPromotionAdvanced,
+  stunPromotionBuster,
+  suppPromotionBasic,
+  suppPromotionAdvanced,
+  suppPromotionBuster,
+  atkPromotionBasic,
+  atkPromotionAdvanced,
+  atkPromotionBuster,
+  anomalyPromotionBasic,
+  anomalyPromotionAdvanced,
+  anomalyPromotionBuster,
+  defensePromotionBasic,
+  defensePromotionAdvanced,
+  defensePromotionBuster,
+}
 
-export const lvlUpMaterials = [
-  {
-    lvl: "1 - 10",
-    farm: [
-      {
-        img: {
-          exp: exp,
-        },
-        number: 2,
-      },
-    ],
-  },
-  {
-    lvl: "10 - 20",
-    farm: [
-      {
-        img: {
-          exp: exp,
-        },
-        number: 8,
-      },
-    ],
-  },
-  {
-    lvl: "20 - 30",
-    farm: [
-      {
-        img: {
-          exp: exp,
-        },
-        number: 20,
-      },
-    ],
-  },
-  {
-    lvl: "30 - 40",
-    farm: [
-      {
-        img: {
-          exp: exp,
-        },
-        number: 45,
-      },
-    ],
-  },
-  {
-    lvl: "40 - 50",
-    farm: [
-      {
-        img: {
-          exp: exp,
-        },
-        number: 75,
-      },
-    ],
-  },
-  {
-    lvl: "50 - 60",
-    farm: [
-      {
-        img: {
-          exp: exp,
-        },
-        number: 150,
-      },
-    ],
-  },
-];
+export const getAgentPromotion = (rol) => {
+  let promMaterials;
+  switch (rol) {
+    case "stun":
+      promMaterials = [
+        'stunPromotionBasic',
+        'stunPromotionAdvanced',
+        'stunPromotionBuster',
+      ];
+      break;
+    case "support":
+      promMaterials = [
+        'suppPromotionBasic',
+        'suppPromotionAdvanced',
+        'suppPromotionBuster',
+      ];
+      break;
+    case "attack":
+      promMaterials = [
+        'atkPromotionBasic',
+        'atkPromotionAdvanced',
+        'atkPromotionBuster',
+      ];
+      break;
+    case "anomaly":
+      promMaterials = [
+        'anomalyPromotionBasic',
+        'anomalyPromotionAdvanced',
+        'anomalyPromotionBuster',
+      ];
+      break;
+    case "defense":
+      promMaterials = [
+        'defensePromotionBasic',
+        'defensePromotionAdvanced',
+        'defensePromotionBuster',
+      ];
+      break;
+    default:
+      break;
+  }
+
+  return promMaterials;
+};

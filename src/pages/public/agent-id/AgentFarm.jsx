@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+/* import React, { useEffect, useState } from "react";
 import {
   levelMaterials,
   lvlUpMaterials,
@@ -62,3 +62,4 @@ const AgentFarm = ({ data }) => {
 };
 
 export default AgentFarm;
+ */
