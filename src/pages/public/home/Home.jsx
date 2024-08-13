@@ -52,6 +52,29 @@ const Home = () => {
           <div className="grid md:grid-cols-4 landscape-grid-3">
             <div className="mx-auto grid">
               <Link
+                to="https://x.com/ZZZ_EN/status/1822845597537436105"
+                target="_blank"
+                className=""
+              >
+                <img
+                  src={`https://imgur.com/wMH5cH9.jpg`}
+                  alt="Ridu Renovation Talk Vol. 1"
+                  className="grayscale-image h-72 border-4 border-neutral-800 hover-grayscale hover:border-rose-400 transition-colors duration-500"
+                />
+              </Link>
+              <div className="text-center">
+                <p className="font-medium">
+                  New Agent: <span className="font-black">Burnice</span> (
+                  <span className="text-rose-400">Fire</span>/
+                  <span className="text-neutral-400">Anomaly</span>)
+                </p>
+                <p>
+                  Announced for version <span className="font-black">{nextVersion}</span>
+                </p>
+              </div>
+            </div>
+            <div className="mx-auto grid">
+              <Link
                 to="https://x.com/ZZZ_EN/status/1822483089945448694"
                 target="_blank"
                 className=""
@@ -63,9 +86,13 @@ const Home = () => {
                 />
               </Link>
               <div className="text-center">
-                <p className="font-medium">New Agent: <span className="font-black">Caesar</span></p>
+                <p className="font-medium">
+                  New Agent: <span className="font-black">Caesar</span> (
+                  <span className="text-yellow-400">Physical</span>/
+                  <span className="text-neutral-400">Defense</span>)
+                </p>
                 <p>
-                  Announced for version <span className="font-black">1.2</span>
+                  Announced for version <span className="font-black">{nextVersion}</span>
                 </p>
               </div>
             </div>

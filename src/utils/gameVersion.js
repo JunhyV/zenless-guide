@@ -1,10 +1,9 @@
 export const gameVersion = '1.1';
 export const nextVersion = parseInt(gameVersion) + 0.1; 
-export const lastUpdate = '2024.08.14';
+export const lastUpdate = '2024.08.12';
 
 //Next characters imports
 import jane from "../assets/images/comming-soon/Agent_Jane_Doe_Portrait.webp";
-import qingyi from "../assets/images/comming-soon/Agent_Qingyi_Portrait.webp";
 import seth from "../assets/images/comming-soon/Agent_Seth_Portrait.webp";
 import miyabi from "../assets/images/comming-soon/Agent_Hoshimi_Miyabi_Portrait.png";
 

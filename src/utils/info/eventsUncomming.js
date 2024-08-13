@@ -1,10 +1,5 @@
 export const eventsUncomming = [
   {
-    name: "All-New program",
-    description: "Check in to get [Encryopted Master Tape] x10",
-    img: "a3pshgI",
-  },
-  {
     name: '"En-Nah" Into your lap',
     description: "Check in to get [Boopon] x10",
     img: "uJ3KVcg",
