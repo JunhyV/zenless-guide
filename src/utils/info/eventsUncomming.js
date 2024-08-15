@@ -5,19 +5,9 @@ export const eventsUncomming = [
     img: "uJ3KVcg",
   },
   {
-    name: 'Inferno reap',
-    description: "Hollow Zero: Time trial Challenge",
-    img: "zvSASSj",
-  },
-  {
     name: 'Camelia golden week',
     description: 'Rythm gameplay, play it to get "Limited W-Engine"',
     img: "1V7xzjl",
-  },
-  {
-    name: 'First-Class customer service',
-    description: 'New gameplay for puzzles in New Eridu',
-    img: "o2w99p0",
   },
   {
     name: 'Daily life of a PubSec officer',

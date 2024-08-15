@@ -13,12 +13,9 @@ const Tierlist = () => {
   const [loading, setLoading] = useState(true);
   const [detailsToggle, setDetailsToggle] = useState(false);
   const [agents, setAgents] = useState([]);
-  const MINIMUM_DELAY = 1000;
 
   useEffect(() => {
     const fetchData = async () => {
-      const startTime = Date.now();
-
       try {
         const res = await apiCall("https://zenless-api.vercel.app/agents");
         const getData = res.map((agent) => {
@@ -31,18 +28,11 @@ const Tierlist = () => {
           };
         });
 
-        const elapsedTime = Date.now() - startTime;
-        const remainingTime = MINIMUM_DELAY - elapsedTime;
-
-        if (remainingTime > 0) {
-          setTimeout(() => {
-            // Order Array by name
-            getData.sort((a, b) => a.name.localeCompare(b.name));
-            // Set data
-            setAgents(getData);
-            setLoading(false);
-          }, remainingTime);
-        }
+        // Ordenar la lista por nombre
+        getData.sort((a, b) => a.name.localeCompare(b.name));
+        // Establecer los datos
+        setAgents(getData);
+        setLoading(false);
       } catch (error) {
         console.error(error);
       }
@@ -50,12 +40,26 @@ const Tierlist = () => {
     fetchData();
   }, []);
 
+  // Pre-cargar las imágenes
+  useEffect(() => {
+    const preloadImages = () => {
+      agents.forEach(agent => {
+        const img = new Image();
+        img.src = `https://i.imgur.com/${agent.img}.png`;
+      });
+    };
+
+    if (!loading) {
+      preloadImages();
+    }
+  }, [loading, agents]);
+
   return (
     <div className="bg-neutral-800 bg-opacity-80 min-h-full flex flex-col gap-4">
       <div className="text-white px-5 h-full">
-      <h1 className="font-black text-3xl md:text-5xl text-center">
-            Zenless Zone Zero || <span className="capitalize">tier list</span>
-          </h1>
+        <h1 className="font-black text-3xl md:text-5xl text-center">
+          Zenless Zone Zero || <span className="capitalize">tier list</span>
+        </h1>
         <p className="mb-2">
           <Link to="/" className="hover:text-yellow-500">
             Home
@@ -101,9 +105,10 @@ const Tierlist = () => {
           </div>
 
           <div className="px-5 mb-5">
-
             <div className="hidden md:flex">
-              <div className="w-10 text-center md:hidden lg:flex text-transparent">Tier</div>
+              <div className="w-10 text-center md:hidden lg:flex text-transparent">
+                Tier
+              </div>
               <div className="grid grid-cols-4 w-full text-center font-medium bg-neutral-800">
                 <p className="text-purple-400">DMG DPS</p>
                 <p className="text-sky-400">ANOMALY DPS</p>

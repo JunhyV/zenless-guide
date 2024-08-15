@@ -1,6 +1,6 @@
 export const banners = [
   {
-    start: "2024/08/14 04:00:00",
+    start: "2024/08/13 22:00:00",
     end: "2024/09/04 03:59:59",
     version: '1.1',
     characters: 'XMmWbgP',

@@ -1,19 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Suspense, lazy } from "react";
 import { Link, useParams } from "react-router-dom";
 import LoadingAgent from "../../../components/loading/LoadingAgent";
-import AgentSkills from "./AgentSkills";
-import AgentMindscape from "./AgentMindscape";
-import AgentBuild from "./AgentBuild";
 import { lastUpdate } from "../../../utils/gameVersion";
-import AgentData from "./AgentData";
+
+// Lazy load the components
+const AgentSkills = lazy(() => import("./AgentSkills"));
+const AgentMindscape = lazy(() => import("./AgentMindscape"));
+const AgentBuild = lazy(() => import("./AgentBuild"));
+const AgentData = lazy(() => import("./AgentData"));
 
 const AgentPageId = () => {
   const [agentData, setAgentData] = useState({});
   const [loading, setLoading] = useState(true);
   const agentId = useParams().id;
-
-  console.log(agentData);
-  
 
   useEffect(() => {
     const fetchData = async () => {
@@ -36,10 +35,18 @@ const AgentPageId = () => {
     fetchData();
   }, [agentId]);
 
+  // Preload images (example for a single image)
+  useEffect(() => {
+    if (agentData.img) {
+      const img = new Image();
+      img.src = agentData.img; // Adjust URL as necessary
+    }
+  }, [agentData.img]);
+
   return (
     <div className="bg-neutral-800 bg-opacity-80 flex flex-col gap-5 min-h-screen">
       <div className="text-white px-2 md:px-5 h-full">
-        <h1 className="font-black text-3xl text-center mb-2 ">
+        <h1 className="font-black text-3xl text-center mb-2">
           {agentData.full_name}
         </h1>
         <div className="mb-2">
@@ -80,11 +87,12 @@ const AgentPageId = () => {
           role="agent-content"
           className="text-white px-2 xl:max-w-screen-xl xl:mx-auto"
         >
-          <AgentData data={agentData} />
-          <AgentBuild data={agentData} />
-          <AgentSkills data={agentData} />
-          <AgentMindscape data={agentData} />
-          {/* <AgentFarm data={agentData} /> */}
+          <Suspense fallback={<LoadingAgent />}>
+            <AgentData data={agentData} />
+            <AgentBuild data={agentData} />
+            <AgentSkills data={agentData} />
+            <AgentMindscape data={agentData} />
+          </Suspense>
         </div>
       )}
     </div>

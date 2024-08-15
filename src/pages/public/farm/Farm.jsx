@@ -5,6 +5,7 @@ import AgentCard from "./AgentCard";
 import Coffees from "./Coffees";
 import { gameVersion, lastUpdate } from "../../../utils/gameVersion";
 import { Link } from "react-router-dom";
+import LoadingDots from "../../../components/loading/LoadingDots";
 
 const Farm = () => {
   const [agents, setAgents] = useState([]);
@@ -28,6 +29,7 @@ const Farm = () => {
         }));
 
         setAgents(filterData);
+        preloadImages(filterData.map((agent) => agent.full_img));
       } catch (error) {
         setError("Failed to fetch agents");
         console.error(error);
@@ -36,14 +38,18 @@ const Farm = () => {
       }
     };
 
+    const preloadImages = (urls) => {
+      urls.forEach((url) => {
+        const img = new Image();
+        img.src = url;
+      });
+    };
+
     fetchData();
   }, []);
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>{error}</div>;
-
   return (
-    <div className="bg-neutral-800 bg-opacity-80 min-h-full gap-4 text-white relative">
+    <div className="bg-neutral-800 bg-opacity-80 min-h-full gap-4 text-white relative flex flex-col">
       <header>
         <div className="text-white px-5 h-full">
           <h1 className="font-black text-3xl md:text-5xl text-center">
@@ -54,14 +60,18 @@ const Farm = () => {
               Home
             </Link>{" "}
             /{" "}
-            <Link to={`/calculator`} className="hover:text-yellow-500 capitalize">
+            <Link
+              to={`/calculator`}
+              className="hover:text-yellow-500 capitalize"
+            >
               Calculator
             </Link>
           </p>
           <hr className="border-yellow-500" />
           <p className="mt-2">
-            Select an agent and try the materials <span className="font-black capitalize">calculator</span>. Plan the resources
-            needed to level up your favorite characters.
+            Select an agent and try the materials{" "}
+            <span className="font-black capitalize">calculator</span>. Plan the
+            resources needed to level up your favorite characters.
           </p>
           <p>
             <span className="font-thin">Last updated: </span>
@@ -69,36 +79,45 @@ const Farm = () => {
           </p>
         </div>
       </header>
-      <div className="flex p-5">
-        <Selector data={agents} type={"agent"} set={setSelection} />
-      </div>
-      {selection.length > 0 && (
-        <div
-          className={`grid gap-2 ${
-            selection.length === 1 ? "md:grid-cols-1" : "md:grid-cols-2"
-          } ${
-            selection.length === 1
-              ? "md:grid-cols-1"
-              : selection.length === 2
-              ? "2xl:grid-cols-2"
-              : "2xl:grid-cols-3"
-          }  p-2 md:px-5 landscape-grid-2`}
-        >
-          {selection.map((agent, i) => (
-            <AgentCard
-              key={i}
-              data={agent}
-              set={setSelection}
-              list={selection}
-              setMaterials={setMaterials}
-              materials={materials}
-            />
-          ))}
+      {loading ? (
+        <div className="h-full flex-1 flex items-center justify-center">
+          <LoadingDots />
         </div>
+      ) : (
+        <>
+          <div className="flex p-5">
+            <Selector data={agents} type={"agent"} set={setSelection} />
+          </div>
+          {selection.length > 0 && (
+            <div
+              className={`grid gap-2 ${
+                selection.length === 1 ? "md:grid-cols-1" : "md:grid-cols-2"
+              } ${
+                selection.length === 1
+                  ? "md:grid-cols-1"
+                  : selection.length === 2
+                  ? "2xl:grid-cols-2"
+                  : "2xl:grid-cols-3"
+              }  p-2 md:px-5 landscape-grid-2`}
+            >
+              {selection.map((agent, i) => (
+                <div key={i}>
+                  <AgentCard
+                    data={agent}
+                    set={setSelection}
+                    list={selection}
+                    setMaterials={setMaterials}
+                    materials={materials}
+                  />
+                </div>
+              ))}
+            </div>
+          )}
+          <div className="px-5 py-2">
+            <Coffees />
+          </div>
+        </>
       )}
-      <div className="px-5 py-2">
-        <Coffees />
-      </div>
     </div>
   );
 };

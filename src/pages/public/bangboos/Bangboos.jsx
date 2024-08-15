@@ -10,11 +10,10 @@ const Bangboos = () => {
   const [bangboos, setBangboos] = useState([]);
   const [selectedBangboo, setSelectedBangboo] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
-      let data;
-
       try {
         const res = await apiCall("https://zenless-api.vercel.app/bangboos");
 
@@ -23,14 +22,12 @@ const Bangboos = () => {
           notReleasedBangboo.some((name) => bangboo.name.includes(name))
         );
 
-        if (noYet.length !== 0) {
-          data = res.filter(
-            (bangboo) =>
-              !notReleasedBangboo.some((name) => bangboo.name.includes(name))
-          );
-        } else {
-          data = res;
-        }
+        const data = noYet.length === 0
+          ? res
+          : res.filter(
+              (bangboo) =>
+                !notReleasedBangboo.some((name) => bangboo.name.includes(name))
+            );
 
         // Order Array by name
         data.sort((a, b) => a.name.localeCompare(b.name));
@@ -39,6 +36,8 @@ const Bangboos = () => {
         setLoading(false);
       } catch (error) {
         console.error(error);
+        setError("Failed to load bangboos. Please try again later.");
+        setLoading(false);
       }
     };
 
@@ -46,7 +45,11 @@ const Bangboos = () => {
   }, []);
 
   const openModal = (bangboo) => {
-    setSelectedBangboo(bangboo)
+    setSelectedBangboo(bangboo);
+  };
+
+  const closeModal = () => {
+    setSelectedBangboo(null);
   };
 
   return (
@@ -58,16 +61,24 @@ const Bangboos = () => {
             ? Array.from({ length: 8 }).map((_, index) => (
                 <SkeletonBangboos key={index} />
               ))
-            : bangboos.map((bangboo) => (
-                <BangbooCard key={bangboo.name} data={bangboo} openModal={openModal} />
-              ))}
+            : error ? (
+                <p className="text-white text-center">{error}</p>
+              ) : (
+                bangboos.map((bangboo) => (
+                  <BangbooCard
+                    key={bangboo.name}
+                    data={bangboo}
+                    openModal={openModal}
+                  />
+                ))
+              )}
         </div>
       </div>
 
-      {selectedBangboo ? (
+      {selectedBangboo && (
         <div
           className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
-          onClick={() => setSelectedBangboo(null)}
+          onClick={closeModal}
         >
           <div
             className="relative bg-neutral-200 bg-opacity-80 p-6 rounded-lg shadow-lg max-w-md w-full max-h-screen overflow-y-auto"
@@ -79,7 +90,7 @@ const Bangboos = () => {
               </h2>
               <img
                 src={`https://i.imgur.com/${selectedBangboo.img}.png`}
-                alt=""
+                alt={selectedBangboo.name}
                 className="mx-auto"
               />
               <p>
@@ -103,8 +114,6 @@ const Bangboos = () => {
             </div>
           </div>
         </div>
-      ) : (
-        null
       )}
     </div>
   );

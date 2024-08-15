@@ -6,6 +6,7 @@ import awe from "../../assets/images/zzz-materials/core-materials/Item_Higher_Di
 import pursuit from "../../assets/images/zzz-materials/core-materials/Item_Higher_Dimensional_Data_Ethereal_Pursuit.webp";
 import malice from "../../assets/images/zzz-materials/core-materials/Item_Higher_Dimensional_Data_Steel_Malice.webp";
 import advance from "../../assets/images/zzz-materials/core-materials/Item_Higher_Dimensional_Data_Destructive_Advance.webp";
+import falling from "../../assets/images/zzz-materials/core-materials/falling-fist.png";
 
 export const farmMaterials = {
   useGrip: ['Anby', 'Billy', 'Ellen', 'Nicole', 'Lucy', 'Nekomata', 'Jane'],
@@ -16,6 +17,7 @@ export const farmMaterials = {
   usePursuit: ['Zhu Yuan', 'Billy', 'Lycaon', 'Qingyi'],
   useMalice: ['Ben', 'Koleda', 'Lucy'],
   useAdvance: ['Rina', 'Grace', 'Soldier 11', 'Anton'],
+  useFalling: ['Jane', 'Seth'],
 };
 
 export const materialImages = {
@@ -27,6 +29,7 @@ export const materialImages = {
   usePursuit: pursuit,
   useMalice: malice,
   useAdvance: advance,
+  useFalling: falling,
 };
 
 export const getAgentMaterials = (agentName) => {

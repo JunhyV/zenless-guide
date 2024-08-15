@@ -34,7 +34,7 @@ const AgentCard = ({ data, set, list, materials, setMaterials }) => {
   return (
     <div>
       <div
-        className={`bg-gradient-to-b  from-neutral-800 to-neutral-600 mx-auto p-2 flex flex-col gap-5 lg:gap-2 lg:max-w-lg md:p-3 shadow-xl border`}
+        className={`bg-gradient-to-b from-neutral-800 to-neutral-600 mx-auto p-2 flex flex-col gap-5 lg:gap-2 lg:max-w-lg md:p-3 shadow-xl border`}
       >
         <div className="flex justify-between">
           <div className="flex gap-2">
@@ -120,6 +120,7 @@ const AgentCard = ({ data, set, list, materials, setMaterials }) => {
                   src={`https://imgur.com/${img}.jpg`}
                   alt={name}
                   className="object-scale-down mx-auto translate-x-1 translate-y-2 transform scale-110"
+                  loading="lazy"
                   onError={(e) =>
                     (e.currentTarget.src = "/path/to/default-image.jpg")
                   }
@@ -132,6 +133,7 @@ const AgentCard = ({ data, set, list, materials, setMaterials }) => {
                   }.png`}
                   alt={rol}
                   className="w-4 h-4"
+                  loading="lazy"
                 />
                 <p className="font-medium">{name}</p>
                 <img
@@ -140,6 +142,7 @@ const AgentCard = ({ data, set, list, materials, setMaterials }) => {
                   }.png`}
                   alt={element}
                   className="w-4 h-4"
+                  loading="lazy"
                 />
               </div>
             </div>
@@ -197,6 +200,7 @@ const AgentCard = ({ data, set, list, materials, setMaterials }) => {
                     src={`https://imgur.com/${skillImage[skill]}.png`}
                     alt={skill}
                     className="w-8 h-8 mx-auto"
+                    loading="lazy"
                   />
                   <div className="text-sm flex">
                     <input

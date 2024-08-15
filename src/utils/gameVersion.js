@@ -1,6 +1,6 @@
 export const gameVersion = '1.1';
-export const nextVersion = parseInt(gameVersion) + 0.1; 
-export const lastUpdate = '2024.08.12';
+export const nextVersion = '1.2'; 
+export const lastUpdate = '2024.08.14';
 
 //Next characters imports
 import jane from "../assets/images/comming-soon/Agent_Jane_Doe_Portrait.webp";
@@ -10,7 +10,7 @@ import miyabi from "../assets/images/comming-soon/Agent_Hoshimi_Miyabi_Portrait.
 export const newCharacters = ['Qingyi'];
 export const notReleased = ['Jane', 'Seth'];
 export const notReleasedEngine = ['Iris Enigma', "Peacekeeper-Specialized", "Sharpened Stinger"];
-export const notReleasedBangboo = ['Officer Cui'];
+export const notReleasedBangboo = [];
 
 export const nextAgents = [
     {

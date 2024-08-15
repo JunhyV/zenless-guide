@@ -9,38 +9,35 @@ import { notReleasedEngine } from "../../../utils/gameVersion.js";
 const Engines = () => {
   const [engines, setEngines] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
-      let data;
-
       try {
         const res = await apiCall("https://zenless-api.vercel.app/engines");
+        let filteredData = res;
 
         // Filter bangboos
-        const noYet = res.filter((engine) =>
+        const noYet = filteredData.filter((engine) =>
           notReleasedEngine.some((name) => engine.name.includes(name))
         );
 
-        if (noYet.length !== 0) {
-          data = res.filter(
+        if (noYet.length === 0) {
+          filteredData = res;
+        } else {
+          filteredData = res.filter(
             (engine) =>
               !notReleasedEngine.some((name) => engine.name.includes(name))
           );
-        } else {
-          data = res;
         }
 
-        const noB = data.filter(engine => engine.rank !== 'B');
-        
-        const enginesB = data.filter(engine => engine.rank === 'B');
+        const noB = filteredData.filter(engine => engine.rank !== 'B');
+        const enginesB = filteredData.filter(engine => engine.rank === 'B');
 
-        data = noB;
+        // Sorting by name
+        noB.sort((a, b) => a.name.localeCompare(b.name));
 
-        // Order Array by name
-        data.sort((a, b) => a.name.localeCompare(b.name));
-
-        const processedData = data.map((engine) => {
+        const processedData = noB.map((engine) => {
           const { baseAttack, secondaryStat } = extractStats(engine.stats);
           return {
             ...engine,
@@ -48,10 +45,13 @@ const Engines = () => {
             secondaryStat,
           };
         });
+
         setEngines(processedData);
         setLoading(false);
       } catch (error) {
         console.error(error);
+        setError("Failed to load engines. Please try again later.");
+        setLoading(false);
       }
     };
 
@@ -59,24 +59,28 @@ const Engines = () => {
   }, []);
 
   return (
-    <div className="min-h-screen  bg-neutral-800 bg-opacity-80">
-      <Header pages="w-engines" link={"engines"} />
+    <div className="min-h-screen bg-neutral-800 bg-opacity-80">
+      <Header pages="w-engines" link="engines" />
       <div className="flex flex-wrap justify-center items-center">
-        {loading
-          ? Array.from({ length: 6 }).map((_, index) => (
-              <SkeletonEngines key={index} />
-            ))
-          : engines.map((engine) => (
-              <EnginesCard
-                key={engine._id}
-                name={engine.name}
-                type={`${engine.rol} - ${engine.rank}`}
-                baseAttack={engine.baseAttack}
-                secondaryStat={engine.secondaryStat}
-                description={engine.effect}
-                image={engine.img}
-              />
-            ))}
+        {loading ? (
+          Array.from({ length: 6 }).map((_, index) => (
+            <SkeletonEngines key={index} />
+          ))
+        ) : error ? (
+          <p className="text-white text-center">{error}</p>
+        ) : (
+          engines.map((engine) => (
+            <EnginesCard
+              key={engine._id}
+              name={engine.name}
+              type={`${engine.rol} - ${engine.rank}`}
+              baseAttack={engine.baseAttack}
+              secondaryStat={engine.secondaryStat}
+              description={engine.effect}
+              image={engine.img}
+            />
+          ))
+        )}
       </div>
     </div>
   );
