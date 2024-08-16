@@ -13,7 +13,7 @@ export const Header = ({ pages, link }) => {
     <header>
       <div className="text-white px-5 h-full">
         <h1 className="font-black text-3xl md:text-5xl text-center">
-          Zenless Zone Zero || <span className="capitalize">{pages}</span>
+          <span className="capitalize">{pages}</span>
         </h1>
         <p className="mb-2">
           <Link to={"/"} className="hover:text-yellow-500">

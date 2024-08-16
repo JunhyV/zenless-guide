@@ -23,6 +23,8 @@ import Error from "../pages/error/Error";
 import AgentPageId from "../pages/public/agent-id/AgentPageId";
 import Home from "../pages/public/home/Home";
 import Farm from "../pages/public/farm/Farm";
+import DriveDisk from "../pages/public/drive-disk/DriveDisk";
+import BestTeams from "../pages/public/best-teams/BestTeams";
 
 
 const Router = createBrowserRouter([
@@ -58,6 +60,14 @@ const Router = createBrowserRouter([
       {
         path: "/calculator",
         element: <Farm />,
+      },
+      {
+        path: "/best-teams",
+        element: <BestTeams />,
+      },
+      {
+        path: "/disk-sets",
+        element: <DriveDisk />,
       },
     ],
   },

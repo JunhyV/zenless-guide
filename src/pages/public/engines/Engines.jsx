@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { EnginesCard } from "../../../components/engines/EnginesCard";
+import { EnginesCard } from "./EnginesCard.jsx";
 import { apiCall } from "../../../utils/apiCall.js";
-import { extractStats } from "../../../utils/extras/w-engines-Funcion";
 import { Header } from "../../../components/header/Header.jsx";
 import { SkeletonEngines } from "../../../components/skelentons/SkeletonEngines.jsx";
-import { notReleasedEngine } from "../../../utils/gameVersion.js";
+import { newEngine, notReleasedEngine } from "../../../utils/gameVersion.js"
 
 const Engines = () => {
   const [engines, setEngines] = useState([]);
@@ -31,22 +30,30 @@ const Engines = () => {
           );
         }
 
-        const noB = filteredData.filter(engine => engine.rank !== 'B');
-        const enginesB = filteredData.filter(engine => engine.rank === 'B');
+        const noB = filteredData.filter((engine) => engine.rank !== "B");
+        const enginesB = filteredData.filter((engine) => engine.rank === "B");
 
         // Sorting by name
         noB.sort((a, b) => a.name.localeCompare(b.name));
 
-        const processedData = noB.map((engine) => {
-          const { baseAttack, secondaryStat } = extractStats(engine.stats);
-          return {
-            ...engine,
-            baseAttack,
-            secondaryStat,
-          };
-        });
+        //New Engines
+        const filtredNew = noB.filter((newData) =>
+          newEngine.some((name) => newData.name.includes(name))
+        );
 
-        setEngines(processedData);
+        if (filtredNew.length !== 0) {
+          const getDataFiltred = noB.filter(
+            (obj) => !filtredNew.some((newData) => obj.name === newData.name)
+          );
+
+          getDataFiltred.sort((a, b) => a.name.localeCompare(b.name));
+
+          filtredNew.forEach((newData) => getDataFiltred.unshift(newData));
+          setEngines(getDataFiltred);
+        } else {
+          setEngines(noB);
+        }
+
         setLoading(false);
       } catch (error) {
         console.error(error);
@@ -61,7 +68,7 @@ const Engines = () => {
   return (
     <div className="min-h-screen bg-neutral-800 bg-opacity-80">
       <Header pages="w-engines" link="engines" />
-      <div className="flex flex-wrap justify-center items-center">
+      <div className="grid md:grid-cols-2 xl:grid-cols-3 justify-center items-center p-2 md:p-5 gap-5">
         {loading ? (
           Array.from({ length: 6 }).map((_, index) => (
             <SkeletonEngines key={index} />
@@ -70,15 +77,7 @@ const Engines = () => {
           <p className="text-white text-center">{error}</p>
         ) : (
           engines.map((engine) => (
-            <EnginesCard
-              key={engine._id}
-              name={engine.name}
-              type={`${engine.rol} - ${engine.rank}`}
-              baseAttack={engine.baseAttack}
-              secondaryStat={engine.secondaryStat}
-              description={engine.effect}
-              image={engine.img}
-            />
+            <EnginesCard key={engine._id} data={engine} />
           ))
         )}
       </div>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Header } from "../../../components/header/Header";
 import { apiCall } from "../../../utils/apiCall";
 import { SkeletonBangboos } from "../../../components/skelentons/SkeletonBangboos";
-import { notReleasedBangboo } from "../../../utils/gameVersion";
+import { newBangboo, notReleasedBangboo } from "../../../utils/gameVersion";
 import BangbooCard from "./BangbooCard";
 import BangbooStats from "./BangbooStats";
 
@@ -32,7 +32,26 @@ const Bangboos = () => {
         // Order Array by name
         data.sort((a, b) => a.name.localeCompare(b.name));
 
-        setBangboos(data);
+        // New Bangboos
+        const filtredNew = data.filter((newData) =>
+          newBangboo.some((name) => newData.name.includes(name))
+        );
+        
+        if (filtredNew.length !== 0) {
+          const getDataFiltred = data.filter(
+            (obj) =>
+              !filtredNew.some((newData) => obj.name === newData.name)
+          );
+          
+          getDataFiltred.sort((a, b) => a.name.localeCompare(b.name));
+          
+          filtredNew.forEach((newData) => getDataFiltred.unshift(newData));
+          setBangboos(getDataFiltred);
+        } else {
+          setBangboos(data);
+        }
+        
+
         setLoading(false);
       } catch (error) {
         console.error(error);
@@ -56,7 +75,7 @@ const Bangboos = () => {
     <div className="min-h-screen bg-neutral-800 bg-opacity-80">
       <Header pages="bangboos" />
       <div className="container mx-auto px-4 py-8">
-        <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-8 justify-items-center">
+        <div className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-7 xl:grid-cols-8 gap-8 justify-items-center">
           {loading
             ? Array.from({ length: 8 }).map((_, index) => (
                 <SkeletonBangboos key={index} />

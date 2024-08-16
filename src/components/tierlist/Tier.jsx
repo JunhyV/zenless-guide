@@ -50,7 +50,7 @@ const Tier = ({ tier, agents }) => {
       </div>
       <div className="w-full grid md:grid-cols-4">
         <div className="bg-neutral-700">
-          <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 p-2 min-h-32">
+          <div className="grid grid-cols-2 xl:grid-cols-3 gap-2 p-2 min-h-32">
             {dmg.map((onTier) => (
               <Link
                 key={onTier.id}
@@ -77,7 +77,7 @@ const Tier = ({ tier, agents }) => {
           </p>
         </div>
         <div className="bg-neutral-600">
-          <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 p-2 min-h-32 ">
+          <div className="grid grid-cols-2 xl:grid-cols-3 gap-2 p-2 min-h-32 ">
             {anomaly_dmg.map((onTier) => (
               <Link
                 key={onTier.id}
@@ -104,7 +104,7 @@ const Tier = ({ tier, agents }) => {
           </p>
         </div>
         <div className="bg-neutral-700">
-          <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 p-2 min-h-32 ">
+          <div className="grid grid-cols-2 xl:grid-cols-3 gap-2 p-2 min-h-32 ">
             {stuner.map((onTier) => (
               <Link
                 key={onTier.id}
@@ -131,7 +131,7 @@ const Tier = ({ tier, agents }) => {
           </p>
         </div>
         <div className="bg-neutral-600">
-          <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 p-2 min-h-32 ">
+          <div className="grid grid-cols-2 xl:grid-cols-3 gap-2 p-2 min-h-32 ">
             {supports.map((onTier) => (
               <Link
                 key={onTier.id}

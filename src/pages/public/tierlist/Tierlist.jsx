@@ -43,7 +43,7 @@ const Tierlist = () => {
   // Pre-cargar las imágenes
   useEffect(() => {
     const preloadImages = () => {
-      agents.forEach(agent => {
+      agents.forEach((agent) => {
         const img = new Image();
         img.src = `https://i.imgur.com/${agent.img}.png`;
       });
@@ -72,7 +72,7 @@ const Tierlist = () => {
         <hr className="border-yellow-500" />
         <p className="mt-2">
           The continuous tier list was created with
-          <span className="font-black">Zenless Zone Zero</span> (ZZZ) version
+          <span className="font-black"> Zenless Zone Zero</span> (ZZZ) version
           <span className="font-black"> {gameVersion}</span> in mind. - There
           could be changes, though it is too early to establish criteria for all
           characters at the moment. We hope you enjoy the content. We're working

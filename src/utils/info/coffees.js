@@ -7,6 +7,7 @@ import coffee6 from "../../assets/images/coffees/Coffee_Pepper_Latte.png";
 import coffee7 from "../../assets/images/coffees/Coffee_New_Eridu_Special.png";
 import battery from "../../assets/images/coffees/Item_Battery_Charge.webp";
 import engineAnomaly from "../../assets/images/coffees/Icon_Anomaly_Component_Boost.webp";
+import agentAnomaly from "../../assets/images/coffees/Icon_Anomaly_Certification_Seal_Boost.webp";
 import agentAttack from "../../assets/images/coffees/Icon_Attack_Certification_Seal_Boost.webp";
 import engineAttack from "../../assets/images/coffees/Icon_Attack_Component_Boost.webp";
 import fireBoost from "../../assets/images/coffees/Icon_Burn_Tactical_Chip_Boost.webp";
@@ -30,6 +31,7 @@ export const coffees = {
   coffee6,
   coffee7,
   battery,
+  agentAnomaly,
   engineAnomaly,
   agentAttack,
   engineAttack,

@@ -1,4 +1,4 @@
-import { faCalculator, faChartSimple, faGear, faGhost, faHouse, faUser, faUsers } from "@fortawesome/free-solid-svg-icons";
+import { faCalculator, faChartSimple, faCompactDisc, faGear, faGhost, faHouse, faUser, faUsers, faUsersViewfinder } from "@fortawesome/free-solid-svg-icons";
 
 export const navList = [
     {
@@ -16,10 +16,20 @@ export const navList = [
         link: '/tierlist',
         icon: faChartSimple
     },
+/*     {
+        name: 'teams',
+        link: '/best-teams',
+        icon: faUsersViewfinder
+    }, */
     {
         name: 'w-engines',
         link: '/engines',
         icon: faGear
+    },
+    {
+        name: 'drive disk',
+        link: '/disk-sets',
+        icon: faCompactDisc
     },
     {
         name: 'bangboos',

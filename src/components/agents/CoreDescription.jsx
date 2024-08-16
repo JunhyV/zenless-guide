@@ -1,7 +1,7 @@
 import React from "react";
 
 const CoreDescription = ({ text }) => {
-  const percentageRegex = /(\d+(\.\d+)?(\/\d+(\.\d+)?)+%)/g;
+  const percentageRegex = /(\d+(\.\d+)?(\/\d+(\.\d+)?)+)/g;
   const dmgRegex = /\b(Physical DMG|Ether DMG|Electric DMG|Ice DMG|Fire DMG|Physical Anomaly|Ether Anomaly|Electric Anomaly|Ice Anomaly|Fire Anomaly|Shock|Burning|Corruption|Assault|Freezing)\b/g;
 
   const dmgStyles = {

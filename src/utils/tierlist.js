@@ -2,15 +2,15 @@ export const tierList = [
     {
         rank: 'SS',
         dmg_carry: ['Ellen', 'Zhu Yuan'],
-        anomaly_carry: ['Grace'],
-        stun: ['Lycaon', 'Qingyi'],
+        anomaly_carry: [],
+        stun: ['Qingyi'],
         support: ['Soukaku', 'Nicole']
     },
     {
         rank: 'S',
         dmg_carry: ['Nekomata', 'Soldier 11'],
-        anomaly_carry: ['Piper'],
-        stun: ['Koleda'],
+        anomaly_carry: ['Grace','Piper'],
+        stun: ['Lycaon', 'Koleda'],
         support: ['Lucy', 'Rina']
     },
     {

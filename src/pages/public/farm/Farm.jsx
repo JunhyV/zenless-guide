@@ -53,7 +53,7 @@ const Farm = () => {
       <header>
         <div className="text-white px-5 h-full">
           <h1 className="font-black text-3xl md:text-5xl text-center">
-            Zenless Zone Zero || <span className="capitalize">farm guide</span>
+            <span className="capitalize">farm guide</span>
           </h1>
           <p className="mb-2">
             <Link to={"/"} className="hover:text-yellow-500">
@@ -85,13 +85,13 @@ const Farm = () => {
         </div>
       ) : (
         <>
-          <div className="flex p-5">
+          <div className="flex p-2 md:px-5">
             <Selector data={agents} type={"agent"} set={setSelection} />
           </div>
           {selection.length > 0 && (
             <div
               className={`grid gap-2 ${
-                selection.length === 1 ? "md:grid-cols-1" : "md:grid-cols-2"
+                selection.length === 1 ? "md:grid-cols-1" : "md:grid-cols-1"
               } ${
                 selection.length === 1
                   ? "md:grid-cols-1"
@@ -113,7 +113,7 @@ const Farm = () => {
               ))}
             </div>
           )}
-          <div className="px-5 py-2">
+          <div className="px-2 md:px-5 py-2">
             <Coffees />
           </div>
         </>
