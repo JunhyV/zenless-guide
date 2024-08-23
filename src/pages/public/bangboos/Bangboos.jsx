@@ -72,7 +72,7 @@ const Bangboos = () => {
   };
 
   return (
-    <div className="min-h-screen bg-neutral-800 bg-opacity-80">
+    <div className="min-h-full bg-neutral-800 bg-opacity-80">
       <Header pages="bangboos" />
       <div className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-7 xl:grid-cols-8 gap-8 justify-items-center">

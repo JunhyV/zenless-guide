@@ -41,7 +41,7 @@ const DriveDisk = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-neutral-800 bg-opacity-80 text-white">
+    <div className="min-h-full bg-neutral-800 bg-opacity-80 text-white">
       <Header pages="Drive Disk" link="disk-sets" />
       <div className="grid md:grid-cols-2 xl:grid-cols-3 justify-center items-center p-2 md:p-5 gap-5 landscape-grid-2">
         {loading ? (

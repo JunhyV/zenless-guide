@@ -36,8 +36,9 @@ const PublicLayout = () => {
           />
         </footer>
       ) : null}
-      <div className="absolute inset-0 bg-phone md:bg-desktop bg-cover bg-no-repeat bg-center opacity-50"></div>
-      <div className="relative flex-1 overflow-auto">
+      <div className="absolute inset-0 bg-phone md:bg-desktop bg-cover bg-no-repeat bg-center opacity-50
+"></div>
+      <div className="relative flex-1 overflow-auto h-[calc(100%-10rem)]">
         <div className="relative h-full xl:max-w-screen-2xl mx-auto">
           <Outlet />
         </div>

@@ -61,10 +61,10 @@ const Router = createBrowserRouter([
         path: "/calculator",
         element: <Farm />,
       },
-      {
+/*       {
         path: "/best-teams",
         element: <BestTeams />,
-      },
+      }, */
       {
         path: "/disk-sets",
         element: <DriveDisk />,

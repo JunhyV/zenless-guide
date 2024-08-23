@@ -68,7 +68,7 @@ const Home = () => {
         <div role="home-content" className="p-5 text-white">
           <div role="codes" className="mb-5">
             <AgentTitles title={"Recently updates"} />
-            <div className="grid md:grid-cols-3 xl:grid-cols-4 landscape-grid-3">
+            <div className="grid md:grid-cols-3 xl:grid-cols-4 landscape-grid-3 gap-5">
               <div className="mx-auto grid">
                 <Link
                   to="https://x.com/ZZZ_EN/status/1822845597537436105"
@@ -161,7 +161,7 @@ const Home = () => {
             <div className="grid gap-5">
               <div>
                 <Subtitle title={"Banners"} />
-                <div className="grid md:grid-cols-2 gap-5">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
                   {banners.map((banner) => (
                     <Banner key={banner.main} data={banner} />
                   ))}

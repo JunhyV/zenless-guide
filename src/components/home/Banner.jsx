@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useTimer } from "../../hooks/useTimer";
 import TimeCounter from "./TimeCounter";
 import { gameVersion } from "../../utils/gameVersion";
@@ -8,7 +8,7 @@ const Banner = ({ data }) => {
   const { timeLeft, hasStarted, hasEnded } = useTimer(start, end);
 
   return version === gameVersion ? (
-    <div className="grid gap-2">
+    <div className="grid gap-5 bg-neutral-800 p-5 border-2 border-amber-400 shadow-xl">
       {hasEnded ? (
         <p className="text-center font-medium">Banner Ended</p>
       ) : hasStarted ? (
@@ -28,12 +28,12 @@ const Banner = ({ data }) => {
         <img
           src={`https://imgur.com/${characters}.jpg`}
           alt="character-banner"
-          className="shadow-xl"
+          className="rounded-xl w-60 mx-auto"
         />
         <img
           src={`https://imgur.com/${weapons}.jpg`}
           alt="weapon-banner"
-          className="shadow-xl"
+          className="rounded-xl w-60 mx-auto"
         />
       </div>
     </div>

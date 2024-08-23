@@ -1,6 +1,6 @@
 export const gameVersion = "1.1";
 export const nextVersion = "1.2";
-export const lastUpdate = "2024.08.14";
+export const lastUpdate = "2024.08.23";
 
 //Next characters imports
 import jane from "../assets/images/comming-soon/Agent_Jane_Doe_Portrait.webp";
@@ -10,14 +10,13 @@ import caesar from "../assets/images/comming-soon/Agent_Caesar_Portrait.webp";
 import burnice from "../assets/images/comming-soon/Agent_Burnice_Portrait.webp";
 
 export const newCharacters = ["Qingyi"];
-export const newEngine = ["Ice-Jade Teapot"];
+export const newEngine = ["Ice-Jade Teapot",   "Iris Enigma"];
 export const newBangboo = ["Officer Cui"];
 export const newDisk = ["Qingyi"];
 
 
 export const notReleased = ["Jane", "Seth"];
 export const notReleasedEngine = [
-  "Iris Enigma",
   "Peacekeeper-Specialized",
   "Sharpened Stinger",
 ];
