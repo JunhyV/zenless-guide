@@ -7,29 +7,35 @@ import pursuit from "../../assets/images/zzz-materials/core-materials/Item_Highe
 import malice from "../../assets/images/zzz-materials/core-materials/Item_Higher_Dimensional_Data_Steel_Malice.webp";
 import advance from "../../assets/images/zzz-materials/core-materials/Item_Higher_Dimensional_Data_Destructive_Advance.webp";
 import falling from "../../assets/images/zzz-materials/core-materials/falling-fist.png";
+import moto from "../../assets/images/zzz-materials/core-materials/ExBigBoss004Big.png";
+import jane from "../../assets/images/zzz-materials/core-materials/ExSmallBoss007Big.png";
 
 export const farmMaterials = {
   useGrip: ['Anby', 'Billy', 'Ellen', 'Nicole', 'Lucy', 'Nekomata', 'Jane'],
   useDrive: ['Ben', 'Grace', 'Koleda', 'Zhu Yuan', 'Anton', 'Qingyi', 'Seth'],
   useShoes: ['Rina', 'Piper', 'Corin', 'Soldier 11', 'Lycaon', 'Soukaku'],
+  useMoto: ['Burnice', 'Caesar'],
   useObitaury: ['Anby', 'Ellen', 'Nicole', 'Soukaku'],
   useAwe: ['Piper', 'Corin', 'Nekomata'],
   usePursuit: ['Zhu Yuan', 'Billy', 'Lycaon', 'Qingyi'],
   useMalice: ['Ben', 'Koleda', 'Lucy'],
   useAdvance: ['Rina', 'Grace', 'Soldier 11', 'Anton'],
   useFalling: ['Jane', 'Seth'],
+  useJane: ['Burnice', 'Caesar'],
 };
 
 export const materialImages = {
   useGrip: grip,
   useDrive: drive,
   useShoes: shoes,
+  useMoto: moto,
   useObitaury: obitaury,
   useAwe: awe,
   usePursuit: pursuit,
   useMalice: malice,
   useAdvance: advance,
   useFalling: falling,
+  useJane: jane,
 };
 
 export const getAgentMaterials = (agentName) => {

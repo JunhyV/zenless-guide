@@ -15,9 +15,9 @@ export const newBangboo = ["Officer Cui"];
 export const newDisk = ["Qingyi"];
 
 
-export const notReleased = ["Jane", "Seth"];
+export const notReleased = ["Jane", "Seth", "Caesar", "Burnice"];
 export const notReleasedEngine = [
-  "Peacekeeper-Specialized",
+  "Peacekeeper-Specialized", 
   "Sharpened Stinger",
 ];
 export const notReleasedBangboo = [];

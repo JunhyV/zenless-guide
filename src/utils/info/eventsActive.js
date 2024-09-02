@@ -1,5 +1,29 @@
 export const eventsActive = [
   {
+    name: "Coffee Sorcery: Combat Simulation",
+    link: "https://x.com/ZZZ_EN/status/1830455812864856485",
+    img: "vUFPSfz",
+    description: "Doble drops (x2) for materials",
+    start: "2024/09/04 10:00:00",
+    end: "2024/09/09 03:59:59",
+  },
+  {
+    name: "'En-Nah' Into Your Lap",
+    link: "https://x.com/ZZZ_EN/status/1830455812864856485",
+    img: "vUFPSfz",
+    description: "7 days of check-in evento to get x10 Boonpon",
+    start: "2024/09/04 10:00:00",
+    end: "2024/09/24 03:59:59",
+  },
+  {
+    name: "Daily life of a PubSec officer",
+    link: "https://zenless.hoyoverse.com/es-es/news/125561",
+    img: "qdWJExC",
+    description: "Read the files and determine the cases to obtain the highest score.",
+    start: "2024/08/30 10:00:00",
+    end: "2024/09/09 03:59:59",
+  },
+  {
     name: "Camellia Golden Week",
     link: "https://x.com/ZZZ_EN/status/1825382311329993158",
     img: "Ex6lujA",
