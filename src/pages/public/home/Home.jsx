@@ -160,7 +160,7 @@ const Home = () => {
             <AgentTitles title={"News"} />
             <div className="grid gap-5">
               <div>
-                <Subtitle title={"Banners"} />
+                <Subtitle title={`Banners ${gameVersion}`} />
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
                   {banners.map((banner) => (
                     <Banner key={banner.main} data={banner} />
@@ -169,7 +169,7 @@ const Home = () => {
               </div>
 
               <div>
-                <Subtitle title={"Videos"} />
+                <Subtitle title={`Videos ${gameVersion}`} />
                 <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-5 landscape-grid-2">
                   {videos.map((li) =>
                     gameVersion === li.version

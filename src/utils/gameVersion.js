@@ -1,46 +1,26 @@
 export const gameVersion = "1.1";
 export const nextVersion = "1.2";
-export const lastUpdate = "2024.08.23";
+export const lastUpdate = "2024.09.02";
 
 //Next characters imports
-import jane from "../assets/images/comming-soon/Agent_Jane_Doe_Portrait.webp";
-import seth from "../assets/images/comming-soon/Agent_Seth_Portrait.webp";
 import miyabi from "../assets/images/comming-soon/Agent_Hoshimi_Miyabi_Portrait.png";
 import caesar from "../assets/images/comming-soon/Agent_Caesar_Portrait.webp";
 import burnice from "../assets/images/comming-soon/Agent_Burnice_Portrait.webp";
 
-export const newCharacters = ["Qingyi"];
-export const newEngine = ["Ice-Jade Teapot",   "Iris Enigma"];
-export const newBangboo = ["Officer Cui"];
-export const newDisk = ["Qingyi"];
+export const newCharacters = ["Jane", "Seth",];
+export const newEngine = [  "Peacekeeper-Specialized", 
+  "Sharpened Stinger",];
+export const newBangboo = [];
+export const newDisk = [];
 
 
-export const notReleased = ["Jane", "Seth", "Caesar", "Burnice"];
+export const notReleased = [ "Caesar", "Burnice"];
 export const notReleasedEngine = [
-  "Peacekeeper-Specialized", 
-  "Sharpened Stinger",
+
 ];
 export const notReleasedBangboo = [];
 
 export const nextAgents = [
-  {
-    id: 0,
-    version: 1.1,
-    agents: [
-      {
-        name: "Jane",
-        img: jane,
-        version: "1.1",
-        gameplay: "https://www.youtube.com/watch?v=IoR7hWz4s8E",
-      },
-      {
-        name: "Seth",
-        img: seth,
-        version: "1.1",
-        gameplay: "https://www.youtube.com/watch?v=Un_DASd1w5w",
-      },
-    ],
-  },
   {
     id: 1,
     version: 1.2,

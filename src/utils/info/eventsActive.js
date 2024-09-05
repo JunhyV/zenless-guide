@@ -1,5 +1,13 @@
 export const eventsActive = [
   {
+    name: "Immersive Tactical Drill",
+    link: "https://x.com/ZZZ_EN/status/1831180493121069257",
+    img: "mmWyIRm",
+    description: "HIA special challenge",
+    start: "2024/09/06 10:00:00",
+    end: "2024/09/16 03:59:59",
+  },
+  {
     name: "Coffee Sorcery: Combat Simulation",
     link: "https://x.com/ZZZ_EN/status/1830455812864856485",
     img: "vUFPSfz",
